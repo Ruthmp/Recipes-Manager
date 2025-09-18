@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
+    <title>Recipes Manager</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1 id="title-recipes"> Gestor de Recetas </h1>
+    </header>
+    <main>
+        <!--!Form to add recipes -->
+        <section id="recipes-form">
+            <h2>– Añadir Recetas –</h2>
+            <form id="form-add-recipe">
+
+            <!--Name -->
+            <div class="form-group">
+                <label for="recipe-name">Nombre de la Receta:</label><br>
+                <input type="text" id="recipe-name" name="recipe-name" class="input-recipe" placeholder="Introduce el nombre" required>
+            </div>
+
+            <!--Time -->
+            <div class="form-group">
+                <label for="prep-time">Tiempo de Preparación :</label><br>
+                <select id="prep-time" name="prep-time" required>
+                    <option value="">Selecciona el Tiempo</option>
+                    <option value="15">15 min</option>
+                    <option value="30">30 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60">60 min</option>
+                    <option value="90">90 min</option>
+                    <option value="120">120 min</option>
+                </select>
+            </div>
+
+            <!--Difficulty level -->
+            <fieldset class="form-group">
+                <legend>Nivel de Dificultad:</legend>
+                <input type="radio" id="easy" name="difficulty" value="Fácil" required>
+                <label for="easy">Fácil</label>
+                
+                <input type="radio" id="medium" name="difficulty" value="Medio">
+                <label for="medium">Medio</label>
+
+                <input type="radio" id="hard" name="difficulty" value="Difícil">
+                <label for="hard">Difícil</label>
+            </fieldset>
+
+            <!--Ingredients -->
+            <div class="form-group">
+                <label for="ingredient-input">Ingredientes:</label><br>
+                <input type="text" id="ingredient-input" name="ingredient-input" class="input-recipe" placeholder="Añade ingrediente">
+                <button id="btnAddIngredient" type="button">Añadir</button>
+                <ul id="ingredient-list"></ul>
+            </div>
+            
+            <!--Instructions -->
+            <div class="form-group">
+                <label for="instructions-input">Pasos:</label><br>
+                <input type="text" id="instructions-input" name="instructions-input" class="input-instruction" placeholder="Añade paso">
+                <button id="btnAddInstruction" type="button">Añadir</button>
+                <ul id="instructions-list"></ul>
+            </div>
+            <button type="submit" id="btn-add">Añadir receta</button>
+            <button type="reset">Cancelar</button>
+        </form>
+        </section>
+        <section id="section-search">
+            <h2>– Buscar Recetas –</h2>
+            <article id="recipes-search"></article>
+        </section>
+        <section id="section-list">
+            <h2>– Recetas –</h2>
+            <article id="recipes-list"></article>
+        </section>
+
+    </main>
+    <footer></footer>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
