@@ -54,6 +54,23 @@
             <!--Ingredients -->
             <div class="form-group">
                 <label for="ingredient-input">Ingredientes:</label><br>
+                <input type="number" id="quantity-input" name="quantity-input" class="input-quantity" placeholder="Cantidad" min="0" step="1">
+                <select id="measure-select" name="measure-select">
+                    <option value="">Medida</option>
+                    <option value="g">g</option>
+                    <option value="kg">kg</option>
+                    <option value="ml">ml</option>
+                    <option value="L">L/option>
+                    <option value="cucharadita">cdita</option>
+                    <option value="cucharada">cda</option>
+                    <option value="taza">tza</option>
+                    <option value="onza">oz</option>
+                    <option value="unidad">ud</option>
+                    <option value="pizca">pizca</option>
+                    <option value="hoja">hoja</option>
+                    <option value="rama">rama</option>
+                    <option value="trozo">trozo</option>
+                </select>
                 <input type="text" id="ingredient-input" name="ingredient-input" class="input-recipe" placeholder="Añade ingrediente">
                 <button id="btnAddIngredient" type="button">Añadir</button>
                 <ul id="ingredient-list"></ul>
@@ -81,7 +98,7 @@
 
     </main>
     <footer></footer>
-    <script src="script.js" defer></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
