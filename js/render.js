@@ -4,6 +4,7 @@ import {
     inputIngredient, 
     ingredientList, 
     prepTime, 
+    selectCategory,
     instructionsInput, 
     instructionsList, 
     btnAddIngredient, 
@@ -18,9 +19,12 @@ import {
     recipes, 
     setEditingIngredientIndex, 
     setEditingInstructionIndex, 
-    setEditingId 
+    setEditingId,
+    categoryLabels,
+    dificultyLevelLabel 
 } from "./recipes.js"; 
 import { saveRecipes } from "./recipes.js";
+import{setEditingScrollTarget} from "./helpers.js"
 
 /**
  * 
@@ -35,7 +39,7 @@ export  function renderInlineList(ulEl, items){
         li.className = 'list-item';
 
         const span= document.createElement('span');
-        span.textContent = item;
+        span.textContent = typeof item ==='string' ? item: item.ingredient;
         li.appendChild(span);
 
         const btnDelete = document.createElement('button');
@@ -91,18 +95,23 @@ export function renderRecipesList() {
     if (!recipesList) return;
 
     recipesList.innerHTML = '';
+    const sortRecipes= [...recipes].sort((a, b)=> a.name.localeCompare(b.name));
 
-    recipes.forEach(recipe => {
+    sortRecipes.forEach(recipe => {
         const article = document.createElement('article');
-
+        article.setAttribute('data-id', recipe.id.toString());
+        
         article.innerHTML = `
+            <div class="recipes-list-class">
             <h3>${recipe.name}</h3>
-            <p>Tiempo: ${recipe.time}</p>
-            <p>Dificultad: ${recipe.difficulty}</p>
+            <p>Tiempo: ${recipe.time} min</p>
+            <p>Dificultad: ${dificultyLevelLabel[recipe.difficulty]}</p>
+            <p>Categoría: ${categoryLabels[recipe.category]}</p>
             <ul>${recipe.ingredients
             .map(i => `<li>${i.quantity ? i.quantity + ' ' : ''}${i.measure ? i.measure + ' ' : ''}${i.ingredient}</li>`)
             .join('')}</ul>
             <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+            </div>
         `;
 
         // Botón eliminar
@@ -124,10 +133,15 @@ export function renderRecipesList() {
         btnEdit.type = 'button';
         btnEdit.textContent = 'Editar';
         btnEdit.className = 'btn-edit';
+        
         btnEdit.addEventListener('click', () => {
+
+            setEditingScrollTarget (recipe.id);
+
             setEditingId(recipe.id);
             inputName.value = recipe.name;
             prepTime.value = recipe.time;
+            selectCategory.value = recipe.category;
 
             const difficultyInput = form.querySelector(`input[name="difficulty"][value="${recipe.difficulty}"]`);
             if (difficultyInput) difficultyInput.checked = true;
@@ -140,6 +154,7 @@ export function renderRecipesList() {
             renderInlineList(instructionsList, currentInstructions);
 
             btnSubmitRecipe.textContent = "Guardar receta";
+            form.scrollIntoView({behavior:'smooth', block: 'start'});
         });
 
         article.appendChild(btnDelete);

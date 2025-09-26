@@ -11,16 +11,28 @@ export let editingId = null;
 export let editingIngredientIndex = null;
 export let editingInstructionIndex = null;
 
+export const categoryLabels ={
+    starter: "Entrante",
+    mainCourse: "Plato principal",
+    dessert: "Postre"
+}
+export const dificultyLevelLabel ={
+    easy: "Fácil",
+    medium: "Medio",
+    hard: "Difícil"
+}
+
 
  //-- Create class recipe--
 /**
  * Class representing a recipe.
  */
 export class Recipe{
-    constructor(name, time, difficulty, ingredients, instructions ){
+    constructor(name, time, difficulty, category, ingredients, instructions ){
         this.id = Date.now();
         this.name = name;
         this.time = time;
+        this.category = category;
         this.difficulty = difficulty;
         this.ingredients = ingredients;
         this.instructions = instructions;

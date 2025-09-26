@@ -1,8 +1,8 @@
-import { form, inputName, inputIngredient, prepTime, instructionsInput, btnAddIngredient, btnAddInstruction } from "./dom.js"; 
+import { form, inputName, inputIngredient, prepTime, instructionsInput, btnAddIngredient, btnAddInstruction, selectCategory, toggleBtn, filterDiv } from "./dom.js"; 
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js"; 
 import { Recipe, addIngredientFromInput, addInstructionFromInput } from "./recipes.js"; 
 import { renderRecipesList } from "./render.js"; 
-import { resetForm, capitalizeFirstLetter } from "./helpers.js";
+import { resetForm, capitalizeFirstLetter, getEditingScrollTarget, clearEditingScrollTarget } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
 
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             inputName.value,
             prepTime.value,
             difficulty,
+            selectCategory.value,
             currentIngredients,
             currentInstructions
 
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         recipeToEdit.name = inputName.value;
         recipeToEdit.time = prepTime.value;
         recipeToEdit.difficulty = difficulty;
+        recipeToEdit.category = selectCategory.value;
         recipeToEdit.ingredients = [...currentIngredients];
         recipeToEdit.instructions = [...currentInstructions];
         setEditingId(null);
@@ -77,11 +79,29 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     //--Reset Form--
 
-    form.addEventListener('reset', (e) =>{
+    form.addEventListener('reset', () =>{
         resetForm();
+        
+        const targetId = getEditingScrollTarget();
+        
+        if (targetId){
+            const recipeElement = document.querySelector(`#recipes-list article[data-id="${targetId}"]`);
+            if(recipeElement){
+                recipeElement.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }else{
+                console.warn('No se encontró el artículo con data-id:', targetId)
+            }
+            clearEditingScrollTarget ();
+        }
     })
+    
     renderRecipesList();
-})
 
+    //--Toggle filters --
 
-
+    toggleBtn.addEventListener('click', () =>{
+        filterDiv.classList.toggle("active");
+        toggleBtn.textContent = filterDiv.classList.contains("active") 
+        ? "Ocultar filtros" : "Mostrar filtros";
+});
+});

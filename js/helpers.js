@@ -35,3 +35,15 @@ export function capitalizeFirstLetter(input){
     input.value.charAt(firstLetter).toUpperCase() + 
     input.value.slice(firstLetter + 1);
 }
+//-- Scroll recipe --
+let editingScrollTargetId = null;
+
+export function setEditingScrollTarget(id){
+    editingScrollTargetId = id;
+}
+export function getEditingScrollTarget(){
+    return editingScrollTargetId;
+}
+export function clearEditingScrollTarget(){
+    editingScrollTargetId = null;
+}

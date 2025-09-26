@@ -1,0 +1,11 @@
+/* Toggle*/
+#filter{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+#filter.active{
+    max-height: 400px; /* Adjust based on content */
+    transition: max-height 0.4s ease-in;
+}
