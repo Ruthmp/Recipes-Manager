@@ -2,7 +2,7 @@ import { form, inputName, inputIngredient, prepTime, instructionsInput, btnAddIn
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js"; 
 import { Recipe, addIngredientFromInput, addInstructionFromInput } from "./recipes.js"; 
 import { renderRecipesList } from "./render.js"; 
-import { resetForm, capitalizeFirstLetter, getEditingScrollTarget, clearEditingScrollTarget } from "./helpers.js";
+import { resetForm, capitalizeFirstLetter, getEditingScrollTarget, clearEditingScrollTarget, initToggleButtons } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
 
@@ -98,10 +98,5 @@ document.addEventListener('DOMContentLoaded', () =>{
     renderRecipesList();
 
     //--Toggle filters --
-
-    toggleBtn.addEventListener('click', () =>{
-        filterDiv.classList.toggle("active");
-        toggleBtn.textContent = filterDiv.classList.contains("active") 
-        ? "Ocultar filtros" : "Mostrar filtros";
-});
+    initToggleButtons();
 });

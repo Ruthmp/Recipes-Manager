@@ -47,3 +47,20 @@ export function getEditingScrollTarget(){
 export function clearEditingScrollTarget(){
     editingScrollTargetId = null;
 }
+
+//-- Toggle Buttons --
+export function initToggleButtons (buttonSelector = ".toggle-btn"){
+    const buttons = document.querySelectorAll(buttonSelector);
+
+    buttons.forEach(btn=>{
+        const targetId = btn.dataset.target;
+        const target = document.getElementById(targetId);
+        if(!target) return;
+
+        btn.addEventListener('click', () => {
+            const isActive = target.classList.toggle("active");
+            target.style.maxHeight = isActive ? target.scrollHeight + "px" : "";
+            btn.textContent = isActive ? "Ocultar filtros" : "Mostrar filtros";
+        });
+    });
+}
