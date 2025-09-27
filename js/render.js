@@ -90,12 +90,12 @@ export  function renderInlineList(ulEl, items){
  * 
  * @returns {void} Renders the list of recipes with edit and delete buttons
  */
-export function renderRecipesList() {
+export function renderRecipesList(recipesToRender = recipes) {
     const recipesList = document.getElementById("recipes-list");
     if (!recipesList) return;
 
     recipesList.innerHTML = '';
-    const sortRecipes= [...recipes].sort((a, b)=> a.name.localeCompare(b.name));
+    const sortRecipes= [...recipesToRender].sort((a, b)=> a.name.localeCompare(b.name));
 
     sortRecipes.forEach(recipe => {
         const article = document.createElement('article');

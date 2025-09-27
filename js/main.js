@@ -1,10 +1,11 @@
-import { form, inputName, inputIngredient, prepTime, instructionsInput, btnAddIngredient, btnAddInstruction, selectCategory, toggleBtn, filterDiv } from "./dom.js"; 
+import { form, inputName, inputIngredient, prepTime, instructionsInput, btnAddIngredient, btnAddInstruction, selectCategory, btnSearchName, inputSearch} from "./dom.js"; 
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js"; 
 import { Recipe, addIngredientFromInput, addInstructionFromInput } from "./recipes.js"; 
 import { renderRecipesList } from "./render.js"; 
 import { resetForm, capitalizeFirstLetter, getEditingScrollTarget, clearEditingScrollTarget, initToggleButtons } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
+import { searchBy } from "./search.js";
 
 document.addEventListener('DOMContentLoaded', () =>{
 
@@ -99,4 +100,27 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     //--Toggle filters --
     initToggleButtons();
+
+    //-- Search recipes --
+    inputSearch.addEventListener('input', (e) =>{
+        if(e.inputType !== "insertLineBreak") {
+        capitalizeFirstLetter(inputSearch);
+        }
+    });
+
+    btnSearchName.addEventListener('click', () =>{
+        const query = inputSearch.value.trim();
+        const results = searchBy (recipes, query);
+
+        renderRecipesList(results);
+    });
+    inputSearch.addEventListener('keydown', (e)=>{
+        if (e.key === 'Enter') {
+            e.preventDefault(); //Prevent form submission
+
+            const query = inputSearch.value.trim();
+        const results = searchBy (recipes, query);
+            renderRecipesList(results);
+            }
+    })
 });

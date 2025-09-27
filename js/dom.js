@@ -18,6 +18,7 @@ export const btnSubmitRecipe = form.querySelector('button[type="submit"]');
 
 //-- Search elements --
 export const inputSearch = document.getElementById("search-input");
+export const btnSearchName = document.getElementById("btn-search-name");
 export const getSelectedCategories= ()=>
     Array.from (document.querySelectorAll('input[name=category]:checked'))
     .map(checkbox => checkbox.value);
