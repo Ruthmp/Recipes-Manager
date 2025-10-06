@@ -42,6 +42,8 @@ export const btnClearFilters = document.getElementById('clear-filters')
 export const toggleBtn = document.getElementById("toggle-filters");
 export const filterDiv = document.getElementById("filter");
 
+export const loadMoreBtn = document.getElementById("load-more");
+
 //-- Floating Modal form elements --
 
 export const modal = document.getElementById('recipe-modal');

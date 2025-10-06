@@ -11,7 +11,8 @@ import {
     btnAddInstruction, 
     btnSubmitRecipe ,
     inputQuantity,
-    selectMeasure
+    selectMeasure,
+    loadMoreBtn
 } from "./dom.js"; 
 import { 
     currentIngredients, 
@@ -91,14 +92,17 @@ export  function renderInlineList(ulEl, items){
  * 
  * @returns {void} Renders the list of recipes with edit and delete buttons
  */
-export function renderRecipesList(recipesToRender = recipes) {
+export function renderRecipesList(recipesToRender = recipes, page = 1, append = false) {
     const recipesList = document.getElementById("recipes-list");
     if (!recipesList) return;
-
+    if(!append){
     recipesList.innerHTML = '';
+    }
     const sortRecipes= [...recipesToRender].sort((a, b)=> a.name.localeCompare(b.name));
+    const end = page * window.recipesPerPage;
+    const paginated = sortRecipes.slice((page-1) * window.recipesPerPage, end);
 
-    sortRecipes.forEach(recipe => {
+    paginated.forEach(recipe => {
         const article = document.createElement('article');
         article.setAttribute('data-id', recipe.id.toString());
         
@@ -125,7 +129,7 @@ export function renderRecipesList(recipesToRender = recipes) {
             if (index > -1) {
                 recipes.splice(index, 1);
                 saveRecipes();
-                renderRecipesList();
+                renderRecipesList(recipesToRender, page, append);
             }
         });
 
@@ -162,6 +166,9 @@ export function renderRecipesList(recipesToRender = recipes) {
         article.appendChild(btnEdit);
         recipesList.appendChild(article);
     });
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = end < sortRecipes.length ? 'block' : 'none';
+    }
 }
 
 export function renderRecipesNamesList(recipesToRender = recipes, selectedCell) {
