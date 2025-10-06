@@ -31,6 +31,21 @@ export const getSelectedTimes = ()=>
     Array.from(document.querySelectorAll('input[name=time]:checked'))
     .map(checkbox => checkbox.value);
 
+export const btnClearSearch = document.getElementById("btn-clear-search");
+
+export const formFilter = document.getElementById("search-form");
+
+export const btnSubmitFilter = formFilter.querySelector('button[type="submit"]')
+export const btnClearFilters = document.getElementById('clear-filters')
+
 //-- Toggle form button --
 export const toggleBtn = document.getElementById("toggle-filters");
 export const filterDiv = document.getElementById("filter");
+
+//-- Floating Modal form elements --
+
+export const modal = document.getElementById('recipe-modal');
+export const modalRecipesList= document.getElementById('modal-recipes-list');
+export const modalSearchInput = document.getElementById('modal-search-input');
+export const cancelModalBtn = document.getElementById('cancel-modal');
+export const clearCell = document.getElementById('clear-cell')

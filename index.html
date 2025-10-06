@@ -13,6 +13,69 @@
         <h1 id="title-recipes"> Gestor de Recetas </h1>
     </header>
     <main>
+
+        <!--! Weekly Menu -->
+        <section id="manage-menu">
+            <h2>– Menú Semanal –</h2>
+            <table id="weekly-menu">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Sábado</th>
+                        <th>Domingo</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Desayuno</td>
+                        <td class="meal-cell" data-day="lunes" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="martes" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="miércoles" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="jueves" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="viernes" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="sábado" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="domingo" data-meal="desayuno"></td>
+                    </tr>
+                    <tr>
+                        <td>Almuerzo</td>
+                        <td class="meal-cell" data-day="lunes" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="martes" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="miércoles" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="jueves" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="viernes" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="sábado" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="domingo" data-meal="almuerzo"></td>
+                    </tr>
+                    <tr>
+                        <td>Cena</td>
+                        <td class="meal-cell" data-day="lunes" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="martes" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="miércoles" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="jueves" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="viernes" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="sábado" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="domingo" data-meal="cena"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Floating Modal form -->
+        <div id="recipe-modal">
+            <h3 id="modal-title">Selecciona una receta</h3>
+
+            <input type="text" id="modal-search-input" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
+            <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
+            <button id="cancel-modal">Cancelar</button>
+            <button id="clear-cell"> Limpiar celda</button>
+            <br><br>
+        </div>
         <!--!Form to add recipes -->
         <section id="recipes-form">
             <h2>– Añadir Recetas –</h2>
@@ -99,7 +162,7 @@
             </form>
         </section>
 
-        <!-- Search Recipes -->
+        <!--! Search Recipes -->
 
         <section id="section-search">
             <h2>– Buscar Recetas –</h2>
@@ -109,20 +172,21 @@
                     <label for="search-input"> Buscar por nombre: </label><br>
                     <input type="text" id="search-input" placeholder="Buscar recetas ...">
                     <button type="button" id="btn-search-name">Buscar</button>
+                    <button type="button" id="btn-clear-search">Cancelar</button>
                 </div>
-                <button type="button" class ="toggle-btn" data-target="filter" >Mostrar filtros</button>
+                <button type="button" class="toggle-btn" data-target="filter">Mostrar filtros</button>
                 <div id="filter" class="toggle-content">
                     <label>Filtrar por:</label>
                     <!-- Category filter -->
                     <fieldset class="filter-category">
                         <legend>Categorías:</legend>
-                        <input type="checkbox" id="entrantes" name="category" value="entrantes">
+                        <input type="checkbox" id="entrantes" name="category" value="starter">
                         <label for="entrantes">Entrantes</label><br>
 
-                        <input type="checkbox" id="principal" name="category" value="principal">
+                        <input type="checkbox" id="principal" name="category" value="mainCourse">
                         <label for="principal">Plato principal</label><br>
 
-                        <input type="checkbox" id="postre" name="category" value="postre">
+                        <input type="checkbox" id="postre" name="category" value="dessert">
                         <label for="postre">Postre</label>
                     </fieldset>
 
@@ -163,6 +227,7 @@
                     <!-- Button -->
                     <div class="search-button">
                         <button type="submit">Aplicar filtros</button>
+                        <button type="button" id="clear-filters">Limpiar</button>
                     </div>
                 </div>
 
@@ -171,7 +236,7 @@
             </form>
         </section>
 
-        <!--Recipe list-->
+        <!--! Recipe list -->
         <section id="section-list">
             <h2>– Recetas –</h2>
             <div id="recipes-list"></div>

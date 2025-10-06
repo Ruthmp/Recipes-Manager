@@ -8,3 +8,27 @@
 #filter.active{
     overflow: hidden;
 }
+/* Floating Modal form */
+#recipe-modal{
+    display:none; 
+    position:fixed; 
+    top:50%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    background:#fff; 
+    padding:20px; 
+    border:1px solid #ccc; 
+    box-shadow:0 0 10px rgba(0,0,0,0.3); 
+    z-index:1000;
+    width:300px; 
+    max-height:400px; 
+    overflow-y:auto;
+}
+.meal-cell {
+    min-width: 100px; /* ancho mínimo */
+    min-height: 40px; /* alto mínimo */
+    border: 1px solid #ccc;
+    cursor: pointer; /* indica que es clicable */
+    text-align: center;
+    vertical-align: middle;
+}

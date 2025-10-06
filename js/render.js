@@ -25,6 +25,7 @@ import {
 } from "./recipes.js"; 
 import { saveRecipes } from "./recipes.js";
 import{setEditingScrollTarget} from "./helpers.js"
+import{handleRecipeSelect} from "./table.js"
 
 /**
  * 
@@ -162,3 +163,26 @@ export function renderRecipesList(recipesToRender = recipes) {
         recipesList.appendChild(article);
     });
 }
+
+export function renderRecipesNamesList(recipesToRender = recipes, selectedCell) {
+    const recipesList = document.getElementById("modal-recipes-list");
+    if (!recipesList) return;
+
+    recipesList.innerHTML = '';
+    const sortRecipes= [...recipesToRender].sort((a, b)=> a.name.localeCompare(b.name));
+
+    sortRecipes.forEach(recipe => {
+        const article = document.createElement('article');
+        article.setAttribute('data-id', recipe.id.toString());
+        
+        article.innerHTML = `
+            <div class="recipes-list-class">
+            <h4>${recipe.name} – ${recipe.time}' – ${dificultyLevelLabel[recipe.difficulty]}</h4>
+            </div>
+        `;
+        article.addEventListener('click', () => handleRecipeSelect(recipe, selectedCell));
+        
+        recipesList.appendChild(article);
+    });
+}
+
