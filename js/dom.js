@@ -50,4 +50,5 @@ export const modal = document.getElementById('recipe-modal');
 export const modalRecipesList= document.getElementById('modal-recipes-list');
 export const modalSearchInput = document.getElementById('modal-search-input');
 export const cancelModalBtn = document.getElementById('cancel-modal');
-export const clearCell = document.getElementById('clear-cell')
+export const clearCell = document.getElementById('clear-cell');
+export const addCellBtn = document.getElementById('add-cell');
