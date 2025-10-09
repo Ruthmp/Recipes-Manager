@@ -38,6 +38,7 @@ import { saveRecipes } from "./recipes.js";
 import { searchBy, applyFilters, clearFilters } from "./search.js";
 import { addToCell, clearAllCells, clearCell } from "./table.js";
 import{getSelectedCell, openModal} from "./modal.js"
+import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.currentPage = 1;
@@ -145,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetId = getEditingScrollTarget();
 
     if (targetId) {
+    
       const recipeElement = document.querySelector(
         `#recipes-list article[data-id="${targetId}"]`
       );
@@ -254,4 +256,23 @@ document.addEventListener("DOMContentLoaded", () => {
     modalSearchInput.value = "";
     modal.style.display = "none";
   })
+
+  document.getElementById("exportBtn").addEventListener("click", () => {
+    exportRecipesToJSON(recipes);
+  });
+  
+  document.getElementById("importBtn").addEventListener("click", () => {
+    importRecipesFromJSON((importedRecipes) => {
+      recipes.splice(
+        0,
+        recipes.length,
+        ...importedRecipes.map(
+          r => new Recipe(r.name, r.time, r.difficulty, r.category, r.ingredients, r.instructions, r.id)
+        )
+      );
+      saveRecipes(recipes);
+      renderRecipesList(recipes);
+    });
+  });
+  
 });

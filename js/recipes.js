@@ -28,8 +28,8 @@ export const dificultyLevelLabel ={
  * Class representing a recipe.
  */
 export class Recipe{
-    constructor(name, time, difficulty, category, ingredients, instructions ){
-        this.id = Date.now();
+    constructor(name, time, difficulty, category, ingredients, instructions, id = null ){
+        this.id = id || Date.now();
         this.name = name;
         this.time = time;
         this.category = category;
