@@ -170,7 +170,12 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
         loadMoreBtn.style.display = end < sortRecipes.length ? 'block' : 'none';
     }
 }
-
+/**
+ * 
+ * @param {[]} recipesToRender - Array of recipe objects to render
+ * @param {HTMLElement} selectedCell - The table cell where the selected recipe will be added
+ * @returns {void} Renders a list of recipe names in a modal for selection
+ */
 export function renderRecipesNamesList(recipesToRender = recipes, selectedCell) {
     const recipesList = document.getElementById("modal-recipes-list");
     if (!recipesList) return;
@@ -193,3 +198,16 @@ export function renderRecipesNamesList(recipesToRender = recipes, selectedCell) 
     });
 }
 
+/**
+ * 
+ * @param {HTMLTableCellElement} cell - The table cell to render recipes into
+ * @param {[]} recipesArray - Array of recipe objects to render in the cell 
+ * @returns {void} Renders the names of recipes in the specified table cell, separated by new lines
+ */
+export function renderCell(cell, recipesArray){
+    if (!recipesArray || recipesArray.length === 0){
+        cell.textContent="";
+        return;
+    }
+    cell.textContent = recipesArray.map(r => r.name).join("\n");
+}

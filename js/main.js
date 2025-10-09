@@ -13,11 +13,11 @@ import {
   formFilter,
   btnClearFilters,
   modalSearchInput,
-  clearCell,
   cancelModalBtn,
   modal,
   loadMoreBtn,
-  addCellBtn
+  addCellBtn,
+  mealCells
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -36,7 +36,8 @@ import {
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
 import { searchBy, applyFilters, clearFilters } from "./search.js";
-import { removeRecipefromCell, addToCell } from "./table.js";
+import { addToCell, clearAllCells, clearCell } from "./table.js";
+import{getSelectedCell, openModal} from "./modal.js"
 
 document.addEventListener("DOMContentLoaded", () => {
   window.currentPage = 1;
@@ -59,8 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
   Object.keys(savedMeals).forEach((index) => {
     const cell = cells[index];
     if (!cell) return;
-    cell.textContent = savedMeals[index].name;
-    cell.dataset.recipeId = savedMeals[index].id;
+
+    const data = savedMeals[index];
+  if (Array.isArray(data.recipes)) {
+    cell.textContent = data.recipes.map(r => r.name).join("\n");
+  } else if (data.name) {
+    cell.textContent = data.name;
+    cell.dataset.recipeId = data.id;
+  }
   });
 
   // --- Listener to Enter ---
@@ -201,32 +208,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //!-- Floating Modal Form --
 
-  let selectedCell;
-  document.querySelectorAll(".meal-cell").forEach((cell) => {
-    cell.addEventListener("click", () => {
-      selectedCell = cell;
-      document.getElementById("recipe-modal").style.display = "block";
-      modalSearchInput.focus();
-    });
+  mealCells.forEach((cell) => {
+    cell.addEventListener("click", () => openModal(cell));
+
+    cell.addEventListener("dblclick", () => {
+      clearCell(cell);
+      openModal(cell)
   });
+});
 
   cancelModalBtn.addEventListener("click", () => {
     modal.style.display = "none";
     modalSearchInput.value = "";
   });
 
-  clearCell.addEventListener("click", () => {
-    if (selectedCell) {
-      removeRecipefromCell(selectedCell);
-    }
-  });
+  const clearTable = document.getElementById("clear-table");
+  clearTable.addEventListener("click", clearAllCells);
+
 
   modalSearchInput.addEventListener("input", () => {
     capitalizeFirstLetter(modalSearchInput);
     const query = modalSearchInput.value.trim();
     query === ""
       ? renderRecipesNamesList([])
-      : renderRecipesNamesList(searchBy(recipes, query), selectedCell);
+      : renderRecipesNamesList(searchBy(recipes, query), getSelectedCell());
   });
 
   modalSearchInput.addEventListener("keydown", (e) =>{
@@ -237,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const results = searchBy(recipes, query);
 
       if (results.length === 0 && query !==""){
-        addToCell(selectedCell);
+        addToCell(getSelectedCell());
         modalSearchInput.value = "";
         modal.style.display = "none";
       }
@@ -245,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   addCellBtn.addEventListener("click", () =>{
-    addToCell(selectedCell);
+    addToCell(getSelectedCell());
     modalSearchInput.value = "";
     modal.style.display = "none";
   })

@@ -34,46 +34,50 @@
                 <tbody>
                     <tr>
                         <td>Desayuno</td>
-                        <td class="meal-cell" data-day="lunes" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="martes" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="miércoles" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="jueves" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="viernes" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="sábado" data-meal="desayuno"></td>
-                        <td class="meal-cell" data-day="domingo" data-meal="desayuno"></td>
+                        <td class="meal-cell" data-day="Lunes" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Martes" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Miércoles" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Jueves" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Viernes" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Sábado" data-meal="Desayuno"></td>
+                        <td class="meal-cell" data-day="Domingo" data-meal="Desayuno"></td>
                     </tr>
                     <tr>
                         <td>Almuerzo</td>
-                        <td class="meal-cell" data-day="lunes" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="martes" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="miércoles" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="jueves" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="viernes" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="sábado" data-meal="almuerzo"></td>
-                        <td class="meal-cell" data-day="domingo" data-meal="almuerzo"></td>
+                        <td class="meal-cell" data-day="Lunes" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Martes" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Miércoles" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Jueves" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Viernes" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Sábado" data-meal="Almuerzo"></td>
+                        <td class="meal-cell" data-day="Domingo" data-meal="Almuerzo"></td>
                     </tr>
                     <tr>
                         <td>Cena</td>
-                        <td class="meal-cell" data-day="lunes" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="martes" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="miércoles" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="jueves" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="viernes" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="sábado" data-meal="cena"></td>
-                        <td class="meal-cell" data-day="domingo" data-meal="cena"></td>
+                        <td class="meal-cell" data-day="Lunes" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Martes" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Miércoles" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Jueves" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Viernes" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Sábado" data-meal="Cena"></td>
+                        <td class="meal-cell" data-day="Domingo" data-meal="Cena"></td>
                     </tr>
                 </tbody>
             </table>
+            <button id="export-menu">Exportar menú</button>
+            <button id="clear-table">Limpiar semana</button>
+            
         </section>
 
         <!-- Floating Modal form -->
         <div id="recipe-modal">
-            <h3 id="modal-title">Selecciona una receta</h3>
-
+            <h3 id="modal-title"></h3>
+            <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
+            
+            <h4 id="modal-assigned-recipes">Selecciona una receta</h4>
             <input type="text" id="modal-search-input" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
             <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
             <button id="cancel-modal">Cancelar</button>
-            <button id="clear-cell"> Limpiar celda</button>
             <button id="add-cell">Añadir menú</button>
             <br><br>
         </div>

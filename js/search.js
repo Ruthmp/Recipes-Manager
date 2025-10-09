@@ -46,12 +46,4 @@ export function clearFilters() {
     })
 }
 
-//! -- Floating Modal form --
-
-export function openModal(){
-    renderModalRecipes('');
-    modal.style.display = 'block';
-    modalSearchInput.value = '';
-    modalSearchInput.focus();
-}
 
