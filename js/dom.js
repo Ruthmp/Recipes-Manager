@@ -14,6 +14,10 @@ export const instructionsList = document.getElementById("instructions-list");
 export const btnAddIngredient = document.getElementById("btnAddIngredient");
 export const btnAddInstruction = document.getElementById("btnAddInstruction");
 
+export const inputPhoto = document.getElementById("recipe-image");
+export const imagePreview = document.getElementById("image-preview");
+export const btnRemoveImage = document.getElementById("btn-remove-photo")
+
 export const btnSubmitRecipe = form.querySelector('button[type="submit"]');
 
 //-- Search elements --
@@ -36,7 +40,11 @@ export const btnClearSearch = document.getElementById("btn-clear-search");
 export const formFilter = document.getElementById("search-form");
 
 export const btnSubmitFilter = formFilter.querySelector('button[type="submit"]')
-export const btnClearFilters = document.getElementById('clear-filters')
+export const btnClearFilters = document.getElementById('clear-filters');
+
+//--Recipes list --
+export const recipesList = document.getElementById("recipes-list");
+export const recipeModal = document.getElementById('recipes-modal')
 
 //-- Toggle form button --
 export const toggleBtn = document.getElementById("toggle-filters");
@@ -46,7 +54,7 @@ export const loadMoreBtn = document.getElementById("load-more");
 
 //-- Floating Modal form elements --
 
-export const modal = document.getElementById('recipe-modal');
+export const modal = document.getElementById('manager-modal');
 export const modalRecipesList= document.getElementById('modal-recipes-list');
 export const modalSearchInput = document.getElementById('modal-search-input');
 export const cancelModalBtn = document.getElementById('cancel-modal');
@@ -55,3 +63,8 @@ export const addCellBtn = document.getElementById('add-cell');
 export const mealCells = document.querySelectorAll('.meal-cell');
 export const modalTitle = document.getElementById('modal-title');
 export const modalMenuList = document.getElementById('modal-menu-list')
+
+//--Buttons pages --
+export const prevPageBtn = document.getElementById("prev-page");
+export const nextPageBtn = document.getElementById("next-page");
+export const pageInfo = document.getElementById("page-info");

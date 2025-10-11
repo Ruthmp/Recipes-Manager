@@ -1,0 +1,21 @@
+/* =========================================================
+   utilities.css
+   Utility classes for quick use:
+   - margins / paddings
+   - text alignment
+   - display / visibility
+   - quick colors
+========================================================= */
+
+.hidden { display: none !important }
+
+.btn {
+   padding: 0.8rem 1.5rem;
+   border-radius: 0.5rem;
+   border: none;
+   cursor: pointer;
+   font-weight: 500;
+   transition: background 0.2s ease;
+   color: #fff;
+   font-family: inherit; /* hereda la tipografía del documento */
+}

@@ -5,18 +5,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
     <title>Recipes Manager</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
-<body>
+<body id="top">
     <header>
-        <h1 id="title-recipes"> Gestor de Recetas </h1>
+       
+        <nav class="navbar">
+            <h1>Gestor de Recetas</h1>
+            <div class="navbar-container">
+            <ul>
+                <li><a href="#manage-menu">Menú semanal</a></li>
+                <li><a href="#recipes-form">Añadir receta</a></li>
+                <li><a href="#section-search">Buscar recetas</a></li>
+                <li><a href="#section-list">Lista de recetas</a></li>
+            </ul>
+        </div>
+        </nav>
     </header>
     <main>
-
+        
+        <img src="img/aguacate.png" alt="Imagen de comida" class="header-image">
+        
+        
         <!--! Weekly Menu -->
         <section id="manage-menu">
-            <h2>– Menú Semanal –</h2>
+            <h1 class="h1">– Menú Semanal –</h1>
             <table id="weekly-menu">
                 <thead>
                     <tr>
@@ -70,11 +84,11 @@
         </section>
 
         <!-- Floating Modal form -->
-        <div id="recipe-modal">
-            <h3 id="modal-title"></h3>
+        <div id="manager-modal" class="hidden">
+            <h2 id="modal-title"></h2>
             <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
             
-            <h4 id="modal-assigned-recipes">Selecciona una receta</h4>
+            <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
             <input type="text" id="modal-search-input" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
             <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
             <button id="cancel-modal">Cancelar</button>
@@ -83,7 +97,7 @@
         </div>
         <!--!Form to add recipes -->
         <section id="recipes-form">
-            <h2>– Añadir Recetas –</h2>
+            <h1>– Añadir Recetas –</h1>
             <form id="form-add-recipe">
 
                 <!--Name -->
@@ -150,7 +164,7 @@
                     </select>
                     <input type="text" id="ingredient-input" name="ingredient-input" class="input-recipe"
                         placeholder="Añade ingrediente">
-                    <button id="btnAddIngredient" type="button">Añadir</button>
+                    <button id="btnAddIngredient"  type="button">Añadir</button>
                     <ul id="ingredient-list"></ul>
                 </div>
 
@@ -159,27 +173,37 @@
                     <label for="instructions-input">Pasos:</label><br>
                     <input type="text" id="instructions-input" name="instructions-input" class="input-instruction"
                         placeholder="Añade paso">
-                    <button id="btnAddInstruction" type="button">Añadir</button>
+                    <button id="btnAddInstruction" class="btn" type="button">Añadir</button>
                     <ul id="instructions-list"></ul>
                 </div>
-                <button type="submit" id="btn-add">Añadir receta</button>
-                <button type="reset">Cancelar</button>
+
+                <!--Image-->
+                <div class ="form-group">
+                    <label for="recipe-image">Foto de la receta:</label><br>
+                    <input type="file" id="recipe-image" name="recipe-image" accept="image/*" >
+                    <div id="image-preview" class="image-preview">
+                    <button type="button" id="btn-remove-photo" class="btn">Eliminar foto</button></div>
+                </div>
+
+                <!--Buttons-->
+                <button type="submit" id="btn-add" class="btn">Añadir receta</button>
+                <button type="reset" class="btn">Cancelar</button>
             </form>
         </section>
 
         <!--! Search Recipes -->
 
         <section id="section-search">
-            <h2>– Buscar Recetas –</h2>
+            <h1>– Buscar Recetas –</h1>
 
             <form id="search-form">
                 <div class="search-field">
                     <label for="search-input"> Buscar por nombre: </label><br>
                     <input type="text" id="search-input" placeholder="Buscar recetas ...">
-                    <button type="button" id="btn-search-name">Buscar</button>
-                    <button type="button" id="btn-clear-search">Cancelar</button>
+                    <button type="button" id="btn-search-name" class="btn">Buscar</button>
+                    <button type="button" id="btn-clear-search" class="btn">Cancelar</button>
                 </div>
-                <button type="button" class="toggle-btn" data-target="filter">Mostrar filtros</button>
+                <button type="button" class="btn toggle-btn" data-target="filter">Mostrar filtros</button>
                 <div id="filter" class="toggle-content">
                     <label>Filtrar por:</label>
                     <!-- Category filter -->
@@ -231,8 +255,8 @@
                     </fieldset>
                     <!-- Button -->
                     <div class="search-button">
-                        <button type="submit">Aplicar filtros</button>
-                        <button type="button" id="clear-filters">Limpiar</button>
+                        <button type="submit" class="btn">Aplicar filtros</button>
+                        <button type="button" class="btn" id="clear-filters">Limpiar</button>
                     </div>
                 </div>
 
@@ -243,16 +267,28 @@
 
         <!--! Recipe list -->
         <section id="section-list">
-            <h2>– Recetas –</h2>
+            <h1>– Recetas –</h1>
             <div id="recipes-list"></div>
-            <button id="load-more">Mostrar más</button>
-            <button id="exportBtn">Exportar recetas</button>
-            <button id="importBtn">Importar recetas</button>
-
+            <div id="buttons-list">
+                <div id="pagination">
+                    <button id="prev-page" class="btn" disabled>◀ Anterior</button>
+                    <span id="page-info">Página 1</span>
+                    <button id="next-page"class="btn" >Siguiente ▶</button>
+                </div>
+                <div id="export-import">
+            <button id="exportBtn"  class="btn">Exportar recetas</button>
+            <button id="importBtn" class="btn">Importar recetas</button>
+        </div>
+        </div>
         </section>
 
+        <div id="recipes-modal" class="hidden"></div>
+
     </main>
-    <footer></footer>
+    <footer>
+        <p> © 2025 Ruth Millán Piqueras.</p>
+        <div id="footer-info"></div>
+    </footer>
     <script type="module" src="js/main.js"></script>
 </body>
 

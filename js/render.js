@@ -12,7 +12,9 @@ import {
     btnSubmitRecipe ,
     inputQuantity,
     selectMeasure,
-    loadMoreBtn
+    loadMoreBtn,
+    recipesList,
+    recipeModal
 } from "./dom.js"; 
 import { 
     currentIngredients, 
@@ -93,7 +95,7 @@ export  function renderInlineList(ulEl, items){
  * @returns {void} Renders the list of recipes with edit and delete buttons
  */
 export function renderRecipesList(recipesToRender = recipes, page = 1, append = false) {
-    const recipesList = document.getElementById("recipes-list");
+    
     if (!recipesList) return;
     if(!append){
     recipesList.innerHTML = '';
@@ -105,41 +107,88 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
     paginated.forEach(recipe => {
         const article = document.createElement('article');
         article.setAttribute('data-id', recipe.id.toString());
-        
+        const imgHTML = recipe.image 
+        ? `<img src="${recipe.image}" alt="Foto de ${recipe.name}" class="recipe-thumb">`
+        : `<img src="img/aguacate.png" alt="Imagen de comida" class="recipe-thumb">`;
+
         article.innerHTML = `
             <div class="recipes-list-class">
+            ${imgHTML}
+            <div class="recipe-text">
             <h3>${recipe.name}</h3>
             <p>Tiempo: ${recipe.time} min</p>
             <p>Dificultad: ${dificultyLevelLabel[recipe.difficulty]}</p>
             <p>Categoría: ${categoryLabels[recipe.category]}</p>
-            <ul>${recipe.ingredients
-            .map(i => `<li>${i.quantity ? i.quantity + ' ' : ''}${i.measure ? i.measure + ' ' : ''}${i.ingredient}</li>`)
-            .join('')}</ul>
-            <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+            </div>
             </div>
         `;
 
-        // Botón eliminar
-        const btnDelete = document.createElement('button');
-        btnDelete.type = 'button';
-        btnDelete.textContent = 'Eliminar';
-        btnDelete.className = 'btn-delete';
-        btnDelete.addEventListener('click', () => {
+        article.addEventListener('click', () => openRecipeModal(recipe));
+        recipesList.appendChild(article);
+    });
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = end < sortRecipes.length ? 'block' : 'none';
+    }
+}
+
+export function openRecipeModal(recipe) {
+    
+    if (!recipeModal) return;
+
+        const imgHTML = recipe.image 
+        ? `<img src="${recipe.image}" alt="Foto de ${recipe.name}" class="recipe-img-large">`
+        : `<img src="img/aguacate.png" alt="Imagen de comida" class="recipe-img-large">`;
+
+        recipeModal.innerHTML = `
+            <div class="modal-recipes-content">
+            <div class="modal-top">
+            <div class="modal-img-container">
+            ${imgHTML}
+            </div>
+            <div class="modal-info">
+            <h3>${recipe.name}</h3>
+            <p>Tiempo: ${recipe.time} min</p>
+            <p>Dificultad: ${dificultyLevelLabel[recipe.difficulty]}</p>
+            <p>Categoría: ${categoryLabels[recipe.category]}</p>
+            </div>
+            </div>
+            <hr>
+            <div class="modal-bottom">
+            <div class="modal-ingredients">
+            <ul><h4>Ingredientes:</h4>\n ${recipe.ingredients
+            .map(i => `<li>${i.quantity ? i.quantity + ' ' : ''}${i.measure ? i.measure + ' ' : ''}${i.ingredient}</li>`)
+            .join('')}</ul>
+            </div>
+            <div class="modal-instructions">
+            <ol><h4>Instrucciones:</h4>\n ${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+            </div>
+            </div>
+            <div class="modal-buttons">
+            <button id="recipe-edit-btn">Editar</button>
+            <button id="recipe-delete-btn">Eliminar</button>
+            <button id="recipe-close-btn">Cerrar</button>
+            </div>
+            </div>
+        `;
+        recipeModal.classList.remove("hidden");
+
+        //Button close
+        document.getElementById("recipe-close-btn").addEventListener("click", () =>{
+            recipeModal.classList.add("hidden");
+        });
+
+        // Button delete
+        document.getElementById("recipe-delete-btn").addEventListener('click', () => {
             const index = recipes.findIndex(r => r.id === recipe.id);
             if (index > -1) {
                 recipes.splice(index, 1);
                 saveRecipes();
-                renderRecipesList(recipesToRender, page, append);
+                renderRecipesList();
             }
         });
 
-        // Botón editar
-        const btnEdit = document.createElement('button');
-        btnEdit.type = 'button';
-        btnEdit.textContent = 'Editar';
-        btnEdit.className = 'btn-edit';
-        
-        btnEdit.addEventListener('click', () => {
+        // Button edit
+        document.getElementById("recipe-edit-btn").addEventListener('click', () => {
 
             setEditingScrollTarget (recipe.id);
 
@@ -151,7 +200,7 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
             const difficultyInput = form.querySelector(`input[name="difficulty"][value="${recipe.difficulty}"]`);
             if (difficultyInput) difficultyInput.checked = true;
 
-            // Mantener la referencia
+            // Keep the reference
             currentIngredients.splice(0, currentIngredients.length, ...recipe.ingredients);
             renderInlineList(ingredientList, currentIngredients);
 
@@ -159,16 +208,14 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
             renderInlineList(instructionsList, currentInstructions);
 
             btnSubmitRecipe.textContent = "Guardar receta";
-            form.scrollIntoView({behavior:'smooth', block: 'start'});
-        });
+            
+            recipeModal.classList.add("hidden");
 
-        article.appendChild(btnDelete);
-        article.appendChild(btnEdit);
-        recipesList.appendChild(article);
-    });
-    if (loadMoreBtn) {
-        loadMoreBtn.style.display = end < sortRecipes.length ? 'block' : 'none';
-    }
+            setTimeout(()=>{
+                form.scrollIntoView({behavior:'smooth', block: 'start'});
+            }, 50)
+        });
+    
 }
 /**
  * 

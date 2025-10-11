@@ -1,0 +1,166 @@
+/* =========================
+   MODALS
+   ========================= */
+
+/* Floating Modal form */
+#manager-modal{ 
+    position:fixed; 
+    top:50%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    background:#fff; 
+    padding:20px; 
+    border:1px solid #ccc; 
+    box-shadow:0 0 10px rgba(0,0,0,0.3); 
+    z-index:1000;
+    width:300px; 
+    max-height:400px; 
+    overflow-y:auto;
+}
+
+/* Floating Modal Recipe*/
+#recipes-modal {
+  position: fixed;           
+  top: 0;
+  left: 0;
+  width: 100vw;              
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;             
+  align-items: center;       
+  justify-content: center;   
+  z-index: 1000;            
+  padding: 1rem;             
+  overflow-y: auto;          
+}
+
+.modal-recipes-content {
+  background-color: var(--color-bg-paper); 
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg); 
+  font-family: 'Georgia', serif; 
+  color: #3e2c1c; 
+  position: relative;
+  border: var(--border-sm); 
+}
+
+/* Top section: image + information aligned */
+.modal-top {
+  display: flex;
+  align-items: flex-start;  
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-img-container img.recipe-img-large {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow-md);
+  border: var(--border-sm);
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  gap: 0.25rem;
+}
+
+/* Handwritten-style headings */
+.modal-info h3, 
+.modal-bottom h4 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+  color: var(--color-title);
+  margin-bottom: 0.5rem;
+  
+}
+.modal-info h3{
+  font-size:x-large;
+  margin-bottom: 1rem;
+}
+.modal-info p{
+  color: var(--color-text-muted);
+  font-size: small;
+}
+
+/* Separation between ingredients and instructions */
+.modal-bottom {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.modal-bottom h4{
+  text-decoration: underline;
+}
+
+.modal-ingredients {
+  flex: 0 0 35%;
+  padding: 1rem;
+  padding-top: 0;
+  border-right: 1px solid #d1bfa7; /* Light divider line */
+}
+
+.modal-instructions {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+/* Old-style list */
+.modal-ingredients ul,
+.modal-instructions ol {
+  padding-left: 1.2rem;
+}
+.modal-ingredients ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-ingredients li {
+  position: relative;
+  padding-left: 1.2rem; /* espacio para el símbolo */
+  margin-bottom: 0.3rem;
+}
+
+.modal-ingredients li::before {
+  content: "✦"; /* símbolo decorativo tipo flor o tinta */
+  position: absolute;
+  left: 0;
+  color: #a67c52; /* tono dorado suave */
+  font-size: 0.9rem;
+  top: 0.1rem;
+  
+}
+
+
+/* Buttons inside the modal */
+.modal-recipes-content button {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: var(--color-primary); 
+  color: white;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.modal-recipes-content button:hover {
+  background-color: var(--color-accent);
+}
+
+/* Close button */
+#recipe-close-btn {
+  background-color: var(--color-accent); 
+}
+
+#recipe-close-btn:hover {
+  background-color: #da190b;
+}

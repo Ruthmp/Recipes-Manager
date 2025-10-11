@@ -10,7 +10,7 @@ export function getSelectedCell(){
 }
 export function openModal(cell){
     selectedCell = cell;
-    modal.style.display = 'block';
+    modal.classList.remove("hidden");
     modalSearchInput.focus ();
 
     const day = cell.dataset.day || 'Día';

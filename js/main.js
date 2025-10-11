@@ -17,7 +17,11 @@ import {
   modal,
   loadMoreBtn,
   addCellBtn,
-  mealCells
+  mealCells,
+  inputPhoto,
+  btnRemoveImage,
+  prevPageBtn,
+  nextPageBtn
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -32,6 +36,8 @@ import {
   getEditingScrollTarget,
   clearEditingScrollTarget,
   initToggleButtons,
+  convertImageToBase64,
+  updatePagination
 } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
@@ -42,7 +48,7 @@ import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.currentPage = 1;
-  window.recipesPerPage = 2;
+  window.recipesPerPage = 8;
 
   let displayedRecipes;
   displayedRecipes = [...recipes];
@@ -95,30 +101,65 @@ document.addEventListener("DOMContentLoaded", () => {
     addInstructionFromInput();
   });
 
+    let currentImage = null;
+    let removePhotoFlag = false;
+  inputPhoto.addEventListener("change", async (e)=>{
+    const file = e.target.files[0];
+    if (!file) return;
+    try{
+      currentImage = await convertImageToBase64(file);
+      removePhotoFlag = false;
+    } catch (error){
+      console.error ("Error al convertir la imagen: ", error);
+    }
+  });
+  btnRemoveImage.addEventListener('click', () =>{
+    currentImage = null;
+    removePhotoFlag = true;
+    inputPhoto.value="";
+  })
+
   //-- Collect form data--
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const difficulty =
       form.querySelector('input[name="difficulty"]:checked')?.value || "";
+      let photoBase64 = currentImage;
+
     if (getEditingId() === null) {
+      photoBase64 = currentImage || null;
       const newRecipe = new Recipe(
         inputName.value,
         prepTime.value,
         difficulty,
         selectCategory.value,
         currentIngredients,
-        currentInstructions
+        currentInstructions,
+        null,
+        photoBase64
       );
       recipes.push(newRecipe);
     } else {
       const recipeToEdit = recipes.find((r) => r.id === getEditingId());
+      // Decide what to do with the photo:
+    if (currentImage) {
+      // A new photo was uploaded → replace
+      photoBase64 = currentImage;
+    } else if (removePhotoFlag) {
+      // "Delete photo" was clicked → null
+      photoBase64 = null;
+    } else {
+      // No action taken → keep the existing photo
+      photoBase64 = recipeToEdit.image || null;
+    }
       recipeToEdit.name = inputName.value;
       recipeToEdit.time = prepTime.value;
       recipeToEdit.difficulty = difficulty;
       recipeToEdit.category = selectCategory.value;
       recipeToEdit.ingredients = [...currentIngredients];
       recipeToEdit.instructions = [...currentInstructions];
+      recipeToEdit.image = photoBase64;
       setEditingId(null);
     }
     saveRecipes();
@@ -126,6 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //--Reset form--
     resetForm();
+    currentImage = null;
+    removePhotoFlag = false;
   });
   //--Aplicate capitalize letter--
   inputName.addEventListener("input", () => {
@@ -155,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         console.warn("No se encontró el artículo con data-id:", targetId);
       }
+      setEditingId(null);
       clearEditingScrollTarget();
     }
   });
@@ -220,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   cancelModalBtn.addEventListener("click", () => {
-    modal.style.display = "none";
+    modal.classList.add("hidden");
     modalSearchInput.value = "";
   });
 
@@ -246,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (results.length === 0 && query !==""){
         addToCell(getSelectedCell());
         modalSearchInput.value = "";
-        modal.style.display = "none";
+        modal.classList.add("hidden");
       }
     }
   })
@@ -254,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addCellBtn.addEventListener("click", () =>{
     addToCell(getSelectedCell());
     modalSearchInput.value = "";
-    modal.style.display = "none";
+    modal.classList.add("hidden");
   })
 
   document.getElementById("exportBtn").addEventListener("click", () => {
@@ -274,5 +318,39 @@ document.addEventListener("DOMContentLoaded", () => {
       renderRecipesList(recipes);
     });
   });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        const headerOffset = document.querySelector("header").offsetHeight;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
   
+  //!--Pagination --
+  prevPageBtn.addEventListener("click", () =>{
+    if (window.currentPage > 1){
+      window.currentPage --;
+      renderRecipesList(displayedRecipes, window.currentPage, false);
+      updatePagination(displayedRecipes);
+    }
+  })
+
+  nextPageBtn.addEventListener("click", ()=>{
+    const totalPages = Math.ceil(displayedRecipes.length / window.recipesPerPage);
+    if (window.currentPage < totalPages){
+      window.currentPage++;
+      renderRecipesList(displayedRecipes, window.currentPage, false);
+      updatePagination(displayedRecipes);
+  
+    }
+  });
 });

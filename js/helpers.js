@@ -1,4 +1,4 @@
-import { form, ingredientList, instructionsList, btnAddIngredient, btnAddInstruction, btnSubmitRecipe } from "./dom.js"; 
+import { form, ingredientList, instructionsList, btnAddIngredient, btnAddInstruction, btnSubmitRecipe, pageInfo, prevPageBtn, nextPageBtn } from "./dom.js"; 
 import { currentIngredients, currentInstructions, resetState } from "./recipes.js"; 
 import { renderInlineList } from "./render.js"; 
 
@@ -63,4 +63,24 @@ export function initToggleButtons (buttonSelector = ".toggle-btn"){
             btn.textContent = isActive ? "Ocultar filtros" : "Mostrar filtros";
         });
     });
+}
+
+//-- Image to base64--
+
+export function convertImageToBase64(file){
+    return new Promise((resolve, reject)=>{
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+//-- Pagination --
+export function updatePagination(recipesArr){
+    const totalPages = Math.ceil(recipesArr.length/ window.recipesPerPage);
+    pageInfo.textContent = `Página ${window.currentPage} de ${totalPages}`;
+    prevPageBtn.disabled = window.currentPage === 1;
+    nextPageBtn.disabled = window.currentPage === totalPages;
+
 }

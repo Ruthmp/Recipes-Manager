@@ -1,0 +1,78 @@
+/* =========================
+   RECIPE SECTION
+   ========================= */
+   #section-list h1{
+    padding-top: 10rem;
+    padding-left: 5rem;
+    
+  }
+  #recipes-list .recipes-list-class {
+    background-color: var( --color-surface-alt);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem; 
+
+    width: 100%;
+    height: 11rem;
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+  }
+
+  #recipes-list .recipes-list-class:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    background-color: var(--color-bg-paper); 
+  }
+  .recipe-thumb {
+    width: 5rem;      
+    height: 5rem;      
+    object-fit: cover; 
+    border-radius:0.5rem;  
+    flex-shrink: 0;  
+  }
+  .recipe-text {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.25rem; 
+    overflow: hidden;
+    text-overflow: ellipsis;        
+  }
+  .recipe-text h3,
+    .recipe-text p {
+    margin: 0;
+    line-height: 1.6;
+}
+.recipe-text h3 {
+    display: -webkit-box;            /* necesario para line-clamp */
+    -webkit-line-clamp: 2;           /* máximo 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .recipe-text p {
+    font-size: 12px;
+  }
+  
+  #buttons-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* separación entre paginación y botones */
+    margin-top: 2rem;
+  }
+  
+  #pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  #export-import {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+  }

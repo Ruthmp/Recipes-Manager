@@ -1,0 +1,102 @@
+/* =========================================================
+   layout.css
+   Page structure and layout:
+   - header, nav, main, footer
+   - grids and containers
+   - main sections
+========================================================= */
+/* === Header === */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    flex-direction: column; /* título arriba, navbar debajo */
+    align-items: center; /* centrar contenido horizontalmente */
+    box-shadow: var(--shadow-md); 
+    height: 100%;
+  }
+  
+  /* Navbar centrada */
+  .navbar {
+    width: 100%;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: center; /* centra los links horizontalmente */
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Footer */
+  footer {
+    padding: var(--spacing-md);
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  
+  
+  /* Tablas del menú semanal */
+  #weekly-menu {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #weekly-menu th, #weekly-menu td {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+.meal-cell {
+    min-width: 100px;
+    min-height: 40px;
+    border: 1px solid #ccc;
+    cursor: pointer; 
+    text-align: center;
+    vertical-align: middle;
+    white-space: pre-line;
+}
+
+#section-list{
+  position: relative;
+  min-height: 400px;
+  width: 90rem;
+  height: 80rem; 
+  background-image: url('../img/recetario.png');
+  background-size: cover;
+  background-position: center;  
+  background-repeat: no-repeat; 
+  padding: 2rem;
+  border-radius: var(--radius-md);
+}
+
+#recipes-list {
+  display: grid;
+  grid-template-columns: repeat(2, 20rem);
+  gap: 2rem 2rem;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0.5rem;
+  padding-left: 8rem;
+}
+#buttons-list {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding-left: 6rem;
+}
+
+#export-import button{
+  background-color: var(--color-secondary);
+}
