@@ -43,14 +43,20 @@ export  function renderInlineList(ulEl, items){
         li.className = 'list-item';
 
         const span= document.createElement('span');
-        span.textContent = typeof item ==='string' ? item: item.ingredient;
+        if(ulEl.id === "ingredient-list"){
+            // object
+            span.textContent = `${item.quantity ? item.quantity + ' ' : ''}${item.measure ? item.measure + ' ' : ''}${item.ingredient}`;
+        } else if(ulEl.id === "instructions-list"){
+            // string
+            span.textContent = item;
+        }
         li.appendChild(span);
 
         const btnDelete = document.createElement('button');
         btnDelete.type = 'button';
         btnDelete.className = 'btn-remove-item';
-        btnDelete.setAttribute('aria-label', `Eliminar ${item}`);
-        btnDelete.textContent = 'Borrar';
+        btnDelete.setAttribute('data-tooltip', `Eliminar`);
+        btnDelete.innerHTML =  '<i class="fa-solid fa-trash"></i>';
         btnDelete.addEventListener('click', ()=>{
             items.splice(idx, 1); 
             renderInlineList(ulEl, items);
@@ -60,8 +66,8 @@ export  function renderInlineList(ulEl, items){
         const btnEdit = document.createElement('button');
         btnEdit.type = 'button';
         btnEdit.className = 'btn-edit-item';
-        btnEdit.setAttribute('aria-label', `Editar ${item}`);
-        btnEdit.textContent = 'Editar';
+        btnEdit.setAttribute('data-tooltip', `Editar`);
+        btnEdit.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
         btnEdit.addEventListener('click', ()=>{
             const value= items[idx]
 
@@ -164,9 +170,9 @@ export function openRecipeModal(recipe) {
             </div>
             </div>
             <div class="modal-buttons">
-            <button id="recipe-edit-btn">Editar</button>
-            <button id="recipe-delete-btn">Eliminar</button>
-            <button id="recipe-close-btn">Cerrar</button>
+            <button id="recipe-edit-btn" class="btn btn-main">Editar</button>
+            <button id="recipe-delete-btn" class="btn btn-delete">Eliminar</button>
+            <button id="recipe-close-btn" class= "btn btn-cancel">Cerrar</button>
             </div>
             </div>
         `;
@@ -184,6 +190,7 @@ export function openRecipeModal(recipe) {
                 recipes.splice(index, 1);
                 saveRecipes();
                 renderRecipesList();
+                recipeModal.classList.add("hidden");
             }
         });
 

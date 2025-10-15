@@ -1,4 +1,4 @@
-import{modalSearchInput } from "./dom.js"; 
+import{modalSearchInput, modal } from "./dom.js"; 
 import{renderCell} from "./render.js";
 //-- Print cell --
 export function handleRecipeSelect (recipe, cell){
@@ -24,7 +24,7 @@ export function handleRecipeSelect (recipe, cell){
     // Mostrar en la celda
     renderCell(cell, savedMeals[index].recipes);
     // Limpiar modal
-    document.getElementById('recipe-modal').style.display = 'none';
+    modal.classList.add('hidden');
     modalSearchInput.value = '';
     document.getElementById("modal-recipes-list").innerHTML = '';
 }

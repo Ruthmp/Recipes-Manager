@@ -1,0 +1,250 @@
+#form-add-recipe {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: var(--color-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  #recipe-name{
+    width: 100%;
+  }
+  #instructions-input{
+    width: 80.5%;
+  }
+  #quantity-input{
+    width: 20%;
+  }
+  #ingredient-input{
+    width: 42.5%;
+  }
+  #img-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+}
+#form-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+#form-buttons .btn {
+    flex: 0 1 150px;
+    text-align: center; 
+}
+#form-add-recipe label{
+  padding: 0 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+  #form-add-recipe fieldset {
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-surface);
+  }
+  #form-add-recipe fieldset label{
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  #form-add-recipe legend {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  select.input-base {
+    appearance: none;     
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23aaa' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;  
+    background-size: 1rem;
+    padding-right: 2rem;   
+    cursor: pointer;
+  }
+  select.input-base:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-bg-paper);
+}
+ 
+.btn-remove-item,
+.btn-edit-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0.25rem; 
+  line-height: 1;
+  
+}
+
+.btn-remove-item:hover,
+.btn-edit-item:hover {
+  transform: scale(1.15);
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+}
+.list-item span {
+  flex: 1; 
+}
+.list-item { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.75rem; 
+  border: 1px solid #ccc; 
+  border-radius: var(--radius-md); 
+  padding: 0.2rem 1rem; 
+  background-color: var(--color-surface); 
+} 
+.list-item li{ 
+  margin-left: 0.75rem; 
+}
+
+
+.btn-remove-item::after,
+.btn-edit-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-text-muted);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+
+.btn-remove-item:hover::after,
+.btn-edit-item:hover::after {
+  opacity: 1;
+}
+/* Search */
+
+/* Filters */
+/* Contenedor general del bloque de filtros */
+#filter {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 1rem auto;
+  max-width: 900px;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  max-height: 0; /* cerrado por defecto */
+  transition: max-height 0.35s ease;
+}
+
+/* Cuando se abre el toggle */
+#filter.active {
+  padding: 1rem 1.5rem; 
+  /* JS añade inline max-height dinámico con scrollHeight */
+}
+
+/* Cabecera del toggle */
+#filter > label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-title);
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+/* Contenedor de los fieldsets */
+#filter-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+/* Cada grupo de filtros */
+#filter-box fieldset {
+  border: none;
+  padding: 0;
+  min-width: 160px;
+}
+
+/* Títulos de los grupos */
+#filter-box legend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Checkbox estilo app */
+#filter-box input[type="checkbox"] {
+  accent-color: var(--color-accent);
+  transform: scale(1.1);
+  cursor: pointer;
+  margin-right: 0.35rem;
+}
+
+/* Labels de los checkbox */
+#filter-box label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+#filter-box label:hover {
+  color: var(--color-title);
+}
+
+/* Botones aplicar/limpiar filtros */
+.search-button {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.search-button .btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+#search-form .search-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparente */
+  border-radius: var(--radius-md);
+  padding: 0.25rem 0.5rem; /* línea fina */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+#search-input {
+  flex: 1 1 200px;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border, #ccc);
+  font-size: 0.95rem;
+}

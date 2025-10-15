@@ -8,14 +8,91 @@
     top:50%; 
     left:50%; 
     transform:translate(-50%, -50%); 
-    background:#fff; 
-    padding:20px; 
+    background-color: var(--color-bg-paper); 
+    color: var(--color-text-muted); 
+    font-family: 'Georgia', serif; 
+    font-size: small;
+    padding: 1.5rem;
     border:1px solid #ccc; 
-    box-shadow:0 0 10px rgba(0,0,0,0.3); 
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
     z-index:1000;
-    width:300px; 
+    width:400px; 
     max-height:400px; 
     overflow-y:auto;
+}
+#manager-modal h3, h2{
+  color: var(--color-title);
+}
+#manager-modal h3{
+  margin-top: 0.75rem;
+}
+#manager-modal h2{
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+#modal-search-input{
+  width: 100%;
+}
+#modal-menu-list{
+  border: 1px solid #ccc;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+#modal-menu-list li {
+  margin-left: 0.75rem;  
+}
+
+#modal-menu-list li:first-child {
+  margin-top: 0.5rem;    
+}
+#modal-menu-list li:last-child {
+  margin-bottom: 0.5rem;
+}
+#modal-menu-list button {
+  background: none;                
+  border: none;                   
+  cursor: pointer;
+  color: var(--color-text-muted);  
+  font-size: 0.70rem;                 
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#modal-menu-list button:hover {
+  color: var(--color-accent);  
+  transform: scale(1.15);              
+}
+
+#modal-menu-list button i {
+  pointer-events: none; 
+}
+
+
+#modal-recipes-list{
+  cursor: pointer;
+}
+
+#modal-recipes-list .recipes-list-class {
+  display: block;           
+  width: 100%;
+  padding: 0.5rem 0.75rem;   
+  border-radius: 6px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  color: var(--color-text);  
+}
+
+/* hover */
+#modal-recipes-list .recipes-list-class:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg-paper); 
+  cursor: pointer;
+}
+
+#modal-buttons {
+  display: flex;
+  justify-content: center;   
+  gap: 1rem;                 
+  margin-top: 1rem;         
 }
 
 /* Floating Modal Recipe*/
@@ -25,7 +102,6 @@
   left: 0;
   width: 100vw;              
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;             
   align-items: center;       
   justify-content: center;   
@@ -45,6 +121,8 @@
   color: #3e2c1c; 
   position: relative;
   border: var(--border-sm); 
+  max-height: 90vh;           /* <--- limita altura máxima */
+  overflow-y: auto;
 }
 
 /* Top section: image + information aligned */
@@ -123,44 +201,22 @@
 
 .modal-ingredients li {
   position: relative;
-  padding-left: 1.2rem; /* espacio para el símbolo */
+  padding-left: 1.2rem; 
   margin-bottom: 0.3rem;
+  font-size: 0.9rem;
 }
 
 .modal-ingredients li::before {
-  content: "✦"; /* símbolo decorativo tipo flor o tinta */
+  content: "✦"; 
   position: absolute;
   left: 0;
-  color: #a67c52; /* tono dorado suave */
+  color: #a67c52; 
   font-size: 0.9rem;
   top: 0.1rem;
   
 }
-
-
-/* Buttons inside the modal */
-.modal-recipes-content button {
-  margin-top: 1rem;
-  margin-right: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  background-color: var(--color-primary); 
-  color: white;
+.modal-instructions li {
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  transition: background-color 0.2s;
-}
-
-.modal-recipes-content button:hover {
-  background-color: var(--color-accent);
-}
-
-/* Close button */
-#recipe-close-btn {
-  background-color: var(--color-accent); 
-}
-
-#recipe-close-btn:hover {
-  background-color: #da190b;
+  line-height: 1.4;
 }

@@ -22,12 +22,19 @@
     --color-surface: #E0E8D2;          /* Cards, panels, sections */
     --color-surface-alt: #C8D8B2;      /* Light surface variation */
     --color-bg-paper: #fdf3e7;         /* color old paper */
+    --color-bg-table-hover:#DDE6D1;    /* table cell hover */
   
     /* ==== Text ==== */
     --color-text: #2E3A1F;             /* Primary text */
     --color-text-muted: #6E7C5E;       /* Secondary text */
     --color-title: #5A3E1B;
   
+   /* ==== Buttons & UI States ==== */
+  --color-main-btn: #E8A44D;   
+  --color-export-import-btn: #5A3E1B;      
+  --color-neutral-btn: #A8C686;   
+  --color-delete-btn: #dc5c49;
+
     /* ==== Borders and details ==== */
     --color-border: #e5e7eb;           /* Soft borders */
     --color-divider: #d1d5db;          /* Dividers or thin lines */
@@ -44,11 +51,12 @@
     --line-height-base: 1.5;
   
     /* ==== Spacing ==== */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 40px;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2.5rem;
+    --spacing-xxl: 3.5rem;
   
     /* ==== Shadows and borders ==== */
     --radius-sm: 4px;

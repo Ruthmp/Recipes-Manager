@@ -80,11 +80,11 @@ export function addIngredientFromInput(){
     inputQuantity.value='';
     selectMeasure.value='';
     inputIngredient.value='';
-    renderInlineList(ingredientList, currentIngredients.map (i =>
-        `${i.quantity ? i.quantity + '': ''} ${i.measure ? i.measure + '':''} ${i.ingredient ? i.ingredient + '':''}`
-    ));
+    
     inputIngredient.focus();
     btnAddIngredient.textContent = "Añadir";
+
+    renderInlineList(ingredientList, currentIngredients);
 }
 
 /**

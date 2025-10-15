@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
     <title>Recipes Manager</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body id="top">
@@ -78,8 +80,12 @@
                     </tr>
                 </tbody>
             </table>
-            <button id="export-menu">Exportar menú</button>
-            <button id="clear-table">Limpiar semana</button>
+            <p class="table-instructions">
+  💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,  
+  y <em>doble clic</em> para eliminar su contenido.
+</p>
+            <button id="export-menu" class="btn btn-export-import">Exportar menú</button>
+            <button id="clear-table"class="btn btn-delete">Limpiar semana</button>
             
         </section>
 
@@ -89,28 +95,33 @@
             <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
             
             <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
-            <input type="text" id="modal-search-input" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
+            <input type="text" id="modal-search-input" class="input-base" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
+            
             <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
-            <button id="cancel-modal">Cancelar</button>
-            <button id="add-cell">Añadir menú</button>
-            <br><br>
+            <div id="modal-buttons">
+            <button id="add-cell"class="btn btn-main">Añadir menú</button>
+            <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
         </div>
+        </div>
+        
+        
         <!--!Form to add recipes -->
         <section id="recipes-form">
             <h1>– Añadir Recetas –</h1>
+            
             <form id="form-add-recipe">
 
                 <!--Name -->
                 <div class="form-group">
                     <label for="recipe-name">Nombre de la Receta:</label><br>
-                    <input type="text" id="recipe-name" name="recipe-name" class="input-recipe"
+                    <input type="text" id="recipe-name" class="input-base" name="recipe-name" class="input-recipe"
                         placeholder="Introduce el nombre" required>
                 </div>
 
                 <!--Time -->
                 <div class="form-group">
                     <label for="prep-time">Tiempo de Preparación :</label><br>
-                    <select id="prep-time" name="prep-time" required>
+                    <select id="prep-time" class="input-base" name="prep-time" required>
                         <option value="">Selecciona el Tiempo</option>
                         <option value="15">15 min</option>
                         <option value="30">30 min</option>
@@ -135,7 +146,7 @@
                 </fieldset>
                 <!-- Category -->
                 <label for="recipe-category">Categoría</label><br>
-                <select id="recipe-category">
+                <select id="recipe-category" class="input-base">
                     <option value="all">Todas las categorías</option>
                     <option value="starter">Entrante</option>
                     <option value="mainCourse">Plato principal</option>
@@ -144,50 +155,54 @@
                 <!--Ingredients -->
                 <div class="form-group">
                     <label for="ingredient-input">Ingredientes:</label><br>
-                    <input type="number" id="quantity-input" name="quantity-input" class="input-quantity"
+                    <input type="number" id="quantity-input"  class="input-base" name="quantity-input" class="input-quantity"
                         placeholder="Cantidad" min="0" step="1">
-                    <select id="measure-select" name="measure-select">
+                    <select id="measure-select" class="input-base" name="measure-select">
                         <option value="">Medida</option>
                         <option value="g">g</option>
                         <option value="kg">kg</option>
                         <option value="ml">ml</option>
                         <option value="L">L</option>
-                        <option value="cucharadita">cdita</option>
-                        <option value="cucharada">cda</option>
+                        <option value="cdita">cdita</option>
+                        <option value="cda">cda</option>
                         <option value="taza">tza</option>
                         <option value="onza">oz</option>
-                        <option value="unidad">ud</option>
+                        <option value="ud">ud</option>
                         <option value="pizca">pizca</option>
                         <option value="hoja">hoja</option>
                         <option value="rama">rama</option>
                         <option value="trozo">trozo</option>
                     </select>
-                    <input type="text" id="ingredient-input" name="ingredient-input" class="input-recipe"
+                    <input type="text" id="ingredient-input" class="input-base" name="ingredient-input" class="input-recipe"
                         placeholder="Añade ingrediente">
-                    <button id="btnAddIngredient"  type="button">Añadir</button>
-                    <ul id="ingredient-list"></ul>
+                    <button id="btnAddIngredient" class="btn btn-main" type="button">Añadir</button>
+                    <ul id="ingredient-list" class="list-box"></ul>
                 </div>
 
                 <!--Instructions -->
                 <div class="form-group">
                     <label for="instructions-input">Pasos:</label><br>
-                    <input type="text" id="instructions-input" name="instructions-input" class="input-instruction"
+                    <input type="text" id="instructions-input" class="input-base" name="instructions-input" class="input-instruction"
                         placeholder="Añade paso">
-                    <button id="btnAddInstruction" class="btn" type="button">Añadir</button>
-                    <ul id="instructions-list"></ul>
+                    <button id="btnAddInstruction" class="btn btn-main" type="button">Añadir</button>
+                    <ul id="instructions-list" class="list-box"></ul>
                 </div>
 
                 <!--Image-->
                 <div class ="form-group">
                     <label for="recipe-image">Foto de la receta:</label><br>
-                    <input type="file" id="recipe-image" name="recipe-image" accept="image/*" >
+                    <div id="img-container">
+                    <input type="file" id="recipe-image"  name="recipe-image" accept="image/*" >
                     <div id="image-preview" class="image-preview">
-                    <button type="button" id="btn-remove-photo" class="btn">Eliminar foto</button></div>
+                    <button type="button" id="btn-remove-photo" class="btn btn-delete">Eliminar foto</button></div>
+                </div>
                 </div>
 
                 <!--Buttons-->
-                <button type="submit" id="btn-add" class="btn">Añadir receta</button>
-                <button type="reset" class="btn">Cancelar</button>
+                <div id="form-buttons">
+                <button type="submit" id="btn-add" class="btn btn-main">Añadir receta</button>
+                <button type="reset" class="btn btn-cancel">Cancelar</button>
+            </div>
             </form>
         </section>
 
@@ -198,14 +213,18 @@
 
             <form id="search-form">
                 <div class="search-field">
-                    <label for="search-input"> Buscar por nombre: </label><br>
-                    <input type="text" id="search-input" placeholder="Buscar recetas ...">
-                    <button type="button" id="btn-search-name" class="btn">Buscar</button>
-                    <button type="button" id="btn-clear-search" class="btn">Cancelar</button>
+                    <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
+                    <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
+                    <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
+                    <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter">Mostrar filtros</button>
                 </div>
-                <button type="button" class="btn toggle-btn" data-target="filter">Mostrar filtros</button>
-                <div id="filter" class="toggle-content">
+                
+                
+                <div id="filter" class="toggle-content ">
                     <label>Filtrar por:</label>
+
+                    <div id="filter-box">
+                    
                     <!-- Category filter -->
                     <fieldset class="filter-category">
                         <legend>Categorías:</legend>
@@ -253,10 +272,11 @@
                         <input type="checkbox" id="time-120" name="time" value="120">
                         <label for="time-120">120 min</label>
                     </fieldset>
+                    </div>
                     <!-- Button -->
                     <div class="search-button">
-                        <button type="submit" class="btn">Aplicar filtros</button>
-                        <button type="button" class="btn" id="clear-filters">Limpiar</button>
+                        <button type="submit" class="btn btn-main">Aplicar filtros</button>
+                        <button type="button" class="btn btn-delete" id="clear-filters">Limpiar</button>
                     </div>
                 </div>
 
@@ -271,13 +291,13 @@
             <div id="recipes-list"></div>
             <div id="buttons-list">
                 <div id="pagination">
-                    <button id="prev-page" class="btn" disabled>◀ Anterior</button>
+                    <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
                     <span id="page-info">Página 1</span>
-                    <button id="next-page"class="btn" >Siguiente ▶</button>
+                    <button id="next-page"class="btn btn-main" >Siguiente ▶</button>
                 </div>
                 <div id="export-import">
-            <button id="exportBtn"  class="btn">Exportar recetas</button>
-            <button id="importBtn" class="btn">Importar recetas</button>
+            <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
+            <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
         </div>
         </div>
         </section>
@@ -289,6 +309,7 @@
         <p> © 2025 Ruth Millán Piqueras.</p>
         <div id="footer-info"></div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script type="module" src="js/main.js"></script>
 </body>
 

@@ -1,0 +1,79 @@
+/* Tablas del menú semanal */
+/* === Tabla del menú semanal === */
+#weekly-menu {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed; /* 👈 mismo ancho para todas las columnas */
+    background: var(--color-surface);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(90, 62, 27, 0.1);
+  }
+  
+  /* === Encabezado === */
+  #weekly-menu thead th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    padding: 0.75rem;
+    border: 1px solid var(--color-secondary);
+  }
+  
+  /* === Celdas comunes === */
+  #weekly-menu th,
+  #weekly-menu td {
+    border: 1px solid var(--color-secondary);
+    text-align: center;
+    vertical-align: middle;
+    overflow-wrap: break-word; /* evita desbordes */
+  }
+  
+  /* === Primera columna (Desayuno / Almuerzo / Cena) === */
+  #weekly-menu tbody td:first-child {
+    background: var(--color-surface-alt);
+    font-weight: 600;
+    color: var(--color-title);
+    width: 120px; /* ancho fijo para la primera columna */
+  }
+  
+  /* === Celdas editables === */
+  .meal-cell {
+    height: 7rem;/* 👈 altura fija para todas las celdas */
+    background: var(--color-bg);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 0.9rem;
+    white-space: pre-line;
+  }
+  
+  /* Hover: resalta sutilmente */
+  .meal-cell:hover {
+    background: var(--color-bg-table-hover);
+    transform: scale(1.02);
+  }
+  
+  /* Cuando una celda tiene contenido */
+  .meal-cell:not(:empty) {
+    background: var(--color-bg-paper);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+  
+  .table-instructions {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.85;
+  }
+  
+  .table-instructions strong {
+    color: var(--color-accent);
+  }
+

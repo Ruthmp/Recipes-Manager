@@ -38,34 +38,14 @@
     margin-top: auto;
   }
   
-  
-  
-  /* Tablas del menú semanal */
-  #weekly-menu {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  #weekly-menu th, #weekly-menu td {
-    border: 1px solid var(--color-border);
-    padding: 0.5rem;
-    text-align: center;
-  }
-
-.meal-cell {
-    min-width: 100px;
-    min-height: 40px;
-    border: 1px solid #ccc;
-    cursor: pointer; 
-    text-align: center;
-    vertical-align: middle;
-    white-space: pre-line;
+#section-search h1{
+  margin: 0;
 }
 
 #section-list{
   position: relative;
   min-height: 400px;
-  width: 90rem;
+  width: 83rem;
   height: 80rem; 
   background-image: url('../img/recetario.png');
   background-size: cover;
@@ -94,9 +74,20 @@
   align-items: center;
   gap: 1.5rem;
 
-  padding-left: 6rem;
+  padding-left: 8rem;
 }
-
-#export-import button{
-  background-color: var(--color-secondary);
+#recipe-image{
+  background-color: var(--color-surface);
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid #2E3A1F;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  color: var(--color-title);
+  font-size: 14px;
+  font-family: inherit; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }

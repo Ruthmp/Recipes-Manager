@@ -68,3 +68,6 @@ export const modalMenuList = document.getElementById('modal-menu-list')
 export const prevPageBtn = document.getElementById("prev-page");
 export const nextPageBtn = document.getElementById("next-page");
 export const pageInfo = document.getElementById("page-info");
+
+//-- Export menu --
+export const exportMenuBtn = document.getElementById('export-menu');

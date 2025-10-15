@@ -21,7 +21,9 @@ import {
   inputPhoto,
   btnRemoveImage,
   prevPageBtn,
-  nextPageBtn
+  nextPageBtn,
+  modalRecipesList,
+  exportMenuBtn
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -45,6 +47,7 @@ import { searchBy, applyFilters, clearFilters } from "./search.js";
 import { addToCell, clearAllCells, clearCell } from "./table.js";
 import{getSelectedCell, openModal} from "./modal.js"
 import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
+import { generatePDF } from "./table-export.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.currentPage = 1;
@@ -255,9 +258,18 @@ document.addEventListener("DOMContentLoaded", () => {
   //!-- Floating Modal Form --
 
   mealCells.forEach((cell) => {
-    cell.addEventListener("click", () => openModal(cell));
+    let clickTimer;
+
+    cell.addEventListener("click", () => {
+      clickTimer = setTimeout(()=>{
+        openModal(cell);
+      }, 250);
+      
+    
+    });
 
     cell.addEventListener("dblclick", () => {
+      clearTimeout(clickTimer);
       clearCell(cell);
       openModal(cell)
   });
@@ -266,6 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cancelModalBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
     modalSearchInput.value = "";
+    modalRecipesList.innerHTML = "";
   });
 
   const clearTable = document.getElementById("clear-table");
@@ -353,4 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     }
   });
+  //!-- Export menu to PDF --
+  exportMenuBtn.addEventListener('click', generatePDF);
 });

@@ -12,6 +12,7 @@ export function openModal(cell){
     selectedCell = cell;
     modal.classList.remove("hidden");
     modalSearchInput.focus ();
+    
 
     const day = cell.dataset.day || 'Día';
     const meal = cell.dataset.meal || 'Comida';
@@ -47,7 +48,7 @@ export function showAssignedRecipes(cell){
         li.textContent = recipe.name + "\n";
 
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent =  "❌";
+        deleteBtn.innerHTML =  '<i class="fa-solid fa-trash"></i>';
         deleteBtn.style.marginLeft = "6px";
         deleteBtn.addEventListener('click', () => {
             recipesArray.splice(i, 1);
@@ -61,31 +62,3 @@ export function showAssignedRecipes(cell){
     modalMenuList.appendChild(li);
 })
 }
-// --- Make modal draggable ---
-let isDragging = false;
-let offsetX, offsetY;
-
-if (modalTitle) {
-  modalTitle.style.cursor = "move";
-  modalTitle.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    const rect = modal.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-
-    // Allow moving the modal
-    modal.style.transform = "none";
-    modal.style.position = "absolute";
-  });
-}
-
-document.addEventListener("mousemove", (e) => {
-  if (isDragging) {
-    modal.style.left = `${e.clientX - offsetX}px`;
-    modal.style.top = `${e.clientY - offsetY}px`;
-  }
-});
-
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-});
