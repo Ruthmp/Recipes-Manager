@@ -23,7 +23,9 @@ import {
   prevPageBtn,
   nextPageBtn,
   modalRecipesList,
-  exportMenuBtn
+  exportMenuBtn,
+  hamburgerBtn,
+  navbarMenu
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -39,7 +41,8 @@ import {
   clearEditingScrollTarget,
   initToggleButtons,
   convertImageToBase64,
-  updatePagination
+  updatePagination,
+  updateRecipesPerPage
 } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
@@ -51,7 +54,7 @@ import { generatePDF } from "./table-export.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.currentPage = 1;
-  window.recipesPerPage = 8;
+  updateRecipesPerPage();
 
   let displayedRecipes;
   displayedRecipes = [...recipes];
@@ -78,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cell.textContent = data.name;
     cell.dataset.recipeId = data.id;
   }
+  });
+  hamburgerBtn.addEventListener("click", () => {
+    navbarMenu.classList.toggle("active");
   });
 
   // --- Listener to Enter ---

@@ -84,3 +84,12 @@ export function updatePagination(recipesArr){
     nextPageBtn.disabled = window.currentPage === totalPages;
 
 }
+
+//-- Update recipe per page --
+export function updateRecipesPerPage(){
+   if (window.innerWidth <= 600){
+    window.recipesPerPage = 4; 
+   } else {
+    window.recipesPerPage = 8;
+   }
+}

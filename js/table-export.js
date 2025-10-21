@@ -37,7 +37,7 @@ export function generatePDF() {
     let x = margin;
 
     cells.forEach((cell, colIndex) => {
-      const text = cell.textContent.trim();
+      let text = cell.textContent.trim();
       let fontSize = 12;
 
       // Determine cell size

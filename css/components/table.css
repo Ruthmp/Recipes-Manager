@@ -52,7 +52,7 @@
   
   /* Hover: resalta sutilmente */
   .meal-cell:hover {
-    background: var(--color-bg-table-hover);
+    background: var(--color-secondary);
     transform: scale(1.02);
   }
   
@@ -68,12 +68,22 @@
     font-size: 0.85rem;
     color: var(--color-text-muted);
     margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
     text-align: center;
     font-style: italic;
     opacity: 0.85;
+
+    background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
   }
   
   .table-instructions strong {
     color: var(--color-accent);
+    
   }
 

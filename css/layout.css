@@ -22,6 +22,8 @@
   /* Navbar centrada */
   .navbar {
     width: 100%;
+    position: relative;
+    justify-content: space-between;
   }
   
   .navbar-container {
@@ -31,38 +33,65 @@
     margin: 0 auto;
   }
   
+  .hamburger {
+    display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+
+  /* 🔹 Posicionar a la derecha */
+  position: absolute;
+  top: 50%;       /* centra verticalmente */
+  right: 1.5rem;  /* margen desde el borde derecho */
+  transform: translateY(-50%);
+  z-index: 1100;
+  }
   /* Footer */
   footer {
     padding: var(--spacing-md);
     text-align: center;
     margin-top: auto;
   }
+
+  #app-container{
+    background-image: url('../img/bg-sinFondo.png');
+    background-size: cover;
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-color: var(--color-surface-alt);
+    background-attachment: fixed;
+  }
+
   
-#section-search h1{
-  margin: 0;
-}
+  #img-container{
+    margin-top: 0.75rem;
+  }
+
+
 
 #section-list{
   position: relative;
-  min-height: 400px;
-  width: 83rem;
-  height: 80rem; 
-  background-image: url('../img/recetario.png');
+  max-width: 60rem;
+  min-height: 75rem;
+  background-image: url('../img/libro_recetario.png');
   background-size: cover;
-  background-position: center;  
-  background-repeat: no-repeat; 
-  padding: 2rem;
-  border-radius: var(--radius-md);
+  background-position: center 69%;  
+  background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 #recipes-list {
   display: grid;
-  grid-template-columns: repeat(2, 20rem);
+  grid-template-columns: repeat(2, minmax(14rem, 1fr));
   gap: 2rem 2rem;
   justify-content: center;
+  width: 100%;
+  max-width: 45rem;
   margin: 0 auto;
-  padding: 0.5rem;
-  padding-left: 8rem;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
 }
 #buttons-list {
   position: absolute;
@@ -73,12 +102,9 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-
-  padding-left: 8rem;
 }
 #recipe-image{
   background-color: var(--color-surface);
-  margin-top: 1rem;
   margin-right: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;

@@ -1,4 +1,8 @@
 //--Selectors--
+//-- navbar elements --
+export const hamburgerBtn = document.getElementById("hamburger-btn");
+export const navbarMenu = document.getElementById("navbar-menu");
+
 
 //-- Form elements --
 export const form = document.getElementById("form-add-recipe");

@@ -36,14 +36,17 @@ main {
     flex-direction: column;
     gap: var(--spacing-lg);
     
-    padding: var( --spacing-xxl);
+   
 }
 /* Main Sections */
-section {
-    background-color: var(--color-surface-alt);
-    border-radius: var(--radius-md);
+.section-container {
+
     padding: var(--spacing-md);
     box-shadow: var(--shadow-sm);
+}
+section{
+    
+    padding: var(--spacing-md);
 }
 
 h1{

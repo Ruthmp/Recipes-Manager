@@ -15,7 +15,14 @@
        
         <nav class="navbar">
             <h1>Gestor de Recetas</h1>
-            <div class="navbar-container">
+
+            <!-- Burguer menu -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+
+              <!--Normal menu-->
+            <div class="navbar-container" id="navbar-menu">
             <ul>
                 <li><a href="#manage-menu">Menú semanal</a></li>
                 <li><a href="#recipes-form">Añadir receta</a></li>
@@ -31,6 +38,7 @@
         
         
         <!--! Weekly Menu -->
+        <div class="section-container" id="app-container">
         <section id="manage-menu">
             <h1 class="h1">– Menú Semanal –</h1>
             <table id="weekly-menu">
@@ -84,25 +92,25 @@
   💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,  
   y <em>doble clic</em> para eliminar su contenido.
 </p>
-            <button id="export-menu" class="btn btn-export-import">Exportar menú</button>
+            <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i> Exportar PDF</button>
             <button id="clear-table"class="btn btn-delete">Limpiar semana</button>
             
         </section>
 
         <!-- Floating Modal form -->
-        <div id="manager-modal" class="hidden">
-            <h2 id="modal-title"></h2>
-            <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
-            
-            <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
-            <input type="text" id="modal-search-input" class="input-base" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
-            
-            <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
-            <div id="modal-buttons">
-            <button id="add-cell"class="btn btn-main">Añadir menú</button>
-            <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
-        </div>
-        </div>
+    <div id="manager-modal" class="hidden">
+        <h2 id="modal-title"></h2>
+        <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
+        
+        <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
+        <input type="text" id="modal-search-input" class="input-base" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
+        
+        <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
+        <div id="modal-buttons">
+        <button id="add-cell"class="btn btn-main">Añadir menú</button>
+        <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
+    </div>
+    </div>
         
         
         <!--!Form to add recipes -->
@@ -207,7 +215,6 @@
         </section>
 
         <!--! Search Recipes -->
-
         <section id="section-search">
             <h1>– Buscar Recetas –</h1>
 
@@ -301,9 +308,9 @@
         </div>
         </div>
         </section>
-
+        
         <div id="recipes-modal" class="hidden"></div>
-
+    </div>
     </main>
     <footer>
         <p> © 2025 Ruth Millán Piqueras.</p>

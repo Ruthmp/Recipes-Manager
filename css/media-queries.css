@@ -5,3 +5,71 @@
    - overrides for layout or components
    - adaptive font sizes and spacing
 ========================================================= */
+@media (max-width: 1024px) {
+   #recipes-list {
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   }
+   #recipes-list .recipes-list-class {
+      font-size: 0.95rem;
+    }
+ }
+
+@media (max-width: 600px){
+   #recipes-list{
+      grid-template-columns: 1fr !important;
+   }
+   #recipes-list .recipes-list-class {
+      font-size: 0.875rem; /* ≈ 14px */
+    }
+  
+}
+
+@media (hover: hover) and (pointer: fine) {
+   #recipes-list .recipes-list-class:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+   }
+ }
+
+ 
+
+ @media (max-width: 900px) {
+  .navbar{
+    padding-left: 1rem;
+  }
+  header h1 {
+    text-align: left;      /* mueve el texto hacia la izquierda */
+    white-space: nowrap;   /* fuerza que esté en una sola línea */
+    font-size: 1.5rem;    /* opcional: reduce tamaño si es necesario */
+    overflow: hidden; 
+    margin: 0;
+   }
+   .hamburger {
+     display: block;
+     position:relative;
+     margin-top: 1rem;
+     left: 4rem;
+     z-index: 1100; 
+   }
+ 
+   .navbar-container {
+     display: none;
+     position: absolute;
+     top: 100%; 
+     width: 50%;
+     right: 0; 
+     background:var(--color-bg-hamburguer);
+   }
+ 
+   .navbar-container ul {
+     flex-direction: column;
+     align-items:center;     
+     padding: 1rem 0;
+   }
+
+   .navbar-container.active {
+     display: block;
+     margin-top: 1rem;
+     padding-top: 1rem;
+   }
+ }
