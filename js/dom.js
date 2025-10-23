@@ -2,6 +2,7 @@
 //-- navbar elements --
 export const hamburgerBtn = document.getElementById("hamburger-btn");
 export const navbarMenu = document.getElementById("navbar-menu");
+export const icon = hamburgerBtn.querySelector('i');
 
 
 //-- Form elements --

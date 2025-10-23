@@ -54,7 +54,7 @@ h1{
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    margin-right: 2rem;
     color: var(--color-title);
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     scroll-margin-top: 80px;

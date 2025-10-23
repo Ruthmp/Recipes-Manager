@@ -93,3 +93,12 @@ export function updateRecipesPerPage(){
     window.recipesPerPage = 8;
    }
 }
+
+//-- Detect if the user’s device has a touch screen
+export function isTouchDevice() {
+    return (
+      'ontouchstart' in window ||       // Touch events 
+      navigator.maxTouchPoints > 0 ||    // Number of touch points
+      navigator.msMaxTouchPoints > 0     // For older IE/Edge
+    );
+  }

@@ -1,17 +1,16 @@
-/* Tablas del menú semanal */
-/* === Tabla del menú semanal === */
+/* === Weekly menu tables === */
 #weekly-menu {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    table-layout: fixed; /* 👈 mismo ancho para todas las columnas */
+    table-layout: auto; /* Same width for all columns */
     background: var(--color-surface);
     border-radius: 10px;
-    overflow: hidden;
+   
     box-shadow: 0 2px 6px rgba(90, 62, 27, 0.1);
   }
   
-  /* === Encabezado === */
+  /* === Header === */
   #weekly-menu thead th {
     background: var(--color-primary);
     color: #fff;
@@ -21,28 +20,30 @@
     letter-spacing: 0.04em;
     padding: 0.75rem;
     border: 1px solid var(--color-secondary);
+    white-space: nowrap;
   }
   
-  /* === Celdas comunes === */
+  /* === Regular cells === */
   #weekly-menu th,
   #weekly-menu td {
     border: 1px solid var(--color-secondary);
     text-align: center;
     vertical-align: middle;
-    overflow-wrap: break-word; /* evita desbordes */
+    overflow-wrap: break-word; /* Avoid overflow */
   }
   
-  /* === Primera columna (Desayuno / Almuerzo / Cena) === */
+  /* === First column (Desayuno / Almuerzo / Cena) === */
   #weekly-menu tbody td:first-child {
     background: var(--color-surface-alt);
     font-weight: 600;
     color: var(--color-title);
-    width: 120px; /* ancho fijo para la primera columna */
+    width: 120px; /* Fixed width */
+    white-space: nowrap;
   }
   
-  /* === Celdas editables === */
+  /* === Editable cells === */
   .meal-cell {
-    height: 7rem;/* 👈 altura fija para todas las celdas */
+    height: 7rem;/* Fixed height for all cells */
     background: var(--color-bg);
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
@@ -50,13 +51,13 @@
     white-space: pre-line;
   }
   
-  /* Hover: resalta sutilmente */
+  /* Hover */
   .meal-cell:hover {
     background: var(--color-secondary);
     transform: scale(1.02);
   }
   
-  /* Cuando una celda tiene contenido */
+  /* Cell with content */
   .meal-cell:not(:empty) {
     background: var(--color-bg-paper);
     border-color: var(--color-accent);

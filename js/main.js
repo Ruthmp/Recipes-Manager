@@ -25,7 +25,8 @@ import {
   modalRecipesList,
   exportMenuBtn,
   hamburgerBtn,
-  navbarMenu
+  navbarMenu,
+  icon
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -42,7 +43,8 @@ import {
   initToggleButtons,
   convertImageToBase64,
   updatePagination,
-  updateRecipesPerPage
+  updateRecipesPerPage,
+  isTouchDevice
 } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
@@ -53,6 +55,7 @@ import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
 import { generatePDF } from "./table-export.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
   window.currentPage = 1;
   updateRecipesPerPage();
 
@@ -65,6 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
       renderRecipesList(displayedRecipes, window.currentPage, true);
     });
   }
+  //-- Hamburguer menu --
+  hamburgerBtn.addEventListener('click', () =>{
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+  })
 
   //--Load manage menu --
   const savedMeals = JSON.parse(localStorage.getItem("meals")) || {};
@@ -270,8 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clickTimer = setTimeout(()=>{
         openModal(cell);
       }, 250);
-      
-    
     });
 
     cell.addEventListener("dblclick", () => {
@@ -279,7 +285,39 @@ document.addEventListener("DOMContentLoaded", () => {
       clearCell(cell);
       openModal(cell)
   });
-});
+  //-- Tactil Screen : long press --
+  let pressTimer;
+  if (isTouchDevice()){
+    let touchStartTime = 0;
+
+    cell.addEventListener("touchstart", () => {
+      touchStartTime = new Date().getTime();
+
+      pressTimer = setTimeout(() => {
+        clearCell (cell);
+        openModal (cell);
+        touchStartTime = 0; //reset time
+      }, 800); // 500 ms for long press
+      });
+      cell.addEventListener("touchend", () =>{
+        clearTimeout(pressTimer);
+
+        const touchDuration = new Date().getTime() - touchStartTime;
+        if (touchDuration < 500 && touchDuration > 0){
+          openModal(cell);
+          touchStartTime = 0; //reset time
+        }
+      });
+
+      cell.addEventListener("touchmove", () =>{
+        clearTimeout(pressTimer); //cancel long press if finger moves
+        touchStartTime = 0; //reset time
+      });
+    }
+  });
+
+
+ 
 
   cancelModalBtn.addEventListener("click", () => {
     modal.classList.add("hidden");

@@ -13,40 +13,41 @@
     height: 80px;
     padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
-    flex-direction: column; /* título arriba, navbar debajo */
-    align-items: center; /* centrar contenido horizontalmente */
+    flex-direction: column; 
+    align-items: center; 
     box-shadow: var(--shadow-md); 
     height: 100%;
   }
   
-  /* Navbar centrada */
+  /* Navbar Centered */
   .navbar {
     width: 100%;
     position: relative;
     justify-content: space-between;
+    padding-left: 1rem;
   }
   
   .navbar-container {
     display: flex;
-    justify-content: center; /* centra los links horizontalmente */
+    justify-content: center; 
     max-width: 600px;
     margin: 0 auto;
   }
   
   .hamburger {
     display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.6rem;
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
 
-  /* 🔹 Posicionar a la derecha */
-  position: absolute;
-  top: 50%;       /* centra verticalmente */
-  right: 1.5rem;  /* margen desde el borde derecho */
-  transform: translateY(-50%);
-  z-index: 1100;
+    /* right */
+    position: absolute;
+    top: 50%;      
+    right: 1.5rem; 
+    transform: translateY(-50%);
+    z-index: 1100;
   }
   /* Footer */
   footer {
