@@ -16,7 +16,7 @@
     --color-primary: #7BB661 ;          /* Primary brand or action color */
     --color-secondary: #A8C686;        /* Complementary color */
     --color-accent: #5A3E1B;           /* Accent or highlight color */
-  
+
     /* ==== Background and surfaces ==== */
     --color-bg: #F4F7ED;               /* Main background */
     --color-surface: #E0E8D2;          /* Cards, panels, sections */
@@ -24,28 +24,22 @@
     --color-bg-paper: #fdf3e7;         /* color old paper */
     --color-bg-table-hover:#DDE6D1;    /* table cell hover */
     --color-bg-hamburguer: #DADB68; /* hamburguer menu background */
-  
+
     /* ==== Text ==== */
     --color-text: #2E3A1F;             /* Primary text */
     --color-text-muted: #6E7C5E;       /* Secondary text */
     --color-title: #5A3E1B;
-  
+
    /* ==== Buttons & UI States ==== */
-  --color-main-btn: #E8A44D;   
-  --color-export-import-btn: #5A3E1B;      
-  --color-neutral-btn: #A8C686;   
-  --color-delete-btn: #dc5c49;
+   --color-main-btn: #E8A44D;   
+   --color-export-import-btn: #5A3E1B;      
+   --color-neutral-btn: #A8C686;   
+   --color-delete-btn: #dc5c49;
 
     /* ==== Borders and details ==== */
     --color-border: #e5e7eb;           /* Soft borders */
     --color-divider: #d1d5db;          /* Dividers or thin lines */
-  
-    /* ==== States (opcional) ==== */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #3b82f6;
-  
+
     /* ==== Typography ==== */
     --font-main: 'Palatino Linotype', 'Book Antiqua', serif;
     --font-size-base: 16px;
@@ -68,61 +62,6 @@
     --shadow-lg: 0 8px 20px rgba(0,0,0,0.3);
 
    --border-sm: 1px solid #d1bfa7;
-  
-    /* ==== Transitions ==== */
-    --transition-fast: 0.2s ease-in-out;
-    --transition-base: 0.3s ease-in-out;
-  }
-  
-  /* ===============================
-     🌙 Dark mode variables
-     =============================== */
-  [data-theme="dark"] {
-    --color-primary: #000000;          /* Primary brand or action color */
-    --color-secondary: #307e1d;        /* Complementary color */
-    --color-accent: #881f1f;           /* Accent or highlight color */
-  
-    /* ==== Background and surfaces ==== */
-    --color-bg: #ffffff;               /* Main background */
-    --color-surface: #4275a8;          /* Cards, panels, sections */
-    --color-surface-alt: #f0f2f5;      /* Light surface variation */
-  
-    /* ==== Text ==== */
-    --color-text: #1f2937;             /* Primary text */
-    --color-text-muted: #6b7280;       /* Secondary text */
-    --color-link: var(--color-primary);/* Primary links and buttons */
-  
-    /* ==== Borders and details ==== */
-    --color-border: #e5e7eb;           /* Soft borders */
-    --color-divider: #d1d5db;          /* Dividers or thin lines */
-  
-    /* ==== Estates (opcional) ==== */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #3b82f6;
-  
-    /* ==== Typography ==== */
-    --font-main: 'Inter', 'Segoe UI', sans-serif;
-    --font-size-base: 16px;
-    --line-height-base: 1.5;
-  
-    /* ==== Spacing ==== */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 40px;
-  
-    /* ==== Shadows and borders ==== */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
-
-
   
     /* ==== Transitions ==== */
     --transition-fast: 0.2s ease-in-out;

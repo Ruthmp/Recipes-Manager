@@ -70,10 +70,6 @@
     padding-right: 2rem;   
     cursor: pointer;
   }
-  select.input-base:hover {
-  border-color: var(--color-accent);
-  background-color: var(--color-bg-paper);
-}
  
 .btn-remove-item,
 .btn-edit-item {
@@ -91,10 +87,6 @@
   
 }
 
-.btn-remove-item:hover,
-.btn-edit-item:hover {
-  transform: scale(1.15);
-}
 .list-item {
   display: flex;
   align-items: center;
@@ -136,16 +128,10 @@
   transition: opacity 0.2s ease;
   z-index: 10;
 }
-
-
-.btn-remove-item:hover::after,
-.btn-edit-item:hover::after {
-  opacity: 1;
-}
 /* Search */
 
 /* Filters */
-/* Contenedor general del bloque de filtros */
+/* Main container of the filter block */
 #filter {
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -154,17 +140,16 @@
   max-width: 900px;
   overflow: hidden;
   padding: 0 1.5rem;
-  max-height: 0; /* cerrado por defecto */
+  max-height: 0; /* Closed by default */
   transition: max-height 0.35s ease;
 }
 
-/* Cuando se abre el toggle */
+/* When the toggle is opened */
 #filter.active {
   padding: 1rem 1.5rem; 
-  /* JS añade inline max-height dinámico con scrollHeight */
 }
 
-/* Cabecera del toggle */
+/* Toggle header */
 #filter > label {
   display: block;
   font-weight: 600;
@@ -173,7 +158,7 @@
   cursor: pointer;
 }
 
-/* Contenedor de los fieldsets */
+/* Fieldsets container */
 #filter-box {
   display: flex;
   justify-content: center;
@@ -185,14 +170,14 @@
   opacity: 1;
 }
 
-/* Cada grupo de filtros */
+/* Each filter group */
 #filter-box fieldset {
   border: none;
   padding: 0;
   min-width: 160px;
 }
 
-/* Títulos de los grupos */
+/* Group titles */
 #filter-box legend {
   font-size: 0.9rem;
   font-weight: 600;
@@ -200,7 +185,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Checkbox estilo app */
+/* App-style checkbox */
 #filter-box input[type="checkbox"] {
   accent-color: var(--color-accent);
   transform: scale(1.1);
@@ -208,18 +193,14 @@
   margin-right: 0.35rem;
 }
 
-/* Labels de los checkbox */
+/* Checkbox labels */
 #filter-box label {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   cursor: pointer;
 }
 
-#filter-box label:hover {
-  color: var(--color-title);
-}
-
-/* Botones aplicar/limpiar filtros */
+/* Apply/Clear filters buttons */
 .search-button {
   display: flex;
   justify-content: center;
@@ -236,9 +217,9 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.85); /* semi-transparente */
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent */
   border-radius: var(--radius-md);
-  padding: 0.25rem 0.5rem; /* línea fina */
+  padding: 0.25rem 0.5rem; /* Thin line */
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   transform: scale(0.95);
 }

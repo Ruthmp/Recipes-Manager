@@ -161,13 +161,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const recipeToEdit = recipes.find((r) => r.id === getEditingId());
       // Decide what to do with the photo:
     if (currentImage) {
-      // A new photo was uploaded → replace
+      // A new photo was uploaded > replace
       photoBase64 = currentImage;
     } else if (removePhotoFlag) {
-      // "Delete photo" was clicked → null
+      // "Delete photo" was clicked > null
       photoBase64 = null;
     } else {
-      // No action taken → keep the existing photo
+      // No action taken > keep the existing photo
       photoBase64 = recipeToEdit.image || null;
     }
       recipeToEdit.name = inputName.value;
@@ -315,9 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-
-
- 
 
   cancelModalBtn.addEventListener("click", () => {
     modal.classList.add("hidden");

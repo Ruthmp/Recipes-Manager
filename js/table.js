@@ -8,7 +8,7 @@ export function handleRecipeSelect (recipe, cell){
     const cells = Array.from(document.querySelectorAll('.meal-cell'));
     const index = cells.indexOf(cell);
 
-    // Si no hay array, lo inicializamos
+    // If there’s no array, we initialize it.
     if (!savedMeals[index]) savedMeals[index] = { recipes: [] };
 
     if (!Array.isArray(savedMeals[index].recipes)) {
@@ -17,13 +17,13 @@ export function handleRecipeSelect (recipe, cell){
         delete savedMeals[index].id;
     }
 
-    // Agregar la receta seleccionada
+    // Add the selected recipe.
     savedMeals[index].recipes.push({ name: recipe.name, id: recipe.id });
     localStorage.setItem('meals', JSON.stringify(savedMeals));
 
-    // Mostrar en la celda
+    // Show in the cell.
     renderCell(cell, savedMeals[index].recipes);
-    // Limpiar modal
+    // Clean modal
     modal.classList.add('hidden');
     modalSearchInput.value = '';
     document.getElementById("modal-recipes-list").innerHTML = '';

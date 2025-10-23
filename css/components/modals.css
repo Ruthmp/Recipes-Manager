@@ -58,11 +58,6 @@
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-#modal-menu-list button:hover {
-  color: var(--color-accent);  
-  transform: scale(1.15);              
-}
-
 #modal-menu-list button i {
   pointer-events: none; 
 }
@@ -79,13 +74,6 @@
   border-radius: 6px;
   transition: background-color 0.18s ease, color 0.18s ease;
   color: var(--color-text);  
-}
-
-/* hover */
-#modal-recipes-list .recipes-list-class:hover {
-  background-color: var(--color-primary);
-  color: var(--color-bg-paper); 
-  cursor: pointer;
 }
 
 #modal-buttons {
@@ -121,7 +109,7 @@
   color: #3e2c1c; 
   position: relative;
   border: var(--border-sm); 
-  max-height: 90vh;           /* <--- limita altura máxima */
+  max-height: 90vh;           /* Limit maximum height */
   overflow-y: auto;
 }
 

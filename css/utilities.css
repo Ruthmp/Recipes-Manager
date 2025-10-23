@@ -10,70 +10,49 @@
 .hidden { display: none !important }
 
 .btn {
-   background-color: var(--color-surface);
-   margin-right: 0.5rem;
-   padding: 0.5rem 1rem;
-   border-radius: 0.5rem;
-   border: 0.5px solid #2E3A1F;
-   cursor: pointer;
-   font-weight: 500;
-   transition: background-color 0.2s ease;
-   color: var(--color-title);
-   font-size: 14px;
-   font-family: inherit; 
-   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: var(--color-surface);
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid #2E3A1F;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    color: var(--color-title);
+    font-size: 14px;
+    font-family: inherit; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .btn.no-margin-top {
-   margin-top: 0;
+    margin-top: 0;
 }
 
-.btn-main:hover{
-   background-color: var(--color-main-btn);
-   color: var(--color-surface);
-}
-
-.btn-cancel:hover{
-   background-color: var(--color-neutral-btn);
-   color: var(--color-surface);
-   }
-
-.btn-delete:hover{
-   background-color: var(--color-delete-btn);
-   color: var(--color-surface);
-   }
-
-.btn-export-import:hover{
-   background-color: var(--color-export-import-btn);
-   color: var(--color-surface);
-   
-}
 .input-base {
-   
-   padding: 0.5rem 0.75rem;
-   margin-bottom: 0.75rem;
-   margin-top: 0.75rem;
-   border: 1px solid #ccc;
-   border-radius: var(--radius-md);
-   font-family: inherit;          
-   font-size: 0.9rem;
-   background-color: var(--color-bg);
-   color: var(--color-text);
-   transition: all 0.2s ease;
-   box-sizing: border-box;
- }
- 
- .input-base::placeholder {
-   color: var(--color-text-muted);
-   font-style: italic;
- }
- 
- .input-base:focus {
-   outline: none;
-   border-color: var(--color-accent);
-   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
-   background-color: var(--color-bg-paper);
- }
- .table-wrapper {
-   overflow-x: auto;
-   -webkit-overflow-scrolling: touch
- }
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-md);
+    font-family: inherit;          
+    font-size: 0.9rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.input-base::placeholder {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.input-base:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    background-color: var(--color-bg-paper);
+}
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+}

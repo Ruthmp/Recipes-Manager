@@ -87,11 +87,11 @@ export function updatePagination(recipesArr){
 
 //-- Update recipe per page --
 export function updateRecipesPerPage(){
-   if (window.innerWidth <= 600){
+    if (window.innerWidth <= 600){
     window.recipesPerPage = 4; 
-   } else {
+    } else {
     window.recipesPerPage = 8;
-   }
+    }
 }
 
 //-- Detect if the user’s device has a touch screen
@@ -101,4 +101,4 @@ export function isTouchDevice() {
       navigator.maxTouchPoints > 0 ||    // Number of touch points
       navigator.msMaxTouchPoints > 0     // For older IE/Edge
     );
-  }
+}

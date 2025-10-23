@@ -51,12 +51,6 @@
     white-space: pre-line;
   }
   
-  /* Hover */
-  .meal-cell:hover {
-    background: var(--color-secondary);
-    transform: scale(1.02);
-  }
-  
   /* Cell with content */
   .meal-cell:not(:empty) {
     background: var(--color-bg-paper);

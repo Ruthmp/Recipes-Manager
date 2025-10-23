@@ -5,6 +5,7 @@
    - overrides for layout or components
    - adaptive font sizes and spacing
 ========================================================= */
+
 @media (max-width: 1024px) {
    #recipes-list {
      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -38,7 +39,7 @@
       grid-template-columns: 1fr !important;
    }
    #recipes-list .recipes-list-class {
-      font-size: 0.875rem; /* ≈ 14px */
+      font-size: 0.875rem; 
     }
   
 }
@@ -91,3 +92,68 @@
      padding-top: 1rem;
    }
  }
+
+ /* hover effects for fine pointers */
+@media (hover: hover) and (pointer: fine){
+  /* recipes*/
+  #recipes-list .recipes-list-class:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    background-color: var(--color-bg-paper); 
+  }
+  /* table */
+  .meal-cell:hover {
+    background: var(--color-secondary);
+    transform: scale(1.02);
+  } 
+  /* utilities */
+  .btn-main:hover{
+    background-color: var(--color-main-btn);
+    color: var(--color-surface);
+ }
+ 
+ .btn-cancel:hover{
+    background-color: var(--color-neutral-btn);
+    color: var(--color-surface);
+    }
+ 
+ .btn-delete:hover{
+    background-color: var(--color-delete-btn);
+    color: var(--color-surface);
+    }
+ 
+ .btn-export-import:hover{
+    background-color: var(--color-export-import-btn);
+    color: var(--color-surface);
+    
+ }
+  /* components */
+  /* form*/
+  select.input-base:hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-bg-paper);
+  }
+  .btn-remove-item:hover,
+  .btn-edit-item:hover {
+    transform: scale(1.15);
+  }
+  .btn-remove-item:hover::after,
+  .btn-edit-item:hover::after {
+    opacity: 1;
+  }
+  #filter-box label:hover {
+    color: var(--color-title);
+  }
+
+  /* modals*/
+  #modal-menu-list button:hover {
+    color: var(--color-accent);  
+    transform: scale(1.15);              
+  }
+
+  #modal-recipes-list .recipes-list-class:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-paper); 
+    cursor: pointer;
+  }
+}

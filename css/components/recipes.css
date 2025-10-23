@@ -23,11 +23,7 @@
     cursor: pointer;
   }
 
-  #recipes-list .recipes-list-class:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    background-color: var(--color-bg-paper); 
-  }
+  
   .recipe-thumb {
     width: 5rem;      
     height: 5rem;      
@@ -48,8 +44,8 @@
     line-height: 1.6;
 }
 .recipe-text h3 {
-    display: -webkit-box;            /* necesario para line-clamp */
-    -webkit-line-clamp: 2;           /* máximo 2 líneas */
+    display: -webkit-box;            /* need to line-clamp */
+    -webkit-line-clamp: 2;           /* max 2 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -62,7 +58,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem; /* separación entre paginación y botones */
+    gap: 1.5rem; /* spacing between pagination and buttons */
     margin-top: 2rem;
   }
   

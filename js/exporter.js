@@ -3,7 +3,7 @@
 * Module for exporting and importing recipes in JSON format.
  */
 
-// ----- 🔹 EXPORT RECIPES IN JSON -----
+// -----  EXPORT RECIPES IN JSON -----
 export function exportRecipesToJSON(recipes) {
   try {
     const dataStr = JSON.stringify(recipes, null, 2); // Pretty print with 2 spaces
@@ -20,7 +20,7 @@ export function exportRecipesToJSON(recipes) {
   }
 }
 
-// ----- 🔹 IMPORT RECIPES IN JSON -----
+// -----  IMPORT RECIPES IN JSON -----
 export function importRecipesFromJSON(onImport) {
   const input = document.createElement("input");
   input.type = "file";
