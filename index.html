@@ -143,7 +143,7 @@
                 </div>
 
                 <!--Difficulty level -->
-                <fieldset class="form-group">
+                <fieldset class="form-group" id="difficulty-level">
                     <legend>Nivel de Dificultad:</legend>
                     <input type="radio" id="easy" name="difficulty" value="easy" required>
                     <label for="easy">Fácil</label>
@@ -163,7 +163,7 @@
                     <option value="dessert">Postre</option>
                 </select>
                 <!--Ingredients -->
-                <div class="form-group">
+                <div class="form-group" id="ingredients-form">
                     <label for="ingredient-input">Ingredientes:</label><br>
                     <input type="number" id="quantity-input"  class="input-base" name="quantity-input" class="input-quantity"
                         placeholder="Cantidad" min="0" step="1">
@@ -224,8 +224,10 @@
                 <div class="search-field">
                     <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
                     <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
+                    <div id="second-search-buttons">
                     <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
                     <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter">Mostrar filtros</button>
+                    </div>
                 </div>
                 
                 

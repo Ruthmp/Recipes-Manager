@@ -89,6 +89,8 @@ export function updatePagination(recipesArr){
 export function updateRecipesPerPage(){
     if (window.innerWidth <= 600){
     window.recipesPerPage = 4; 
+    } else if (window.innerWidth <= 900){
+        window.recipesPerPage = 6;
     } else {
     window.recipesPerPage = 8;
     }
@@ -101,4 +103,15 @@ export function isTouchDevice() {
       navigator.maxTouchPoints > 0 ||    // Number of touch points
       navigator.msMaxTouchPoints > 0     // For older IE/Edge
     );
+}
+// -- Function to advice touch users --
+export function updateTableAdvice(){
+    const advice = document.querySelector("table-instructions");
+    if(!advice) return;
+
+    if (isTouchDevice()){
+        advice.innerHTML= '💡 <strong>Consejo:</strong> toca una celda para añadir o editar una receta, y toca prolongadamente para eliminar su contenido.';
+ } else{
+    advice.innerHTML= '💡 <strong>Consejo:</strong> haz clic en una celda para añadir o editar una receta, y <em>doble clic</em> para eliminar su contenido.';
+ }
 }

@@ -44,7 +44,8 @@ import {
   convertImageToBase64,
   updatePagination,
   updateRecipesPerPage,
-  isTouchDevice
+  isTouchDevice,
+  updateTableAdvice
 } from "./helpers.js";
 import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.currentPage = 1;
   updateRecipesPerPage();
+  updateTableAdvice();
 
   let displayedRecipes;
   displayedRecipes = [...recipes];
