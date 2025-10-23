@@ -25,9 +25,9 @@
             <div class="navbar-container" id="navbar-menu">
             <ul>
                 <li><a href="#manage-menu">Menú semanal</a></li>
-                <li><a href="#recipes-form">Añadir receta</a></li>
                 <li><a href="#section-search">Buscar recetas</a></li>
                 <li><a href="#section-list">Lista de recetas</a></li>
+                <li><a href="#recipes-form">Añadir receta</a></li>
             </ul>
         </div>
         </nav>
@@ -114,6 +114,105 @@
     </div>
     </div>
         
+     <!--! Search Recipes -->
+     <section id="section-search">
+        <h1>– Buscar Recetas –</h1>
+
+        <form id="search-form">
+            <div class="search-field">
+                <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
+                <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
+                <div id="second-search-buttons">
+                <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
+                <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter">Mostrar filtros</button>
+                </div>
+            </div>
+            
+            
+            <div id="filter" class="toggle-content ">
+                <label>Filtrar por:</label>
+
+                <div id="filter-box">
+                
+                <!-- Category filter -->
+                <fieldset class="filter-category">
+                    <legend>Categorías:</legend>
+                    <input type="checkbox" id="entrantes" name="category" value="starter">
+                    <label for="entrantes">Entrantes</label><br>
+
+                    <input type="checkbox" id="principal" name="category" value="mainCourse">
+                    <label for="principal">Plato principal</label><br>
+
+                    <input type="checkbox" id="postre" name="category" value="dessert">
+                    <label for="postre">Postre</label>
+                </fieldset>
+
+                <!-- Difficulty filter -->
+                <fieldset class="filter-difficulty">
+                    <legend>Dificultad:</legend>
+                    <input type="checkbox" id="easy-search" name="difficulty" value="easy">
+                    <label for="easy-search">Fácil</label><br>
+
+                    <input type="checkbox" id="medium-search" name="difficulty" value="medium">
+                    <label for="medium-search">Medio</label><br>
+
+                    <input type="checkbox" id="hard-search" name="difficulty" value="hard">
+                    <label for="hard-search">Difícil</label>
+                </fieldset>
+
+                <!-- Time filter -->
+                <fieldset class="filter-time">
+                    <legend>Tiempo de preparación:</legend>
+                    <input type="checkbox" id="time-15" name="time" value="15">
+                    <label for="time-15">15 min</label><br>
+
+                    <input type="checkbox" id="time-30" name="time" value="30">
+                    <label for="time-30">30 min</label><br>
+
+                    <input type="checkbox" id="time-45" name="time" value="45">
+                    <label for="time-45">45 min</label><br>
+
+                    <input type="checkbox" id="time-60" name="time" value="60">
+                    <label for="time-60">60 min</label><br>
+
+                    <input type="checkbox" id="time-90" name="time" value="90">
+                    <label for="time-90">90 min</label><br>
+
+                    <input type="checkbox" id="time-120" name="time" value="120">
+                    <label for="time-120">120 min</label>
+                </fieldset>
+                </div>
+                <!-- Button -->
+                <div class="search-button">
+                    <button type="submit" class="btn btn-main">Aplicar filtros</button>
+                    <button type="button" class="btn btn-delete" id="clear-filters">Limpiar</button>
+                </div>
+            </div>
+
+
+
+        </form>
+    </section>
+
+    <!--! Recipe list -->
+    <section id="section-list">
+        <h1>– Recetas –</h1>
+        <div id="recipes-list"></div>
+        <div id="buttons-list">
+            <div id="pagination">
+                <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
+                <span id="page-info">Página 1</span>
+                <button id="next-page"class="btn btn-main" >Siguiente ▶</button>
+            </div>
+            <div id="export-import">
+        <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
+        <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
+    </div>
+    </div>
+    </section>
+    
+    <div id="recipes-modal" class="hidden"></div>
+
         
         <!--!Form to add recipes -->
         <section id="recipes-form">
@@ -216,104 +315,6 @@
             </form>
         </section>
 
-        <!--! Search Recipes -->
-        <section id="section-search">
-            <h1>– Buscar Recetas –</h1>
-
-            <form id="search-form">
-                <div class="search-field">
-                    <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
-                    <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
-                    <div id="second-search-buttons">
-                    <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
-                    <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter">Mostrar filtros</button>
-                    </div>
-                </div>
-                
-                
-                <div id="filter" class="toggle-content ">
-                    <label>Filtrar por:</label>
-
-                    <div id="filter-box">
-                    
-                    <!-- Category filter -->
-                    <fieldset class="filter-category">
-                        <legend>Categorías:</legend>
-                        <input type="checkbox" id="entrantes" name="category" value="starter">
-                        <label for="entrantes">Entrantes</label><br>
-
-                        <input type="checkbox" id="principal" name="category" value="mainCourse">
-                        <label for="principal">Plato principal</label><br>
-
-                        <input type="checkbox" id="postre" name="category" value="dessert">
-                        <label for="postre">Postre</label>
-                    </fieldset>
-
-                    <!-- Difficulty filter -->
-                    <fieldset class="filter-difficulty">
-                        <legend>Dificultad:</legend>
-                        <input type="checkbox" id="easy-search" name="difficulty" value="easy">
-                        <label for="easy-search">Fácil</label><br>
-
-                        <input type="checkbox" id="medium-search" name="difficulty" value="medium">
-                        <label for="medium-search">Medio</label><br>
-
-                        <input type="checkbox" id="hard-search" name="difficulty" value="hard">
-                        <label for="hard-search">Difícil</label>
-                    </fieldset>
-
-                    <!-- Time filter -->
-                    <fieldset class="filter-time">
-                        <legend>Tiempo de preparación:</legend>
-                        <input type="checkbox" id="time-15" name="time" value="15">
-                        <label for="time-15">15 min</label><br>
-
-                        <input type="checkbox" id="time-30" name="time" value="30">
-                        <label for="time-30">30 min</label><br>
-
-                        <input type="checkbox" id="time-45" name="time" value="45">
-                        <label for="time-45">45 min</label><br>
-
-                        <input type="checkbox" id="time-60" name="time" value="60">
-                        <label for="time-60">60 min</label><br>
-
-                        <input type="checkbox" id="time-90" name="time" value="90">
-                        <label for="time-90">90 min</label><br>
-
-                        <input type="checkbox" id="time-120" name="time" value="120">
-                        <label for="time-120">120 min</label>
-                    </fieldset>
-                    </div>
-                    <!-- Button -->
-                    <div class="search-button">
-                        <button type="submit" class="btn btn-main">Aplicar filtros</button>
-                        <button type="button" class="btn btn-delete" id="clear-filters">Limpiar</button>
-                    </div>
-                </div>
-
-
-
-            </form>
-        </section>
-
-        <!--! Recipe list -->
-        <section id="section-list">
-            <h1>– Recetas –</h1>
-            <div id="recipes-list"></div>
-            <div id="buttons-list">
-                <div id="pagination">
-                    <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
-                    <span id="page-info">Página 1</span>
-                    <button id="next-page"class="btn btn-main" >Siguiente ▶</button>
-                </div>
-                <div id="export-import">
-            <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
-            <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
-        </div>
-        </div>
-        </section>
-        
-        <div id="recipes-modal" class="hidden"></div>
     </div>
     </main>
     <footer>
