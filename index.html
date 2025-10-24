@@ -12,325 +12,324 @@
 
 <body id="top">
     <header>
-       
+
         <nav class="navbar">
             <h1>Gestor de Recetas</h1>
 
             <!-- Burguer menu -->
             <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
                 <i class="fa-solid fa-bars"></i>
-              </button>
+            </button>
 
-              <!--Normal menu-->
+            <!--Normal menu-->
             <div class="navbar-container" id="navbar-menu">
-            <ul>
-                <li><a href="#manage-menu">Menú semanal</a></li>
-                <li><a href="#section-search">Buscar recetas</a></li>
-                <li><a href="#section-list">Lista de recetas</a></li>
-                <li><a href="#recipes-form" class="toggle-link" data-target= "recipes-form">Añadir receta</a></li>
-            </ul>
-        </div>
+                <ul>
+                    <li><a href="#manage-menu">Menú semanal</a></li>
+                    <li><a href="#section-search">Buscar recetas</a></li>
+                    <li><a href="#section-list">Lista de recetas</a></li>
+                    <li><a href="#recipes-form" class="toggle-link" data-target="recipes-form">Añadir receta</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
-        
+
         <img src="img/aguacate.png" alt="Imagen de comida" class="header-image">
-        
-        
+
+
         <!--! Weekly Menu -->
         <div class="section-container" id="app-container">
-        <section id="manage-menu">
-            <h1 class="h1">– Menú Semanal –</h1>
-            <div class="table-wrapper">
-            <table id="weekly-menu">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Lunes</th>
-                        <th>Martes</th>
-                        <th>Miércoles</th>
-                        <th>Jueves</th>
-                        <th>Viernes</th>
-                        <th>Sábado</th>
-                        <th>Domingo</th>
+            <section id="manage-menu">
+                <h1 class="h1">– Menú Semanal –</h1>
+                <div class="table-wrapper">
+                    <table id="weekly-menu">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miércoles</th>
+                                <th>Jueves</th>
+                                <th>Viernes</th>
+                                <th>Sábado</th>
+                                <th>Domingo</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Desayuno</td>
-                        <td class="meal-cell" data-day="Lunes" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Martes" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Miércoles" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Jueves" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Viernes" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Sábado" data-meal="Desayuno"></td>
-                        <td class="meal-cell" data-day="Domingo" data-meal="Desayuno"></td>
-                    </tr>
-                    <tr>
-                        <td>Almuerzo</td>
-                        <td class="meal-cell" data-day="Lunes" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Martes" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Miércoles" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Jueves" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Viernes" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Sábado" data-meal="Almuerzo"></td>
-                        <td class="meal-cell" data-day="Domingo" data-meal="Almuerzo"></td>
-                    </tr>
-                    <tr>
-                        <td>Cena</td>
-                        <td class="meal-cell" data-day="Lunes" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Martes" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Miércoles" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Jueves" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Viernes" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Sábado" data-meal="Cena"></td>
-                        <td class="meal-cell" data-day="Domingo" data-meal="Cena"></td>
-                    </tr>
-                </tbody>
-            </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Desayuno</td>
+                                <td class="meal-cell" data-day="Lunes" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Martes" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Miércoles" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Jueves" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Viernes" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Sábado" data-meal="Desayuno"></td>
+                                <td class="meal-cell" data-day="Domingo" data-meal="Desayuno"></td>
+                            </tr>
+                            <tr>
+                                <td>Almuerzo</td>
+                                <td class="meal-cell" data-day="Lunes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Martes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Miércoles" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Jueves" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Viernes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Sábado" data-meal="Almuerzo"></td>
+                                <td class="meal-cell" data-day="Domingo" data-meal="Almuerzo"></td>
+                            </tr>
+                            <tr>
+                                <td>Cena</td>
+                                <td class="meal-cell" data-day="Lunes" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Martes" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Miércoles" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Jueves" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Viernes" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Sábado" data-meal="Cena"></td>
+                                <td class="meal-cell" data-day="Domingo" data-meal="Cena"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-instructions">
+                    💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,
+                    y <em>doble clic</em> para eliminar su contenido.
+                </p>
+                <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i> Exportar
+                    PDF</button>
+                <button id="clear-table" class="btn btn-delete">Limpiar semana</button>
+
+            </section>
+
+            <!-- Floating Modal form -->
+            <div id="manager-modal" class="hidden">
+                <h2 id="modal-title"></h2>
+                <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
+
+                <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
+                <input type="text" id="modal-search-input" class="input-base" placeholder="Buscar receta..."
+                    style="width:100%; margin-bottom:10px;">
+
+                <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
+                <div id="modal-buttons">
+                    <button id="add-cell" class="btn btn-main">Añadir menú</button>
+                    <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </div>
+
+            <!--! Search Recipes -->
+            <section id="section-search">
+                <h1>– Buscar Recetas –</h1>
+
+                <form id="search-form">
+                    <div class="search-field">
+                        <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
+                        <button type="button" id="btn-search-name"
+                            class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
+                        <div id="second-search-buttons">
+                            <button type="button" id="btn-clear-search"
+                                class="btn btn-cancel no-margin-top">Cancelar</button>
+                            <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter"
+                                data-show-text="Mostrar filtros" data-hide-text="Ocultar filtros">
+                                Mostrar filtros
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div id="filter" class="toggle-content ">
+                        <label>Filtrar por:</label>
+
+                        <div id="filter-box">
+
+                            <!-- Category filter -->
+                            <fieldset class="filter-category">
+                                <legend>Categorías:</legend>
+                                <input type="checkbox" id="entrantes" name="category" value="starter">
+                                <label for="entrantes">Entrantes</label><br>
+
+                                <input type="checkbox" id="principal" name="category" value="mainCourse">
+                                <label for="principal">Plato principal</label><br>
+
+                                <input type="checkbox" id="postre" name="category" value="dessert">
+                                <label for="postre">Postre</label>
+                            </fieldset>
+
+                            <!-- Difficulty filter -->
+                            <fieldset class="filter-difficulty">
+                                <legend>Dificultad:</legend>
+                                <input type="checkbox" id="easy-search" name="difficulty" value="easy">
+                                <label for="easy-search">Fácil</label><br>
+
+                                <input type="checkbox" id="medium-search" name="difficulty" value="medium">
+                                <label for="medium-search">Medio</label><br>
+
+                                <input type="checkbox" id="hard-search" name="difficulty" value="hard">
+                                <label for="hard-search">Difícil</label>
+                            </fieldset>
+
+                            <!-- Time filter -->
+                            <fieldset class="filter-time">
+                                <legend>Tiempo de preparación:</legend>
+                                <input type="checkbox" id="time-15" name="time" value="15">
+                                <label for="time-15">15 min</label><br>
+
+                                <input type="checkbox" id="time-30" name="time" value="30">
+                                <label for="time-30">30 min</label><br>
+
+                                <input type="checkbox" id="time-45" name="time" value="45">
+                                <label for="time-45">45 min</label><br>
+
+                                <input type="checkbox" id="time-60" name="time" value="60">
+                                <label for="time-60">60 min</label><br>
+
+                                <input type="checkbox" id="time-90" name="time" value="90">
+                                <label for="time-90">90 min</label><br>
+
+                                <input type="checkbox" id="time-120" name="time" value="120">
+                                <label for="time-120">120 min</label>
+                            </fieldset>
+                        </div>
+                        <!-- Button -->
+                        <div class="search-button">
+                            <button type="submit" class="btn btn-main">Aplicar filtros</button>
+                            <button type="button" class="btn btn-delete" id="clear-filters">Limpiar</button>
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </section>
+
+            <!--! Recipe list -->
+            <section id="section-list">
+                <h1>– Recetas –</h1>
+                <div id="recipes-list"></div>
+                <div id="buttons-list">
+                    <div id="pagination">
+                        <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
+                        <span id="page-info">Página 1</span>
+                        <button id="next-page" class="btn btn-main">Siguiente ▶</button>
+                    </div>
+                    <div id="export-import">
+                        <button id="exportBtn" class="btn btn-export-import">Exportar recetas</button>
+                        <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
+                        <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="recipes-form"
+                            data-show-text="Añadir receta" data-hide-text="Cerrar formulario">
+                            Añadir receta
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="recipes-modal" class="hidden"></div>
+
+
+            <!--!Form to add recipes -->
+            <section id="recipes-form" class="toggle-content">
+                <h1>– Añadir Recetas –</h1>
+
+                <form id="form-add-recipe">
+
+                    <!--Name -->
+                    <div class="form-group">
+                        <label for="recipe-name">Nombre de la Receta:</label><br>
+                        <input type="text" id="recipe-name" class="input-base" name="recipe-name" class="input-recipe"
+                            placeholder="Introduce el nombre" required>
+                    </div>
+
+                    <!--Time -->
+                    <div class="form-group">
+                        <label for="prep-time">Tiempo de Preparación :</label><br>
+                        <select id="prep-time" class="input-base" name="prep-time" required>
+                            <option value="">Selecciona el Tiempo</option>
+                            <option value="15">15 min</option>
+                            <option value="30">30 min</option>
+                            <option value="45">45 min</option>
+                            <option value="60">60 min</option>
+                            <option value="90">90 min</option>
+                            <option value="120">120 min</option>
+                        </select>
+                    </div>
+
+                    <!--Difficulty level -->
+                    <fieldset class="form-group" id="difficulty-level">
+                        <legend>Nivel de Dificultad:</legend>
+                        <input type="radio" id="easy" name="difficulty" value="easy" required>
+                        <label for="easy">Fácil</label>
+
+                        <input type="radio" id="medium" name="difficulty" value="medium">
+                        <label for="medium">Medio</label>
+
+                        <input type="radio" id="hard" name="difficulty" value="hard">
+                        <label for="hard">Difícil</label>
+                    </fieldset>
+                    <!-- Category -->
+                    <label for="recipe-category">Categoría</label><br>
+                    <select id="recipe-category" class="input-base">
+                        <option value="all">Todas las categorías</option>
+                        <option value="starter">Entrante</option>
+                        <option value="mainCourse">Plato principal</option>
+                        <option value="dessert">Postre</option>
+                    </select>
+                    <!--Ingredients -->
+                    <div class="form-group" id="ingredients-form">
+                        <label for="ingredient-input">Ingredientes:</label><br>
+                        <input type="number" id="quantity-input" class="input-base" name="quantity-input"
+                            class="input-quantity" placeholder="Cantidad" min="0" step="1">
+                        <select id="measure-select" class="input-base" name="measure-select">
+                            <option value="">Medida</option>
+                            <option value="g">g</option>
+                            <option value="kg">kg</option>
+                            <option value="ml">ml</option>
+                            <option value="L">L</option>
+                            <option value="cdita">cdita</option>
+                            <option value="cda">cda</option>
+                            <option value="taza">tza</option>
+                            <option value="onza">oz</option>
+                            <option value="ud">ud</option>
+                            <option value="pizca">pizca</option>
+                            <option value="hoja">hoja</option>
+                            <option value="rama">rama</option>
+                            <option value="trozo">trozo</option>
+                        </select>
+                        <input type="text" id="ingredient-input" class="input-base" name="ingredient-input"
+                            class="input-recipe" placeholder="Añade ingrediente">
+                        <button id="btnAddIngredient" class="btn btn-main" type="button">Añadir</button>
+                        <ul id="ingredient-list" class="list-box"></ul>
+                    </div>
+
+                    <!--Instructions -->
+                    <div class="form-group">
+                        <label for="instructions-input">Pasos:</label><br>
+                        <input type="text" id="instructions-input" class="input-base" name="instructions-input"
+                            class="input-instruction" placeholder="Añade paso">
+                        <button id="btnAddInstruction" class="btn btn-main" type="button">Añadir</button>
+                        <ul id="instructions-list" class="list-box"></ul>
+                    </div>
+
+                    <!--Image-->
+                    <div class="form-group">
+                        <label for="recipe-image">Foto de la receta:</label><br>
+                        <div id="img-container">
+                            <input type="file" id="recipe-image" name="recipe-image" accept="image/*">
+                            <div id="image-preview" class="image-preview">
+                                <button type="button" id="btn-remove-photo" class="btn btn-delete">Eliminar
+                                    foto</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Buttons-->
+                    <div id="form-buttons">
+                        <button type="submit" id="btn-add" class="btn btn-main">Añadir receta</button>
+                        <button type="reset" class="btn btn-cancel">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
         </div>
-            <p class="table-instructions">
-  💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,  
-  y <em>doble clic</em> para eliminar su contenido.
-</p>
-            <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i> Exportar PDF</button>
-            <button id="clear-table"class="btn btn-delete">Limpiar semana</button>
-            
-        </section>
 
-        <!-- Floating Modal form -->
-    <div id="manager-modal" class="hidden">
-        <h2 id="modal-title"></h2>
-        <ul id="modal-menu-list" style="list-style:none; padding:0; margin:0;"></ul>
-        
-        <h3 id="modal-assigned-recipes">Selecciona una receta</h3>
-        <input type="text" id="modal-search-input" class="input-base" placeholder="Buscar receta..." style="width:100%; margin-bottom:10px;">
-        
-        <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
-        <div id="modal-buttons">
-        <button id="add-cell"class="btn btn-main">Añadir menú</button>
-        <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
-    </div>
-    </div>
-        
-     <!--! Search Recipes -->
-     <section id="section-search">
-        <h1>– Buscar Recetas –</h1>
-
-        <form id="search-form">
-            <div class="search-field">
-                <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
-                <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
-                <div id="second-search-buttons">
-                    <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
-                    <button 
-                        type="button" 
-                        class="btn toggle-btn btn-main no-margin-top" 
-                        data-target="filter"
-                        data-show-text = "Mostrar filtros"
-                        data-hide-text = "Ocultar filtros">
-                        Mostrar filtros
-                    </button>
-                </div>
-            </div>
-            
-            
-            <div id="filter" class="toggle-content ">
-                <label>Filtrar por:</label>
-
-                <div id="filter-box">
-                
-                <!-- Category filter -->
-                <fieldset class="filter-category">
-                    <legend>Categorías:</legend>
-                    <input type="checkbox" id="entrantes" name="category" value="starter">
-                    <label for="entrantes">Entrantes</label><br>
-
-                    <input type="checkbox" id="principal" name="category" value="mainCourse">
-                    <label for="principal">Plato principal</label><br>
-
-                    <input type="checkbox" id="postre" name="category" value="dessert">
-                    <label for="postre">Postre</label>
-                </fieldset>
-
-                <!-- Difficulty filter -->
-                <fieldset class="filter-difficulty">
-                    <legend>Dificultad:</legend>
-                    <input type="checkbox" id="easy-search" name="difficulty" value="easy">
-                    <label for="easy-search">Fácil</label><br>
-
-                    <input type="checkbox" id="medium-search" name="difficulty" value="medium">
-                    <label for="medium-search">Medio</label><br>
-
-                    <input type="checkbox" id="hard-search" name="difficulty" value="hard">
-                    <label for="hard-search">Difícil</label>
-                </fieldset>
-
-                <!-- Time filter -->
-                <fieldset class="filter-time">
-                    <legend>Tiempo de preparación:</legend>
-                    <input type="checkbox" id="time-15" name="time" value="15">
-                    <label for="time-15">15 min</label><br>
-
-                    <input type="checkbox" id="time-30" name="time" value="30">
-                    <label for="time-30">30 min</label><br>
-
-                    <input type="checkbox" id="time-45" name="time" value="45">
-                    <label for="time-45">45 min</label><br>
-
-                    <input type="checkbox" id="time-60" name="time" value="60">
-                    <label for="time-60">60 min</label><br>
-
-                    <input type="checkbox" id="time-90" name="time" value="90">
-                    <label for="time-90">90 min</label><br>
-
-                    <input type="checkbox" id="time-120" name="time" value="120">
-                    <label for="time-120">120 min</label>
-                </fieldset>
-                </div>
-                <!-- Button -->
-                <div class="search-button">
-                    <button type="submit" class="btn btn-main">Aplicar filtros</button>
-                    <button type="button" class="btn btn-delete" id="clear-filters">Limpiar</button>
-                </div>
-            </div>
-
-
-
-        </form>
-    </section>
-
-    <!--! Recipe list -->
-    <section id="section-list">
-        <h1>– Recetas –</h1>
-        <div id="recipes-list"></div>
-        <div id="buttons-list">
-            <div id="pagination">
-                <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
-                <span id="page-info">Página 1</span>
-                <button id="next-page"class="btn btn-main" >Siguiente ▶</button>
-            </div>
-            <div id="export-import">
-                <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
-                <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
-                <button 
-                    type="button" 
-                    class="btn toggle-btn btn-main no-margin-top" 
-                    data-target="recipes-form"
-                    data-show-text = "Añadir receta"
-                    data-hide-text = "Cerrar formulario">
-                    Añadir receta
-                </button>
-    </div>
-    </div>
-    </section>
-    
-    <div id="recipes-modal" class="hidden"></div>
-
-        
-        <!--!Form to add recipes -->
-        <section id="recipes-form" class="toggle-content">
-            <h1>– Añadir Recetas –</h1>
-            
-            <form id="form-add-recipe">
-
-                <!--Name -->
-                <div class="form-group">
-                    <label for="recipe-name">Nombre de la Receta:</label><br>
-                    <input type="text" id="recipe-name" class="input-base" name="recipe-name" class="input-recipe"
-                        placeholder="Introduce el nombre" required>
-                </div>
-
-                <!--Time -->
-                <div class="form-group">
-                    <label for="prep-time">Tiempo de Preparación :</label><br>
-                    <select id="prep-time" class="input-base" name="prep-time" required>
-                        <option value="">Selecciona el Tiempo</option>
-                        <option value="15">15 min</option>
-                        <option value="30">30 min</option>
-                        <option value="45">45 min</option>
-                        <option value="60">60 min</option>
-                        <option value="90">90 min</option>
-                        <option value="120">120 min</option>
-                    </select>
-                </div>
-
-                <!--Difficulty level -->
-                <fieldset class="form-group" id="difficulty-level">
-                    <legend>Nivel de Dificultad:</legend>
-                    <input type="radio" id="easy" name="difficulty" value="easy" required>
-                    <label for="easy">Fácil</label>
-
-                    <input type="radio" id="medium" name="difficulty" value="medium">
-                    <label for="medium">Medio</label>
-
-                    <input type="radio" id="hard" name="difficulty" value="hard">
-                    <label for="hard">Difícil</label>
-                </fieldset>
-                <!-- Category -->
-                <label for="recipe-category">Categoría</label><br>
-                <select id="recipe-category" class="input-base">
-                    <option value="all">Todas las categorías</option>
-                    <option value="starter">Entrante</option>
-                    <option value="mainCourse">Plato principal</option>
-                    <option value="dessert">Postre</option>
-                </select>
-                <!--Ingredients -->
-                <div class="form-group" id="ingredients-form">
-                    <label for="ingredient-input">Ingredientes:</label><br>
-                    <input type="number" id="quantity-input"  class="input-base" name="quantity-input" class="input-quantity"
-                        placeholder="Cantidad" min="0" step="1">
-                    <select id="measure-select" class="input-base" name="measure-select">
-                        <option value="">Medida</option>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="ml">ml</option>
-                        <option value="L">L</option>
-                        <option value="cdita">cdita</option>
-                        <option value="cda">cda</option>
-                        <option value="taza">tza</option>
-                        <option value="onza">oz</option>
-                        <option value="ud">ud</option>
-                        <option value="pizca">pizca</option>
-                        <option value="hoja">hoja</option>
-                        <option value="rama">rama</option>
-                        <option value="trozo">trozo</option>
-                    </select>
-                    <input type="text" id="ingredient-input" class="input-base" name="ingredient-input" class="input-recipe"
-                        placeholder="Añade ingrediente">
-                    <button id="btnAddIngredient" class="btn btn-main" type="button">Añadir</button>
-                    <ul id="ingredient-list" class="list-box"></ul>
-                </div>
-
-                <!--Instructions -->
-                <div class="form-group">
-                    <label for="instructions-input">Pasos:</label><br>
-                    <input type="text" id="instructions-input" class="input-base" name="instructions-input" class="input-instruction"
-                        placeholder="Añade paso">
-                    <button id="btnAddInstruction" class="btn btn-main" type="button">Añadir</button>
-                    <ul id="instructions-list" class="list-box"></ul>
-                </div>
-
-                <!--Image-->
-                <div class ="form-group">
-                    <label for="recipe-image">Foto de la receta:</label><br>
-                    <div id="img-container">
-                    <input type="file" id="recipe-image"  name="recipe-image" accept="image/*" >
-                    <div id="image-preview" class="image-preview">
-                    <button type="button" id="btn-remove-photo" class="btn btn-delete">Eliminar foto</button></div>
-                </div>
-                </div>
-
-                <!--Buttons-->
-                <div id="form-buttons">
-                <button type="submit" id="btn-add" class="btn btn-main">Añadir receta</button>
-                <button type="reset" class="btn btn-cancel">Cancelar</button>
-            </div>
-            </form>
-        </section>
-
-    </div>
     </main>
     <footer>
         <p> © 2025 Ruth Millán Piqueras.</p>
@@ -338,6 +337,17 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script type="module" src="js/main.js"></script>
+
+    <!-- Confirmation Modal  -->
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="confirm-message">¿Estás seguro?</p>
+            <div class="modal-buttons">
+                <button id="confirm-yes" class="btn btn-main">Sí</button>
+                <button id="confirm-no" class="btn btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

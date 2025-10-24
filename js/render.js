@@ -29,6 +29,7 @@ import {
 import { saveRecipes } from "./recipes.js";
 import{setEditingScrollTarget} from "./helpers.js"
 import{handleRecipeSelect} from "./table.js"
+import { showConfirmation } from "./modal.js";
 
 /**
  * 
@@ -185,6 +186,9 @@ export function openRecipeModal(recipe) {
 
         // Button delete
         document.getElementById("recipe-delete-btn").addEventListener('click', () => {
+            showConfirmation(
+                '<i class="fa-solid fa-triangle-exclamation" style="color:#e74c3c; margin-right:0.5rem;"></i> ¿Estás seguro de que quieres eliminar esta receta? Esta acción no se puede deshacer.',
+                () => {
             const index = recipes.findIndex(r => r.id === recipe.id);
             if (index > -1) {
                 recipes.splice(index, 1);
@@ -192,6 +196,8 @@ export function openRecipeModal(recipe) {
                 renderRecipesList();
                 recipeModal.classList.add("hidden");
             }
+            }
+        );
         });
 
         // Button edit

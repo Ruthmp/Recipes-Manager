@@ -1,4 +1,13 @@
-import{modalSearchInput, modal, modalTitle, modalMenuList} from "./dom.js"; 
+import{
+    modalSearchInput, 
+    modal, 
+    modalTitle, 
+    modalMenuList,
+    confirmModal,
+    confirmMessage,
+    btnYes,
+    btnNo
+} from "./dom.js"; 
 import{renderCell} from "./render.js";
 
 //! -- Floating Modal form --
@@ -61,4 +70,29 @@ export function showAssignedRecipes(cell){
     li.appendChild(deleteBtn);
     modalMenuList.appendChild(li);
 })
+}
+
+//-- Confirmation modal --
+
+export function showConfirmation (message, onConfirm){
+    confirmMessage.innerHTML = message;
+    confirmModal.classList.remove("hidden");
+
+    //clean listeners
+    btnYes.replaceWith(btnYes.cloneNode(true));
+    btnNo.replaceWith(btnNo.cloneNode(true));
+
+    const newYes = document.getElementById("confirm-yes");
+    const newNo = document.getElementById("confirm-no");
+
+    //Confirm
+    newYes.addEventListener ('click', () => {
+        confirmModal.classList.add("hidden");
+        onConfirm();
+    });
+
+    //Cancel
+    newNo.addEventListener ('click', () => {
+        confirmModal.classList.add("hidden");
+    });
 }

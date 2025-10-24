@@ -77,3 +77,9 @@ export const pageInfo = document.getElementById("page-info");
 //-- Export menu --
 export const table = document.getElementById('weekly-menu');
 export const exportMenuBtn = document.getElementById('export-menu');
+
+//-- Confirmation modal --
+export const confirmModal = document.getElementById("confirm-modal");
+export const confirmMessage = document.getElementById("confirm-message");
+export const btnYes = document.getElementById("confirm-yes");
+export const btnNo = document.getElementById("confirm-no");

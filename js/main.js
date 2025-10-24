@@ -51,7 +51,7 @@ import { getEditingId, setEditingId } from "./recipes.js";
 import { saveRecipes } from "./recipes.js";
 import { searchBy, applyFilters, clearFilters } from "./search.js";
 import { addToCell, clearAllCells, clearCell } from "./table.js";
-import{getSelectedCell, openModal} from "./modal.js"
+import{getSelectedCell, openModal, showConfirmation} from "./modal.js"
 import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
 import { generatePDF } from "./table-export.js";
 
@@ -337,7 +337,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const clearTable = document.getElementById("clear-table");
-  clearTable.addEventListener("click", clearAllCells);
+  clearTable.addEventListener("click", (e) =>{
+    e.preventDefault();
+
+    showConfirmation(
+      '<i class="fa-solid fa-triangle-exclamation" style="color:#e74c3c; margin-right:0.5rem;"></i>¿Estás seguro de que quieres limpiar todo el menú semanal? Esta acción no se puede deshacer.',
+      () => clearAllCells()
+    );
+  });
 
 
   modalSearchInput.addEventListener("input", () => {
