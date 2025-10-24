@@ -27,7 +27,7 @@
                 <li><a href="#manage-menu">Menú semanal</a></li>
                 <li><a href="#section-search">Buscar recetas</a></li>
                 <li><a href="#section-list">Lista de recetas</a></li>
-                <li><a href="#recipes-form">Añadir receta</a></li>
+                <li><a href="#recipes-form" class="toggle-link" data-target= "recipes-form">Añadir receta</a></li>
             </ul>
         </div>
         </nav>
@@ -123,8 +123,15 @@
                 <input type="text" id="search-input" class="input-base" placeholder="Buscar recetas ...">
                 <button type="button" id="btn-search-name" class="btn btn-main no-margin-top fa-solid fa-magnifying-glass "></button>
                 <div id="second-search-buttons">
-                <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
-                <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="filter">Mostrar filtros</button>
+                    <button type="button" id="btn-clear-search" class="btn btn-cancel no-margin-top">Cancelar</button>
+                    <button 
+                        type="button" 
+                        class="btn toggle-btn btn-main no-margin-top" 
+                        data-target="filter"
+                        data-show-text = "Mostrar filtros"
+                        data-hide-text = "Ocultar filtros">
+                        Mostrar filtros
+                    </button>
                 </div>
             </div>
             
@@ -205,8 +212,16 @@
                 <button id="next-page"class="btn btn-main" >Siguiente ▶</button>
             </div>
             <div id="export-import">
-        <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
-        <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
+                <button id="exportBtn"  class="btn btn-export-import">Exportar recetas</button>
+                <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
+                <button 
+                    type="button" 
+                    class="btn toggle-btn btn-main no-margin-top" 
+                    data-target="recipes-form"
+                    data-show-text = "Añadir receta"
+                    data-hide-text = "Cerrar formulario">
+                    Añadir receta
+                </button>
     </div>
     </div>
     </section>
@@ -215,7 +230,7 @@
 
         
         <!--!Form to add recipes -->
-        <section id="recipes-form">
+        <section id="recipes-form" class="toggle-content">
             <h1>– Añadir Recetas –</h1>
             
             <form id="form-add-recipe">

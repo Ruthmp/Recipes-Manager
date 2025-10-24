@@ -220,11 +220,23 @@ document.addEventListener("DOMContentLoaded", () => {
       setEditingId(null);
       clearEditingScrollTarget();
     }
+    //  Close toggle
+    const toggleSection = document.getElementById("recipes-form");
+    if (toggleSection && toggleSection.classList.contains("active")) {
+        toggleSection.classList.remove("active");
+        toggleSection.style.maxHeight = "0px";
+
+        //  Update Button
+        const toggleButton = document.querySelector(`.toggle-btn[data-target="recipes-form"]`);
+        if (toggleButton) {
+            toggleButton.textContent = toggleButton.dataset.showText || "Añadir receta";
+        }
+    }
   });
 
   renderRecipesList();
 
-  //--Toggle filters --
+  //--Toggle filters --(show/hide)
   initToggleButtons();
 
   //-- Search recipes --

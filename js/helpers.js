@@ -49,18 +49,40 @@ export function clearEditingScrollTarget(){
 }
 
 //-- Toggle Buttons --
-export function initToggleButtons (buttonSelector = ".toggle-btn"){
-    const buttons = document.querySelectorAll(buttonSelector);
+export function initToggleButtons (){
+    const elements = document.querySelectorAll(".toggle-btn, .toggle-link");
 
-    buttons.forEach(btn=>{
-        const targetId = btn.dataset.target;
+    elements.forEach(el=>{
+        const targetId = el.dataset.target;
         const target = document.getElementById(targetId);
         if(!target) return;
+        
+        const showText = el.dataset.showText || "Mostrar";
+        const hideText = el.dataset.hideText || "Ocultar";
 
-        btn.addEventListener('click', () => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            //link
+            if (el.classList.contains("toggle-link")){
+                if(!target.classList.contains("active")){
+                    target.classList.add("active");
+                    target.style.maxHeight= target.scrollHeight + "px";
+
+                    const toggleBtn = document.querySelector(`.toggle-btn[data-target="${targetId}"]`);
+                    if (toggleBtn){
+                        toggleBtn.textContent = hideText;
+                    }
+
+                }
+                target.scrollIntoView({behavior: "smooth", block: "start"});
+                return;
+            }
+
+            //Button
             const isActive = target.classList.toggle("active");
             target.style.maxHeight = isActive ? target.scrollHeight + "px" : "";
-            btn.textContent = isActive ? "Ocultar filtros" : "Mostrar filtros";
+            el.textContent = isActive ? hideText : showText;
         });
     });
 }
