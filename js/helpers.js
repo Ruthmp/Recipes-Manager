@@ -75,8 +75,19 @@ export function initToggleButtons (){
                     }
 
                 }
-                target.scrollIntoView({behavior: "smooth", block: "start"});
+                const scrollAfterTransition = () => {
+                    const header = document.querySelector("header");
+                    const offset = header ? header.offsetHeight : 0;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 10;
+            
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                    target.removeEventListener("transitionend", scrollAfterTransition);
+                };
+            
+                target.addEventListener("transitionend", scrollAfterTransition);
+            
                 return;
+                
             }
 
             //Button

@@ -236,6 +236,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderRecipesList();
 
+  //-- Update recipes per page on resize --
+
+  window.addEventListener("resize", () =>{
+    const oldValue = window.recipesPerPage;
+    updateRecipesPerPage();
+
+    if (oldValue !== window.recipesPerPage){
+      window.currentPage = 1;
+      renderRecipesList(displayedRecipes, window.currentPage, false);
+      updatePagination (displayedRecipes);
+    }
+  });
+
   //--Toggle filters --(show/hide)
   initToggleButtons();
 
