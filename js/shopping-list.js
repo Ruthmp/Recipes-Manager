@@ -1,15 +1,18 @@
-import{container, generateListBtn, addManualBtn, manualNameInput, manualQty, manualMeasure} from './dom.js';
+import{generateListBtn, addManualBtn, manualNameInput, manualQty, manualMeasure, shoppingListContainer, manualListContainer} from './dom.js';
 
 let shoppingListTemp = [];
+let manualList = [];
 
 // Save in localStorage
 function saveShoppingList() {
   localStorage.setItem('shoppingListTemp', JSON.stringify(shoppingListTemp));
+  localStorage.setItem('manualList', JSON.stringify(manualList));
 }
 
 // Load from localStorage
 export function loadShoppingList() {
   shoppingListTemp = JSON.parse(localStorage.getItem('shoppingListTemp')) || [];
+  manualList = JSON.parse(localStorage.getItem('manualList')) || [];
   renderShoppingList();
 }
 
@@ -26,7 +29,7 @@ export function generateShoppingList(){
     menuRecipes.forEach(recipe =>{
         recipe.ingredients.forEach(({ingredient, measure, quantity})=>{
             const key = `${ingredient.toLowerCase()}_${measure.toLowerCase()}`;
-            const qty = parseFloat(quantity) || 1;
+            const qty = parseFloat(quantity);
 
             if (!ingredientsMap[key]){
                 ingredientsMap[key] = {
@@ -46,10 +49,11 @@ function getMenuRecipes() {
     const savedMeals = JSON.parse(localStorage.getItem('meals')) || {};
     const recipes = [];
 
+    const allRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
     Object.values(savedMeals).forEach(cell => {
         if (cell.recipes) {
             cell.recipes.forEach(r => {
-                const allRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+                
                 const recipe = allRecipes.find(x => x.id === r.id);
                 if (recipe) recipes.push(recipe);
             });
@@ -62,9 +66,23 @@ function getMenuRecipes() {
 // Render shopping list editing
 function renderShoppingList() {
   
-  container.innerHTML = "";
+    shoppingListContainer.innerHTML = "";
+    manualListContainer.innerHTML = "";
+  
 
+  // Render lista automática
   shoppingListTemp.forEach((item, index) => {
+    renderItem(item, index, shoppingListTemp, shoppingListContainer);
+  });
+
+  // Render lista manual
+  manualList.forEach((item, index) => {
+    renderItem(item, index, manualList, manualListContainer);
+  });
+}
+
+
+function renderItem(item, index, list, container){
     const li = document.createElement("li");
 
     const qty = item.quantity ? parseQuantity(item.quantity) : 1;
@@ -75,16 +93,14 @@ function renderShoppingList() {
     deleteBtn.innerHTML =  '<i class="fa-solid fa-trash"></i>';
     deleteBtn.style.marginLeft = "10px";
     deleteBtn.addEventListener("click", () => {
-      shoppingListTemp.splice(index, 1);
+        list.splice(index, 1);
       saveShoppingList();
       renderShoppingList();
     });
 
     li.appendChild(deleteBtn);
     container.appendChild(li);
-  });
-}
-
+  };
 // Generate list from recipes only when the button is clicked
 generateListBtn.addEventListener("click", () => {
   const newList = generateShoppingList().map(item => ({
@@ -106,7 +122,7 @@ function addManualIngredient(){
 
   if (!name) return;
 
-  shoppingListTemp.push({
+  manualList.push({
     ingredient: name,
     quantity: parseQuantity(qty),
     measure: measure || "ud"
@@ -124,7 +140,7 @@ addManualBtn.addEventListener("click", (e) => {
     e.preventDefault(); 
     addManualIngredient();
 });
-manualNameInput.addEventListener("keypress", (e) => {
+manualNameInput.addEventListener("keydown", (e) => {
     if(e.key === "Enter"){
         e.preventDefault(); 
     addManualIngredient();

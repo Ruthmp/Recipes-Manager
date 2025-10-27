@@ -86,7 +86,10 @@ export const btnNo = document.getElementById("confirm-no");
 
 // -- Shopping list --
 
-export const container = document.getElementById("shoppingList");
+// En tu JS, antes de usarlo
+export const shoppingListContainer = document.getElementById('shoppingList');
+export const manualListContainer = document.getElementById('manualList');
+
 export const generateListBtn = document.getElementById("generateListBtn");
 export const addManualBtn = document.getElementById("addManualBtn");
 export const manualNameInput = document.getElementById("manualName");
