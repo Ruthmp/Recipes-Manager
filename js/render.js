@@ -224,9 +224,22 @@ export function openRecipeModal(recipe) {
             
             recipeModal.classList.add("hidden");
 
-            setTimeout(()=>{
-                form.scrollIntoView({behavior:'smooth', block: 'start'});
-            }, 50)
+            // --- Abrir el toggle si está cerrado ---
+            const target = document.getElementById("recipes-form");
+            const toggleBtn = document.querySelector(`.toggle-btn[data-target="recipes-form"]`);
+            if (!target.classList.contains("active")) {
+                target.classList.add("active");
+                target.style.maxHeight = target.scrollHeight + "px";
+                if (toggleBtn) toggleBtn.textContent = toggleBtn.dataset.hideText || "Ocultar";
+            }
+
+            // --- Scroll después de abrir ---
+            setTimeout(() => {
+                const header = document.querySelector("header");
+                const offset = header ? header.offsetHeight : 0;
+                const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 10;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 300);
         });
     
 }

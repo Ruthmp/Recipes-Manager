@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
-    <title>Recipes Manager</title>
+    <title>Gestor de Recetas</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" href="img/aguacate.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -97,9 +98,45 @@
                 <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i> Exportar
                     PDF</button>
                 <button id="clear-table" class="btn btn-delete">Limpiar semana</button>
-
+                <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="shopping-list"
+                    data-show-text="Mostrar lista" data-hide-text="Ocultar lista">
+                    Mostrar lista
+                </button>
             </section>
+            <!-- Shopping List -->
+            <section id="section-shopping">
+                <div id="shopping-list" class="toggle-content">
+                    <button id="generateListBtn" class="btn btn-main">Generar lista</button>
 
+                    <h1>– Lista de la compra –</h1>
+                    <ul id="shoppingList"></ul>
+
+                    <h3>Añadir ingrediente manual</h3>
+                    
+                    <input type="number" id="manualQty" class="input-base" name="quantity-input"
+                    class="input-quantity" placeholder="Cantidad" min="0" step="1">
+                <select id="manualMeasure" class="input-base" name="measure-select">
+                    <option value="">Medida</option>
+                    <option value="g">g</option>
+                    <option value="kg">kg</option>
+                    <option value="ml">ml</option>
+                    <option value="L">L</option>
+                    <option value="cdita">cdita</option>
+                    <option value="cda">cda</option>
+                    <option value="taza">tza</option>
+                    <option value="onza">oz</option>
+                    <option value="ud">ud</option>
+                    <option value="pizca">pizca</option>
+                    <option value="hoja">hoja</option>
+                    <option value="rama">rama</option>
+                    <option value="trozo">trozo</option>
+                </select>
+                <input type="text" id="manualName" class="input-base" name="ingredient-input"
+                    class="input-recipe" placeholder="Añade ingrediente">
+                    <button id="addManualBtn" class="btn btn-main">Añadir</button>
+
+                </div>
+            </section>
             <!-- Floating Modal form -->
             <div id="manager-modal" class="hidden">
                 <h2 id="modal-title"></h2>
@@ -144,11 +181,14 @@
                             <!-- Category filter -->
                             <fieldset class="filter-category">
                                 <legend>Categorías:</legend>
-                                <input type="checkbox" id="entrantes" name="category" value="starter">
-                                <label for="entrantes">Entrantes</label><br>
+                                <input type="checkbox" id="entrantes" name="category" value="breakfast">
+                                <label for="entrantes">Desayuno</label><br>
 
-                                <input type="checkbox" id="principal" name="category" value="mainCourse">
-                                <label for="principal">Plato principal</label><br>
+                                <input type="checkbox" id="principal" name="category" value="lunch">
+                                <label for="principal">Almuerzo</label><br>
+
+                                <input type="checkbox" id="postre" name="category" value="dinner">
+                                <label for="postre">Cena</label><br>
 
                                 <input type="checkbox" id="postre" name="category" value="dessert">
                                 <label for="postre">Postre</label>
@@ -268,8 +308,9 @@
                     <label for="recipe-category">Categoría</label><br>
                     <select id="recipe-category" class="input-base">
                         <option value="all">Todas las categorías</option>
-                        <option value="starter">Entrante</option>
-                        <option value="mainCourse">Plato principal</option>
+                        <option value="breakfast">Desayuno</option>
+                        <option value="lunch">Almuerzo</option>
+                        <option value="dinner">Cena</option>
                         <option value="dessert">Postre</option>
                     </select>
                     <!--Ingredients -->

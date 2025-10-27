@@ -83,3 +83,12 @@ export const confirmModal = document.getElementById("confirm-modal");
 export const confirmMessage = document.getElementById("confirm-message");
 export const btnYes = document.getElementById("confirm-yes");
 export const btnNo = document.getElementById("confirm-no");
+
+// -- Shopping list --
+
+export const container = document.getElementById("shoppingList");
+export const generateListBtn = document.getElementById("generateListBtn");
+export const addManualBtn = document.getElementById("addManualBtn");
+export const manualNameInput = document.getElementById("manualName");
+export const manualQty = document.getElementById("manualQty");
+export const manualMeasure = document.getElementById("manualMeasure");

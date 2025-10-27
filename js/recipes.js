@@ -12,8 +12,9 @@ export let editingIngredientIndex = null;
 export let editingInstructionIndex = null;
 
 export const categoryLabels ={
-    starter: "Entrante",
-    mainCourse: "Plato principal",
+    breakfast: "Desayuno",
+    lunch: "Almuerzo",
+    dinner: "Cena",
     dessert: "Postre"
 }
 export const dificultyLevelLabel ={
