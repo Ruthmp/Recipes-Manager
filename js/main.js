@@ -27,7 +27,10 @@ import {
   hamburgerBtn,
   navbarMenu,
   icon,
-  manualNameInput
+  manualNameInput,
+  shareWhatsAppBtn,
+  copyListBtn,
+  shareSystemBtn
 } from "./dom.js";
 import { currentIngredients, currentInstructions, recipes } from "./recipes.js";
 import {
@@ -55,7 +58,7 @@ import { addToCell, clearAllCells, clearCell } from "./table.js";
 import{getSelectedCell, openModal, showConfirmation} from "./modal.js"
 import { exportRecipesToJSON, importRecipesFromJSON } from "./exporter.js";
 import { generatePDF } from "./table-export.js";
-import{loadShoppingList} from "./shopping-list.js";
+import{loadShoppingList, clearShoppingList, shareShoppingListWhatsApp, copyShoppingListToClipboard, shareShoppingListSystem} from "./shopping-list.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -362,7 +365,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showConfirmation(
       '<i class="fa-solid fa-triangle-exclamation" style="color:#e74c3c; margin-right:0.5rem;"></i>¿Estás seguro de que quieres limpiar todo el menú semanal? Esta acción no se puede deshacer.',
-      () => clearAllCells()
+      () => {
+        clearAllCells();
+        clearShoppingList();
+      }
     );
   });
 
@@ -450,4 +456,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   //!-- Export menu to PDF --
   exportMenuBtn.addEventListener('click', generatePDF);
+
+  //!-- export shopping list --
+
+  shareWhatsAppBtn.addEventListener("click", () =>{
+    shareShoppingListWhatsApp();
+  });
+  copyListBtn.addEventListener("click", () =>{
+    copyShoppingListToClipboard();
+  });
+
+  shareSystemBtn.addEventListener("click", () =>{
+    shareShoppingListSystem();
+  });
 });

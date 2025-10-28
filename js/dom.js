@@ -86,7 +86,6 @@ export const btnNo = document.getElementById("confirm-no");
 
 // -- Shopping list --
 
-// En tu JS, antes de usarlo
 export const shoppingListContainer = document.getElementById('shoppingList');
 export const manualListContainer = document.getElementById('manualList');
 
@@ -95,3 +94,7 @@ export const addManualBtn = document.getElementById("addManualBtn");
 export const manualNameInput = document.getElementById("manualName");
 export const manualQty = document.getElementById("manualQty");
 export const manualMeasure = document.getElementById("manualMeasure");
+
+export const copyListBtn = document.getElementById("copy-list");
+export const shareWhatsAppBtn = document.getElementById("share-whatsapp");
+export const shareSystemBtn = document.getElementById("share-system");

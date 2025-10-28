@@ -147,4 +147,71 @@ manualNameInput.addEventListener("keydown", (e) => {
     }
 });
 
+// Clear lists
 
+export function clearShoppingList(){
+  shoppingListTemp = [];
+  manualList = [];
+  saveShoppingList();
+  renderShoppingList();
+}
+
+// -- Export shopping list --
+// Export Text
+function getShoppingListText(){
+  const fullList = [...shoppingListTemp, ...manualList];
+  if (fullList.length === 0){
+    alert("La lista de la compra está vacía.");
+    return null;
+  } 
+
+  const text = fullList
+  .map(item => `🔸${item.ingredient} : ${item.quantity} ${item.measure}`)
+  .join('\n');
+
+  return "🛒 *Lista de la compra:*\n" + text;
+}
+
+// Whatsapp export
+
+export function shareShoppingListWhatsApp(){
+  const text = getShoppingListText();
+  if (!text) return;
+
+  const encodedText = encodeURIComponent(text);
+ 
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const url = isMobile
+    ? `https://wa.me/?text=${encodedText}`
+    : `https://web.whatsapp.com/send?text=${encodedText}`;
+
+    window.open(url, '_blank');
+}
+
+// Copy to clipboard
+
+export function copyShoppingListToClipboard(){
+  const text = getShoppingListText();
+  if (!text) return;
+
+  navigator.clipboard.writeText(text)
+  .then(() => alert ("✅ Lista copiada al portapapeles"))
+  .catch(() => alert ("❌ Error al copiar la lista"));
+}
+
+// Share with system
+ export async function shareShoppingListSystem(){
+  const text = getShoppingListText();
+  if (!text) return;
+
+  if(navigator.share){
+    try{
+      await navigator.share({title: "Lista de la compra", text});
+    } catch (error){
+      console.log("Error al compartir:", error);
+      alert ("❌ Error al compartir la lista");
+    }
+  }else {
+    alert ("❌ Compartir no es compatible con este navegador");
+  }
+ }
