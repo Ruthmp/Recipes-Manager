@@ -208,21 +208,7 @@
   margin-top: 0.5rem;
 }
 
-.search-button .btn {
-  padding: 0.5rem 1.25rem;
-  font-size: 0.9rem;
-}
-#search-form .search-field {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent */
-  border-radius: var(--radius-md);
-  padding: 0.25rem 0.5rem; /* Thin line */
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transform: scale(0.95);
-}
+
 #search-input {
   flex: 1 1 200px;
   width: 12rem;

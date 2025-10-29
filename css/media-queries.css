@@ -18,6 +18,13 @@
   #section-list{
     padding-top: 8rem;
   }
+  #shoppingList li,
+  #manualList li {
+        
+    padding-left: 0;     
+   
+  }
+ 
 }
 
 @media (max-width: 600px){
@@ -100,6 +107,25 @@
     margin-top: 0;
     gap:0.3rem;
   }
+
+  /* shopping list */
+  #shoppingList,
+  #manualList {
+    column-count: 1;  
+  }
+  #manualQty{
+    width: 40%;
+  }
+  #manualMeasure{
+    width: 50%;
+  }
+  #manualName{
+    width: 65%;
+  }
+  #manual-ingredient-form{
+    flex-wrap:wrap;
+  }
+
   
 }
 
@@ -217,4 +243,10 @@
     color: var(--color-bg-paper); 
     cursor: pointer;
   }
+  /* shopping list */
+  #shopping-list-recipes:hover,
+#shopping-list-others:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.25);
+}
 }

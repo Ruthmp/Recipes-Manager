@@ -95,7 +95,7 @@
                     💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,
                     y <em>doble clic</em> para eliminar su contenido.
                 </p>
-                <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i> Exportar
+                <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i>
                     PDF</button>
                 <button id="clear-table" class="btn btn-delete">Limpiar semana</button>
                 <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="shopping-list"
@@ -106,46 +106,67 @@
             <!-- Shopping List -->
             <section id="section-shopping">
                 <div id="shopping-list" class="toggle-content">
-                    <div id="shopping-list-recipes">
-                        <button id="generateListBtn" class="btn btn-main">Generar lista</button>
-                        <h1>– Lista de la compra –</h1>
-                        <h3>Ingredientes Recetas</h3>
-                        <ul id="shoppingList"></ul>
+                    <h1>– Lista de la compra –</h1>
+                    <p class="table-instructions">
+                        💡 <strong>Consejo:</strong><em> Generar lista</em> crea la lista a partir de las recetas ya guardadas.  
+                        También puedes añadir ingredientes manualmente para las recetas que no hayas guardado.
+                      </p>
+                    </p>
+                    <div id="shopping-list-container" class="ingredient-bar">
                     </div>
-                    <div id="shopping-list-others">
-                        <h3>Otros Ingredientes</h3>
-                        <ul id="manualList"></ul>
+                    <div class="columns">
+                        <article id="shopping-list-auto">
+                            <div class="auto-buttons-row">
+                            <button id="generateListBtn" class="btn btn-main" aria-label="Generar lista">Generar lista</button>
+                            <div id="share-buttons">
+                                <button id="copy-list" class="btn btn-export-import" title="Copiar"><i class="fa-regular fa-copy"></i>
+                                    </button>
+                                <button id="share-whatsapp" class="btn btn-export-import" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i>
+                                    </button>
+                                <button id="share-system" class="btn btn-export-import" title="Compartir"><i class="fa-solid fa-share-from-square"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="shopping-list-recipes">
 
-                        <h3>Añadir ingrediente manual</h3>
 
-                        <input type="number" id="manualQty" class="input-base" name="quantity-input"
-                            class="input-quantity" placeholder="Cantidad" min="0" step="1">
-                        <select id="manualMeasure" class="input-base" name="measure-select">
-                            <option value="">Medida</option>
-                            <option value="g">g</option>
-                            <option value="kg">kg</option>
-                            <option value="ml">ml</option>
-                            <option value="L">L</option>
-                            <option value="cdita">cdita</option>
-                            <option value="cda">cda</option>
-                            <option value="taza">tza</option>
-                            <option value="onza">oz</option>
-                            <option value="ud">ud</option>
-                            <option value="pizca">pizca</option>
-                            <option value="hoja">hoja</option>
-                            <option value="rama">rama</option>
-                            <option value="trozo">trozo</option>
-                        </select>
-                        <input type="text" id="manualName" class="input-base" name="ingredient-input"
-                            class="input-recipe" placeholder="Añade ingrediente">
-                        <button id="addManualBtn" class="btn btn-main">Añadir</button>
+                                <h3>Ingredientes Recetas</h3>
+                                <ul id="shoppingList" class="shoppingList-class"></ul>
+                            </div>
+                        </article>
+                        <article id="shopping-list-manual">
+                            <form id="manual-ingredient-form" class="ingredient-inputs search-field">
+                                <input type="number" id="manualQty" class="input-base" name="quantity-input"
+                                    placeholder="Cantidad" min="0" step="1" title="Cantidad">
+                                <select id="manualMeasure" class="input-base" name="measure-select">
+                                    <option value="">Medida</option>
+                                    <option value="g">g</option>
+                                    <option value="kg">kg</option>
+                                    <option value="ml">ml</option>
+                                    <option value="L">L</option>
+                                    <option value="cdita">cdita</option>
+                                    <option value="cda">cda</option>
+                                    <option value="taza">tza</option>
+                                    <option value="onza">oz</option>
+                                    <option value="ud">ud</option>
+                                    <option value="pizca">pizca</option>
+                                    <option value="hoja">hoja</option>
+                                    <option value="rama">rama</option>
+                                    <option value="trozo">trozo</option>
+                                </select>
+                                <input type="text" id="manualName" class="input-base" name="ingredient-input"
+                                    placeholder="Ingrediente">
+                                <button id="addManualBtn" class="btn btn-main">Añadir</button>
+                            </form>
+                            <div id="shopping-list-others">
+
+                                <h3>Otros Ingredientes</h3>
+                                <ul id="manualList" class="shoppingList-class"></ul>
+                            </div>
+                        </article>
                     </div>
-                    <div class="share-buttons">
-                        <button id="copy-list" class="btn btn-main"><i class="fa-regular fa-copy"></i> Copiar</button>
-                        <button id="share-whatsapp" class="btn btn-main"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
-                        <button id="share-system" class="btn btn-main"><i class="fa-solid fa-share-from-square"></i> Compartir</button>
-                      </div>
-                      
+                    
+
                 </div>
             </section>
             <!-- Floating Modal form -->
