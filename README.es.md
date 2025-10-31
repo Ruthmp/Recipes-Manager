@@ -27,6 +27,48 @@ Además, ofrece la opción de descargar el organizador semanal en formato PDF, f
 
 ## 📁 Estructura del Proyecto
 
+## 📁 Estructura del Proyecto
+
+```bash
+/recipes/                     ← 📂 Carpeta raíz del proyecto
+│
+├── index.html                ← 🌐 Página principal de la aplicación
+│
+├── css/                      ← 🎨 Carpeta de estilos
+│   ├── base.css              ← Estilos base y tipografías
+│   ├── components.css        ← Estilos generales para componentes
+│   ├── layout.css            ← Estructura y distribución de la página
+│   ├── media-queries.css     ← Estilos responsivos
+│   ├── reset.css             ← Reset de estilos del navegador
+│   ├── style.css             ← Estilos principales globales
+│   ├── utilities.css         ← Clases utilitarias 
+│   ├── variables.css         ← Variables CSS (colores, tipografías, tamaños)
+│   └── components/           ← Estilos de componentes individuales
+│       ├── form.css          ← Formularios de recetas
+│       ├── header.css        ← Header de la página
+│       ├── modals.css        ← Ventanas modales
+│       ├── navbar.css        ← Barra de navegación
+│       ├── recipes.css       ← Visualización de recetas
+│       ├── shoppingList.css  ← Lista de la compra
+│       ├── table.css         ← Planificador semanal
+│       └── toggle.css        ← Botones de alternancia y temas
+│
+├── js/                       ← 💻 Carpeta de scripts
+│   ├── main.js               ← Lógica principal de la aplicación
+│   ├── dom.js                ← Manipulación del DOM
+│   ├── exporter.js           ← Exportación a JSON
+│   ├── helpers.js            ← Funciones auxiliares
+│   ├── modal.js              ← Gestión de modales
+│   ├── recipes.js            ← Gestión de recetas (CRUD)
+│   ├── render.js             ← Renderizado dinámico de contenido
+│   ├── search.js             ← Búsqueda y filtrado de recetas
+│   ├── shopping-list.js      ← Gestión de la lista de la compra
+│   ├── table-export.js       ← Exportación del planificador semanal
+│   └── table.js              ← Lógica del planificador de comidas
+│
+└── img/                      ← 🖼️ Imágenes, fondos y elementos gráficos
+```
+
 ## ⚙️ Funcionalidades
 
 - 🧾 **Formulario para añadir recetas** con nombre, ingredientes, pasos y tiempo de preparación  
@@ -85,8 +127,12 @@ Además, ofrece la opción de descargar el organizador semanal en formato PDF, f
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 44 49" src="https://github.com/user-attachments/assets/899d0536-d2af-4ee8-9385-bf1f8ad43a27" />
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 45 21" src="https://github.com/user-attachments/assets/9ae54545-0073-40e7-82fd-6d9093e6ea1b" />
 
+## 🚀 Mejoras Previstas
 
-
+- 🌐 **Soporte multilenguaje completo** para que los usuarios puedan elegir su idioma  
+- 🔒 **Backend y gestión de usuarios** con inicio de sesión y sesiones seguras  
+- 💾 **Base de datos centralizada** para almacenar recetas, planificaciones y preferencias de cada usuario  
+- 🤝 **Compartir recetas entre usuarios** para crear una comunidad y facilitar la colaboración    
 
 ## 🎨 Créditos
 
