@@ -29,15 +29,73 @@ You can also download the weekly planner as a PDF, making meal organization and 
 
 ## ⚙️ Features
 
+- 🧾 **Recipe submission form** with fields for name, ingredients, steps, and preparation time  
+- 🖼️ **Option to add an image** for each recipe to make them more visual and appealing  
+- 🔍 **Advanced search and filtering** to find recipes by name, category, or ingredients  
+- 📋 **Recipe display** with detailed information and organized layout  
+- 🗓️ **Weekly meal planner** to easily organize meals throughout the week  
+- 🛒 **Automatic shopping list generation** based on selected recipes  
+- 📱 **Share shopping list via WhatsApp or other apps** for easier coordination  
+- 📤 **Recipe export and import** in JSON format for backup purposes  
+- 🧾 **Download weekly planner as PDF** with a clean and structured layout  
+- 💾 **Local data storage** using `localStorage` to save recipes and planner data  
+- 🌐 **Modern, clean, and responsive design** optimized for all devices
+
 ## ✨ Main JavaScript Functions
+
+| Function                          | Purpose |
+| --------------------------------- | -------- |
+| `addIngredientFromInput()`        | Adds a new ingredient from the input field |
+| `addInstructionFromInput()`       | Adds a cooking instruction dynamically |
+| `renderRecipesList()`             | Displays the recipe list with pagination |
+| `renderRecipesNamesList()`        | Renders recipe names in the modal for quick selection |
+| `searchBy()`                      | Searches recipes by name or keyword |
+| `applyFilters()`                  | Filters recipes by category, difficulty, or time |
+| `resetForm()`                     | Clears and resets all form fields |
+| `saveRecipes()`                   | Saves recipes in `localStorage` for persistence |
+| `convertImageToBase64()`          | Converts uploaded images to Base64 format |
+| `exportRecipesToJSON()`           | Exports all recipes to a JSON file (backup) |
+| `importRecipesFromJSON()`         | Imports recipes from a JSON file |
+| `generatePDF()`                   | Exports the weekly menu to a PDF file |
+| `addToCell()`                     | Adds a recipe to a cell in the weekly planner |
+| `clearAllCells()`                 | Clears all cells in the weekly planner |
+| `shareShoppingListWhatsApp()`     | Shares the shopping list via WhatsApp |
+| `copyShoppingListToClipboard()`   | Copies the shopping list to the clipboard |
+| `shareShoppingListSystem()`       | Shares the shopping list through the system share menu |
+
+---
 
 ## 📃 Advanced Features
 
+* Modular architecture — organized into multiple JS modules (`helpers.js`, `recipes.js`, `render.js`, `table.js`, etc.)
+* Persistent data storage using `localStorage`
+* JSON import/export for recipe backup and recovery
+* Weekly meal planner with interactive recipe assignment
+* Real-time search and advanced filtering system
+* PDF generation for the weekly menu with `jsPDF`
+* Image upload, preview, and removal support for each recipe
+* Responsive interface with adaptive pagination
+* Accessible controls via keyboard, mouse, and touch interactions
+* Smooth scroll navigation and mobile-friendly hamburger menu
+
 ## 📷 Preview
+
+<img width="800" alt="Captura de pantalla 2025-10-31 a las 10 43 46" src="https://github.com/user-attachments/assets/2e4d68bd-5e43-48eb-b366-3203f8efb50f" />
+<img width="800" alt="Captura de pantalla 2025-10-31 a las 10 44 34" src="https://github.com/user-attachments/assets/94d5c136-9b87-44c3-8305-d4b954a85866" />
+<img width="800" alt="Captura de pantalla 2025-10-31 a las 10 44 49" src="https://github.com/user-attachments/assets/899d0536-d2af-4ee8-9385-bf1f8ad43a27" />
+<img width="800" alt="Captura de pantalla 2025-10-31 a las 10 45 21" src="https://github.com/user-attachments/assets/9ae54545-0073-40e7-82fd-6d9093e6ea1b" />
+
 
 ## 🎨 Credits
 
+* Main background modified from an image by [Freepik](https://www.freepik.es/foto-gratis/marco-plano-pasta-e-ingredientes-crudos_6080829.htm).  
+* Additional notebook element cropped from [Freepik](https://www.freepik.es/foto-gratis/vista-superior-surtido-verduras-portapapeles_12418251.htm).  
+* Icons provided by [Font Awesome](https://fontawesome.com/).  
+* Project fully developed using HTML, CSS, and JavaScript.  
+
 ## 📅 Last Update
+
+**October 2025**
 
 ## 👤 Author
 
