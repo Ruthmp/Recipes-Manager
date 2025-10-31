@@ -23,10 +23,8 @@ Además, ofrece la opción de descargar el organizador semanal en formato PDF, f
 - **JavaScript (ES6+)** — lógica principal y gestión dinámica del DOM  
 - **JSON** — exportación e importación de recetas como copia de seguridad  
 - **[jsPDF](https://github.com/parallax/jsPDF)** — generación del organizador semanal en PDF  
-- **[Font Awesome](https://fontawesome.com/)** — iconografía utilizada en la interfaz  
-
-## 📁 Estructura del Proyecto
-
+- **[Font Awesome](https://fontawesome.com/)** — iconografía utilizada en la interfaz
+  
 ## 📁 Estructura del Proyecto
 
 ```bash
