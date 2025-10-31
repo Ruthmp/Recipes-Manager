@@ -33,7 +33,7 @@
   }
   
   /* === First column (Desayuno / Almuerzo / Cena) === */
-  #weekly-menu tbody td:first-child {
+  th {
     background: var(--color-surface-alt);
     font-weight: 600;
     color: var(--color-title);

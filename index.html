@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
+    <meta name="description" content="Gestor de recetas: crea tu menú semanal, genera lista de la compra y exporta en PDF.">
     <title>Gestor de Recetas</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="icon" href="img/aguacate.png" type="image/png">
@@ -18,7 +19,7 @@
             <h1>Gestor de Recetas</h1>
 
             <!-- Burguer menu -->
-            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+            <button type="button" class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -41,7 +42,7 @@
         <!--! Weekly Menu -->
         <div class="section-container" id="app-container">
             <section id="manage-menu">
-                <h1 class="h1">– Menú Semanal –</h1>
+                <h2 class="h1">– Menú Semanal –</h2>
                 <div class="table-wrapper">
                     <table id="weekly-menu">
                         <thead>
@@ -59,45 +60,45 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Desayuno</td>
-                                <td class="meal-cell" data-day="Lunes" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Martes" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Miércoles" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Jueves" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Viernes" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Sábado" data-meal="Desayuno"></td>
-                                <td class="meal-cell" data-day="Domingo" data-meal="Desayuno"></td>
+                                <th scope="row">Desayuno</th>
+                                <td class="meal-cell"  tabindex="0" data-day="Lunes" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Martes" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Miércoles" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Jueves" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Viernes" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Sábado" data-meal="Desayuno"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Domingo" data-meal="Desayuno"></td>
                             </tr>
                             <tr>
-                                <td>Almuerzo</td>
-                                <td class="meal-cell" data-day="Lunes" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Martes" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Miércoles" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Jueves" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Viernes" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Sábado" data-meal="Almuerzo"></td>
-                                <td class="meal-cell" data-day="Domingo" data-meal="Almuerzo"></td>
+                                <th scope="row">Almuerzo</th>
+                                <td class="meal-cell"  tabindex="0" data-day="Lunes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Martes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Miércoles" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Jueves" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Viernes" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Sábado" data-meal="Almuerzo"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Domingo" data-meal="Almuerzo"></td>
                             </tr>
                             <tr>
-                                <td>Cena</td>
-                                <td class="meal-cell" data-day="Lunes" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Martes" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Miércoles" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Jueves" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Viernes" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Sábado" data-meal="Cena"></td>
-                                <td class="meal-cell" data-day="Domingo" data-meal="Cena"></td>
+                                <th scope="row">Cena</th>
+                                <td class="meal-cell"  tabindex="0" data-day="Lunes" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Martes" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Miércoles" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Jueves" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Viernes" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Sábado" data-meal="Cena"></td>
+                                <td class="meal-cell"  tabindex="0" data-day="Domingo" data-meal="Cena"></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table>    
                 </div>
                 <p class="table-instructions">
                     💡 <strong>Consejo:</strong> haz <em>clic</em> en una celda para añadir o editar una receta,
                     y <em>doble clic</em> para eliminar su contenido.
                 </p>
-                <button id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i>
+                <button type="button" id="export-menu" class="btn btn-export-import"><i class="fas fa-file-download"></i>
                     PDF</button>
-                <button id="clear-table" class="btn btn-delete">Limpiar semana</button>
+                <button type="button" id="clear-table" class="btn btn-delete">Limpiar semana</button>
                 <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="shopping-list"
                     data-show-text="Mostrar lista" data-hide-text="Ocultar lista">
                     Mostrar lista
@@ -106,24 +107,23 @@
             <!-- Shopping List -->
             <section id="section-shopping">
                 <div id="shopping-list" class="toggle-content">
-                    <h1>– Lista de la compra –</h1>
+                    <h2 class="h1">– Lista de la compra –</h2>
                     <p class="table-instructions">
                         💡 <strong>Consejo:</strong><em> Generar lista</em> crea la lista a partir de las recetas ya guardadas.  
                         También puedes añadir ingredientes manualmente para las recetas que no hayas guardado.
                       </p>
-                    </p>
                     <div id="shopping-list-container" class="ingredient-bar">
                     </div>
                     <div class="columns">
                         <article id="shopping-list-auto">
                             <div class="auto-buttons-row">
-                            <button id="generateListBtn" class="btn btn-main" aria-label="Generar lista">Generar lista</button>
+                            <button type="button" id="generateListBtn" class="btn btn-main" aria-label="Generar lista">Generar lista</button>
                             <div id="share-buttons">
-                                <button id="copy-list" class="btn btn-export-import" title="Copiar"><i class="fa-regular fa-copy"></i>
+                                <button type="button" id="copy-list" class="btn btn-export-import" title="Copiar"><i class="fa-regular fa-copy"></i><span class="sr-only">Copiar</span>
                                     </button>
-                                <button id="share-whatsapp" class="btn btn-export-import" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i>
+                                <button type="button" id="share-whatsapp" class="btn btn-export-import" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i>
                                     </button>
-                                <button id="share-system" class="btn btn-export-import" title="Compartir"><i class="fa-solid fa-share-from-square"></i>
+                                <button type="button" id="share-system" class="btn btn-export-import" title="Compartir"><i class="fa-solid fa-share-from-square"></i>
                                     </button>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                 </select>
                                 <input type="text" id="manualName" class="input-base" name="ingredient-input"
                                     placeholder="Ingrediente">
-                                <button id="addManualBtn" class="btn btn-main">Añadir</button>
+                                <button type="button" id="addManualBtn" class="btn btn-main">Añadir</button>
                             </form>
                             <div id="shopping-list-others">
 
@@ -180,14 +180,14 @@
 
                 <ul id="modal-recipes-list" style="list-style:none; padding:0; margin:0;"></ul>
                 <div id="modal-buttons">
-                    <button id="add-cell" class="btn btn-main">Añadir menú</button>
-                    <button id="cancel-modal" class="btn btn-cancel">Cancelar</button>
+                    <button type="button" id="add-cell" class="btn btn-main">Añadir menú</button>
+                    <button type="button" id="cancel-modal" class="btn btn-cancel">Cancelar</button>
                 </div>
             </div>
 
             <!--! Search Recipes -->
             <section id="section-search">
-                <h1>– Buscar Recetas –</h1>
+                <h2 class="h1">– Buscar Recetas –</h2>
 
                 <form id="search-form">
                     <div class="search-field">
@@ -219,7 +219,7 @@
                                 <input type="checkbox" id="principal" name="category" value="lunch">
                                 <label for="principal">Almuerzo</label><br>
 
-                                <input type="checkbox" id="postre" name="category" value="dinner">
+                                <input type="checkbox" id="cena" name="category" value="dinner">
                                 <label for="postre">Cena</label><br>
 
                                 <input type="checkbox" id="postre" name="category" value="dessert">
@@ -275,17 +275,17 @@
 
             <!--! Recipe list -->
             <section id="section-list">
-                <h1>– Recetas –</h1>
+                <h2 class="h1">– Recetas –</h2>
                 <div id="recipes-list"></div>
                 <div id="buttons-list">
                     <div id="pagination">
-                        <button id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
+                        <button type="button" id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
                         <span id="page-info">Página 1</span>
-                        <button id="next-page" class="btn btn-main">Siguiente ▶</button>
+                        <button type="button" id="next-page" class="btn btn-main">Siguiente ▶</button>
                     </div>
                     <div id="export-import">
-                        <button id="exportBtn" class="btn btn-export-import">Exportar recetas</button>
-                        <button id="importBtn" class="btn btn-export-import">Importar recetas</button>
+                        <button type="button" id="exportBtn" class="btn btn-export-import">Exportar recetas</button>
+                        <button type="button" id="importBtn" class="btn btn-export-import">Importar recetas</button>
                         <button type="button" class="btn toggle-btn btn-main no-margin-top" data-target="recipes-form"
                             data-show-text="Añadir receta" data-hide-text="Cerrar formulario">
                             Añadir receta
@@ -299,14 +299,14 @@
 
             <!--!Form to add recipes -->
             <section id="recipes-form" class="toggle-content">
-                <h1>– Añadir Recetas –</h1>
+                <h2 class="h1">– Añadir Recetas –</h2>
 
                 <form id="form-add-recipe">
 
                     <!--Name -->
                     <div class="form-group">
                         <label for="recipe-name">Nombre de la Receta:</label><br>
-                        <input type="text" id="recipe-name" class="input-base" name="recipe-name" class="input-recipe"
+                        <input type="text" id="recipe-name" class="input-base input-recipe" name="recipe-name"
                             placeholder="Introduce el nombre" required>
                     </div>
 
@@ -348,8 +348,8 @@
                     <!--Ingredients -->
                     <div class="form-group" id="ingredients-form">
                         <label for="ingredient-input">Ingredientes:</label><br>
-                        <input type="number" id="quantity-input" class="input-base" name="quantity-input"
-                            class="input-quantity" placeholder="Cantidad" min="0" step="1">
+                        <input type="number" id="quantity-input" class="input-base input-quantity" name="quantity-input"
+                            placeholder="Cantidad" min="0" step="1">
                         <select id="measure-select" class="input-base" name="measure-select">
                             <option value="">Medida</option>
                             <option value="g">g</option>
@@ -366,17 +366,17 @@
                             <option value="rama">rama</option>
                             <option value="trozo">trozo</option>
                         </select>
-                        <input type="text" id="ingredient-input" class="input-base" name="ingredient-input"
-                            class="input-recipe" placeholder="Añade ingrediente">
-                        <button id="btnAddIngredient" class="btn btn-main" type="button">Añadir</button>
+                        <input type="text" id="ingredient-input" class="input-base input-recipe" name="ingredient-input"
+                            placeholder="Añade ingrediente">
+                        <button type="button" id="btnAddIngredient" class="btn btn-main">Añadir</button>
                         <ul id="ingredient-list" class="list-box"></ul>
                     </div>
 
                     <!--Instructions -->
                     <div class="form-group">
                         <label for="instructions-input">Pasos:</label><br>
-                        <input type="text" id="instructions-input" class="input-base" name="instructions-input"
-                            class="input-instruction" placeholder="Añade paso">
+                        <input type="text" id="instructions-input" class="input-base input-instruction" name="instructions-input"
+                            placeholder="Añade paso">
                         <button id="btnAddInstruction" class="btn btn-main" type="button">Añadir</button>
                         <ul id="instructions-list" class="list-box"></ul>
                     </div>
@@ -404,9 +404,12 @@
         </div>
 
     </main>
-    <footer>
+    <footer class="credits">
         <p> © 2025 Ruth Millán Piqueras.</p>
-        <div id="footer-info"></div>
+        <p>Fondos modificados a partir de imágenes de 
+            <a href="https://www.freepik.es/foto-gratis/marco-plano-pasta-e-ingredientes-crudos_6080829.htm" target="_blank">Freepik (1)</a> y 
+            <a href="https://www.freepik.es/foto-gratis/vista-superior-surtido-verduras-portapapeles_12418251.htm" target="_blank">Freepik (2)</a> · 
+            Iconos de <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>.
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script type="module" src="js/main.js"></script>
@@ -416,8 +419,8 @@
         <div class="modal-content">
             <p id="confirm-message">¿Estás seguro?</p>
             <div class="modal-buttons">
-                <button id="confirm-yes" class="btn btn-main">Sí</button>
-                <button id="confirm-no" class="btn btn-cancel">Cancelar</button>
+                <button type="button" id="confirm-yes" class="btn btn-main">Sí</button>
+                <button type="button" id="confirm-no" class="btn btn-cancel">Cancelar</button>
             </div>
         </div>
     </div>

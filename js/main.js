@@ -322,6 +322,19 @@ document.addEventListener("DOMContentLoaded", () => {
       clearCell(cell);
       openModal(cell)
   });
+  document.querySelectorAll('.meal-cell').forEach(cell => {
+    cell.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cell.click(); 
+      }
+      if (e.key === 'Delete') {
+        e.preventDefault();
+        clearCell(cell);
+        openModal(cell);    
+      }
+    });
+  });
   //-- Tactil Screen : long press --
   let pressTimer;
   if (isTouchDevice()){
