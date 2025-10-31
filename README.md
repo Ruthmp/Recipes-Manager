@@ -27,8 +27,6 @@ You can also download the weekly planner as a PDF, making meal organization and 
 
 ## 📁 Project Structure
 
-## 📁 Estructura del Proyecto
-
 ```bash
 /recipes/                     ← 📂 Root folder of the project
 │
