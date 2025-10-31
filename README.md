@@ -27,6 +27,48 @@ You can also download the weekly planner as a PDF, making meal organization and 
 
 ## 📁 Project Structure
 
+## 📁 Estructura del Proyecto
+
+```bash
+/recipes/                     ← 📂 Root folder of the project
+│
+├── index.html                ← 🌐 Main page of the application
+│
+├── css/                      ← 🎨 Styles folder
+│   ├── base.css              ← Base styles and typography
+│   ├── components.css        ← General component styles
+│   ├── layout.css            ← Page structure and layout
+│   ├── media-queries.css     ← Responsive styles
+│   ├── reset.css             ← Browser reset styles
+│   ├── style.css             ← Global main styles
+│   ├── utilities.css         ← Utility classes (margins, paddings, display)
+│   ├── variables.css         ← CSS variables (colors, fonts, sizes)
+│   └── components/           ← Individual component styles
+│       ├── form.css          ← Recipe forms
+│       ├── header.css        ← Page header
+│       ├── modals.css        ← Modal windows
+│       ├── navbar.css        ← Navigation bar
+│       ├── recipes.css       ← Recipe display
+│       ├── shoppingList.css  ← Shopping list
+│       ├── table.css         ← Weekly planner
+│       └── toggle.css        ← Toggle buttons and themes
+│
+├── js/                       ← 💻 Scripts folder
+│   ├── main.js               ← Main application logic
+│   ├── dom.js                ← DOM manipulation
+│   ├── exporter.js           ← Export to JSON
+│   ├── helpers.js            ← Helper functions
+│   ├── modal.js              ← Modal management
+│   ├── recipes.js            ← Recipe management (CRUD)
+│   ├── render.js             ← Dynamic content rendering
+│   ├── search.js             ← Recipe search and filtering
+│   ├── shopping-list.js      ← Shopping list management
+│   ├── table-export.js       ← Weekly planner export
+│   └── table.js              ← Meal planner logic
+│
+└── img/                      ← 🖼️ Images, backgrounds, and graphic elements
+```
+
 ## ⚙️ Features
 
 - 🧾 **Recipe submission form** with fields for name, ingredients, steps, and preparation time  
@@ -85,6 +127,12 @@ You can also download the weekly planner as a PDF, making meal organization and 
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 44 49" src="https://github.com/user-attachments/assets/899d0536-d2af-4ee8-9385-bf1f8ad43a27" />
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 45 21" src="https://github.com/user-attachments/assets/9ae54545-0073-40e7-82fd-6d9093e6ea1b" />
 
+## 🚀 Planned Improvements
+
+- 🌐 **Full multilingual support** so users can choose their preferred language  
+- 🔒 **Backend and user management** with secure login and sessions  
+- 💾 **Centralized database** to store recipes, meal plans, and user preferences  
+- 🤝 **Recipe sharing between users** to create a community and facilitate collaboration  
 
 ## 🎨 Credits
 
