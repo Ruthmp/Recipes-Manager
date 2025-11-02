@@ -279,9 +279,9 @@
                 <div id="recipes-list"></div>
                 <div id="buttons-list">
                     <div id="pagination">
-                        <button type="button" id="prev-page" class="btn btn-main" disabled>◀ Anterior</button>
+                        <button type="button" id="prev-page" class="btn btn-main" disabled><i class="fa-solid fa-angle-left"></i> Anterior</button>
                         <span id="page-info">Página 1</span>
-                        <button type="button" id="next-page" class="btn btn-main">Siguiente ▶</button>
+                        <button type="button" id="next-page" class="btn btn-main">Siguiente <i class="fa-solid fa-angle-right"></i></button>
                     </div>
                     <div id="export-import">
                         <button type="button" id="exportBtn" class="btn btn-export-import">Exportar recetas</button>
@@ -327,14 +327,20 @@
                     <!--Difficulty level -->
                     <fieldset class="form-group" id="difficulty-level">
                         <legend>Nivel de Dificultad:</legend>
-                        <input type="radio" id="easy" name="difficulty" value="easy" required>
-                        <label for="easy">Fácil</label>
+                        <div class="difficulty-option">
+                            <input type="radio" id="easy" name="difficulty" value="easy" required>
+                            <label for="easy">Fácil</label>
+                        </div>
 
-                        <input type="radio" id="medium" name="difficulty" value="medium">
-                        <label for="medium">Medio</label>
+                        <div class="difficulty-option">
+                            <input type="radio" id="medium" name="difficulty" value="medium">
+                            <label for="medium">Medio</label>
+                        </div>
 
-                        <input type="radio" id="hard" name="difficulty" value="hard">
-                        <label for="hard">Difícil</label>
+                        <div class="difficulty-option">
+                            <input type="radio" id="hard" name="difficulty" value="hard">
+                            <label for="hard">Difícil</label>
+                        </div>
                     </fieldset>
                     <!-- Category -->
                     <label for="recipe-category">Categoría</label><br>
