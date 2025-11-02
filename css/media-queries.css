@@ -28,6 +28,13 @@
 }
 
 @media (max-width: 600px){
+
+  /*header*/
+
+  header h1 {
+    font-size: 1.5rem;
+   
+  }
   .meal-cell {
     font-size: 0.7rem;
   }
