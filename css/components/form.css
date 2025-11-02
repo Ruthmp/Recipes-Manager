@@ -1,12 +1,14 @@
 #form-add-recipe {
     width: 100%;
     max-width: 600px;
+    max-height: 80vh;
     margin: 2rem auto;
     background-color: rgba(255, 255, 255, 0.85);
     padding: 1.5rem;
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    overflow-y: auto;
   }
   #recipe-name{
     width: 100%;
