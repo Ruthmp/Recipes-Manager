@@ -22,7 +22,10 @@
   #manualList li {
         
     padding-left: 0;     
-   
+  }
+  #section-list h2 {
+    margin-top: 6rem;
+    font-size: 1.5rem;
   }
  
 }
