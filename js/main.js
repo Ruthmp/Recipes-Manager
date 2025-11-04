@@ -148,8 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
   //-- Collect form data--
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    //* Temporary fix: image upload disabled
     let currentImage = null;
-let removePhotoFlag = false;
+    let removePhotoFlag = false;
 
     const difficulty =
       form.querySelector('input[name="difficulty"]:checked')?.value || "";
