@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   btnAddInstruction.addEventListener("click", () => {
     addInstructionFromInput();
   });
-
+/*
     let currentImage = null;
     let removePhotoFlag = false;
   inputPhoto.addEventListener("change", async (e)=>{
@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     removePhotoFlag = true;
     inputPhoto.value="";
   })
+    */
 
   //-- Collect form data--
   form.addEventListener("submit", (e) => {
