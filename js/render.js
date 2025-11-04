@@ -114,9 +114,20 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
     paginated.forEach(recipe => {
         const article = document.createElement('article');
         article.setAttribute('data-id', recipe.id.toString());
-        const imgHTML = recipe.image 
-        ? `<img src="${recipe.image}" alt="Foto de ${recipe.name}" class="recipe-thumb">`
-        : `<img src="../img/aguacate.png" alt="Imagen de comida" class="recipe-thumb">`;
+        let imgSrc;
+
+        if (
+          recipe.image && 
+          typeof recipe.image === "string" && 
+          (recipe.image.startsWith("data:image") || recipe.image.startsWith("http"))
+        ) {
+          imgSrc = recipe.image;
+        } else {
+          imgSrc = "../img/aguacate.png";
+        }
+        
+        const imgHTML = `<img src="${imgSrc}" alt="Foto de ${recipe.name}" class="recipe-thumb">`;
+        
 
         article.innerHTML = `
             <div class="recipes-list-class">
