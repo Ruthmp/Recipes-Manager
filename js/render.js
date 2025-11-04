@@ -116,7 +116,7 @@ export function renderRecipesList(recipesToRender = recipes, page = 1, append = 
         article.setAttribute('data-id', recipe.id.toString());
         const imgHTML = recipe.image 
         ? `<img src="${recipe.image}" alt="Foto de ${recipe.name}" class="recipe-thumb">`
-        : `<img src="img/aguacate.png" alt="Imagen de comida" class="recipe-thumb">`;
+        : `<img src="../img/aguacate.png" alt="Imagen de comida" class="recipe-thumb">`;
 
         article.innerHTML = `
             <div class="recipes-list-class">
