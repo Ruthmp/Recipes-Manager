@@ -9,6 +9,14 @@
   flex: 1 1 45%; 
   min-width: 300px; 
   box-sizing: border-box;
+  height: auto !important;   
+  overflow: visible;          
+  display: block; 
+}
+#shopping-list-recipes.rotated,
+#shopping-list-others.rotated {
+  transform-box: fill-box;
+  transform-origin: center center;
 }
 #shoppingList,
 #manualList {
