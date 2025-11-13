@@ -219,6 +219,11 @@
 
  /* hover effects for fine pointers */
 @media (hover: hover) and (pointer: fine){
+  /* header */
+  header .navbar h1 a:hover {
+    transform: scale(1.08);
+    text-shadow: var(--header-shadow);
+  }
   /* recipes*/
   #recipes-list .recipes-list-class:hover {
     transform: translateY(-5px) scale(1.02);

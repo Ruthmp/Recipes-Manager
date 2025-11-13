@@ -13,10 +13,11 @@
 </head>
 
 <body id="top">
-    <header>
+    <header role="banner">
 
         <nav class="navbar">
-            <h1>Gestor de Recetas</h1>
+            <h1><a href="#top">Gestor de Recetas</a></h1>
+
 
             <!-- Burguer menu -->
             <button type="button" class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
@@ -34,9 +35,9 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main role="main">
 
-        <img src="img/aguacate.png" alt="Imagen de comida" class="header-image">
+        <img src="img/aguacate.png" alt="" class="header-image" role="presentation">
 
 
         <!--! Weekly Menu -->
@@ -45,16 +46,17 @@
                 <h2 class="h1">– Menú Semanal –</h2>
                 <div class="table-wrapper">
                     <table id="weekly-menu">
+                        <caption class="hidden">Menú semanal</caption>
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Lunes</th>
-                                <th>Martes</th>
-                                <th>Miércoles</th>
-                                <th>Jueves</th>
-                                <th>Viernes</th>
-                                <th>Sábado</th>
-                                <th>Domingo</th>
+                                <th scope="col">Lunes</th>
+                                <th scope="col">Martes</th>
+                                <th scope="col">Miércoles</th>
+                                <th scope="col">Jueves</th>
+                                <th scope="col">Viernes</th>
+                                <th scope="col">Sábado</th>
+                                <th scope="col">Domingo</th>
 
                             </tr>
                         </thead>
@@ -119,11 +121,11 @@
                             <div class="auto-buttons-row">
                             <button type="button" id="generateListBtn" class="btn btn-main" aria-label="Generar lista">Generar lista</button>
                             <div id="share-buttons">
-                                <button type="button" id="copy-list" class="btn btn-export-import" title="Copiar"><i class="fa-regular fa-copy"></i><span class="sr-only">Copiar</span>
+                                <button type="button" id="copy-list" class="btn btn-export-import" title="Copiar"><i class="fa-regular fa-copy"></i><span class="sr-only">Copiar lista</span>
                                     </button>
-                                <button type="button" id="share-whatsapp" class="btn btn-export-import" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i>
+                                <button type="button" id="share-whatsapp" class="btn btn-export-import" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i><span class="sr-only">Compartir por WhatsApp</span>
                                     </button>
-                                <button type="button" id="share-system" class="btn btn-export-import" title="Compartir"><i class="fa-solid fa-share-from-square"></i>
+                                <button type="button" id="share-system" class="btn btn-export-import" title="Compartir"><i class="fa-solid fa-share-from-square"></i><span class="sr-only">Compartir otras aplicaciones</span>
                                     </button>
                                 </div>
                             </div>
@@ -414,12 +416,13 @@
         <a href="https://forms.gle/3NSFw4gmj8VCPBry9" 
    class="feedback-btn"  target="_blank"  title="Enviar feedback"><i class="fa-solid fa-lightbulb"></i></a>
     </main>
-    <footer class="credits">
+    <footer class="credits" role="contentinfo">
         <p> © 2025 Ruth Millán Piqueras.</p>
         <p>Fondos modificados a partir de imágenes de 
             <a href="https://www.freepik.es/foto-gratis/marco-plano-pasta-e-ingredientes-crudos_6080829.htm" target="_blank">Freepik (1)</a> y 
             <a href="https://www.freepik.es/foto-gratis/vista-superior-surtido-verduras-portapapeles_12418251.htm" target="_blank">Freepik (2)</a> · 
-            Iconos de <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>.
+            Iconos de <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>
+        </p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script type="module" src="js/main.js"></script>
