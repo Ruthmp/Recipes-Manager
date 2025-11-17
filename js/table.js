@@ -12,9 +12,7 @@ export function handleRecipeSelect (recipe, cell){
     if (!savedMeals[index]) savedMeals[index] = { recipes: [] };
 
     if (!Array.isArray(savedMeals[index].recipes)) {
-        savedMeals[index].recipes = [{ name: savedMeals[index].name, id: savedMeals[index].id }];
-        delete savedMeals[index].name;
-        delete savedMeals[index].id;
+        savedMeals[index].recipes = [];
     }
 
     // Add the selected recipe.
