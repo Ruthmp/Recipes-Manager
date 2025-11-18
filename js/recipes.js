@@ -30,7 +30,7 @@ export const dificultyLevelLabel ={
  */
 export class Recipe{
     constructor(name, time, difficulty, category, ingredients, instructions, image="", id = null ){
-        this.id = id || Date.now();
+        this.id = id ?? `${Date.now()}-${Math.floor(Math.random() * 100000)}`;
         this.name = name;
         this.time = time;
         this.category = category;

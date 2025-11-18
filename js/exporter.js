@@ -26,7 +26,7 @@ export function importRecipesFromJSON(onImport) {
   input.type = "file";
   input.accept = ".json";
 
-  input.addEventListener("change", (event) => {
+  input.addEventListener("change", async (event) => {
     const file = event.target.files[0];
     if (!file) return;
 
@@ -35,13 +35,44 @@ export function importRecipesFromJSON(onImport) {
       try {
         const importedRecipes = JSON.parse(e.target.result);
 
-        if (Array.isArray(importedRecipes)) {
-          // Pass the data to the main callback.
-          onImport(importedRecipes);
-          alert("✅ Recetas importadas correctamente");
-        } else {
+        if (!Array.isArray(importedRecipes)) {
           throw new Error("El archivo no contiene un array válido");
         }
+
+        // Get current recipes from localStorage to avoid collisions
+        const current = JSON.parse(localStorage.getItem('recipes') || '[]');
+        const existingIds = new Set(current.map(r => String(r.id)));
+
+        // Helper to generate a safe ID
+        const genId = () => {
+          if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+          return `${Date.now()}-${Math.floor(Math.random()*1000000)}`;
+        };
+
+        // Normalize import: keep the ID if it doesn’t collide, generate a new one if it’s missing or collides
+        const processed = importedRecipes.map(r => {
+          const copy = { ...r };
+          const rId = copy.id !== undefined && copy.id !== null ? String(copy.id) : null;
+
+          if (!rId || existingIds.has(rId)) {
+            // generate a new id
+            const newId = genId();
+            copy.id = newId;
+            existingIds.add(String(newId));
+          } else {
+            // valid ID and no collision
+            existingIds.add(rId);
+          }
+
+          return copy;
+        });
+
+        console.log("Import - IDs originales:", importedRecipes.map(r => r.id));
+        console.log("Import - IDs procesados:", processed.map(r => r.id));
+
+        // Pass the already processed array to the callback
+        onImport(processed);
+        alert("✅ Recetas importadas correctamente)");
       } catch (error) {
         console.error("Error al importar recetas:", error);
         alert("❌ Archivo no válido o con formato incorrecto");
@@ -53,3 +84,4 @@ export function importRecipesFromJSON(onImport) {
 
   input.click();
 }
+
