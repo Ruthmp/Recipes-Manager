@@ -141,7 +141,7 @@ Además, ofrece la opción de descargar el organizador semanal en formato PDF, f
 
 ## 📅 Última Actualización
 
-**Octubre 2025**
+**Noviembre 2025**
 
 ## 👤 Autor
 
