@@ -79,6 +79,10 @@ function renderShoppingList() {
   manualList.forEach((item, index) => {
     renderItem(item, index, manualList, manualListContainer);
   });
+
+  shoppingListContainer.offsetHeight;
+  manualListContainer.offsetHeight;
+
 }
 
 
