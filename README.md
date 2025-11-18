@@ -141,7 +141,7 @@ You can also download the weekly planner as a PDF, making meal organization and 
 
 ## 📅 Last Update
 
-**October 2025**
+**November 2025**
 
 ## 👤 Author
 
