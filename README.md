@@ -118,6 +118,13 @@ You can also download the weekly planner as a PDF, making meal organization and 
 * Accessible controls via keyboard, mouse, and touch interactions
 * Smooth scroll navigation and mobile-friendly hamburger menu
 
+## 📹 App Demo
+
+<a href="https://youtu.be/eD5VSm9K98I" target="_blank">
+  <img src="https://img.youtube.com/vi/eD5VSm9K98I/maxresdefault.jpg" width="360" height="202" alt="App Demo" />
+</a>
+
+
 ## 📷 Preview
 
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 43 46" src="https://github.com/user-attachments/assets/2e4d68bd-5e43-48eb-b366-3203f8efb50f" />
