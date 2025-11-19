@@ -118,6 +118,13 @@ Además, ofrece la opción de descargar el organizador semanal en formato PDF, f
 * Controles accesibles por teclado, ratón y pantalla táctil
 * Navegación suave con scroll y menú hamburguesa adaptable
 
+## 📹 Demo de la App
+
+<a href="https://youtu.be/eD5VSm9K98I" target="_blank">
+  <img src="https://img.youtube.com/vi/eD5VSm9K98I/maxresdefault.jpg" width="360" height="202" alt="Demo de la App" />
+</a>
+
+
 ## 📷 Vista Previa
 
 <img width="800" alt="Captura de pantalla 2025-10-31 a las 10 43 46" src="https://github.com/user-attachments/assets/2e4d68bd-5e43-48eb-b366-3203f8efb50f" />
