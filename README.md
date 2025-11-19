@@ -120,8 +120,8 @@ You can also download the weekly planner as a PDF, making meal organization and 
 
 ## 📹 App Demo
 
-<a href="https://youtu.be/eD5VSm9K98I" target="_blank">
-  <img src="https://img.youtube.com/vi/eD5VSm9K98I/maxresdefault.jpg" width="360" height="202" alt="App Demo" />
+<a href="https://youtu.be/otZtnhX2k38" >
+  <img src="https://img.youtube.com/vi/otZtnhX2k38/maxresdefault.jpg" width="360" height="202" alt="App Demo (English)" />
 </a>
 
 
